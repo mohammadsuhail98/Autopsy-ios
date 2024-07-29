@@ -47,9 +47,10 @@ struct ContentView: View {
             
             Spacer()
             
-            Text("Online Autopsy Documentation>")
+            Link("Online Autopsy Documentation >", destination: URL(string: "https://www.sleuthkit.org/autopsy/docs.php")!)
                 .font(Font(CTFont(.label, size: 13)))
                 .fontWeight(.light)
+                .foregroundColor(.textColor)
             
         }
         .padding()
