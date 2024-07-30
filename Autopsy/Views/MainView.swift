@@ -15,10 +15,14 @@ struct MainView: View {
                 Spacer()
                 mainImageView()
                 VStack {
-                    Button { print("New case") } label: {
+                    Button { 
+                        print("New case")
+                    } label: {
                         FilledIconButtonView(title: "New Case", image: "new_case")
                     }
-                    Button { print("Open case") } label: {
+                    Button {
+                        print("Open case")
+                    } label: {
                         FilledIconButtonView(title: "Open Case", image: "open_case")
                     }
                 }
@@ -33,9 +37,11 @@ struct MainView: View {
 struct mainImageView: View {
     var body: some View {
         Image("main_screen_logo")
-            .imageScale(.large)
-            .foregroundStyle(.tint)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 280)
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 0))
+
     }
 }
 
@@ -45,11 +51,11 @@ struct FilledIconButtonView: View {
     
     var body: some View {
         Label(title, image: image)
+            .font(Font.custom(CFont.graphikMedium.rawValue, size: 15))
             .frame(width: 300, height: 70)
             .background(Color.white)
             .foregroundColor(Color.textColor)
             .cornerRadius(5)
-            .font(.system(size: 15, weight: .bold))
             .shadow(color: .shadow, radius: 2, x: 1, y: 1)
     }
 }
@@ -59,8 +65,7 @@ struct DocLinkView: View {
     
     var body: some View {
         Link(title, destination: URL(string: "https://www.sleuthkit.org/autopsy/docs.php")!)
-            .font(Font(CTFont(.label, size: 13)))
-            .fontWeight(.light)
+            .font(Font.custom(CFont.graphikLight.rawValue, size: 13))
             .foregroundColor(.textColor)
     }
 }
