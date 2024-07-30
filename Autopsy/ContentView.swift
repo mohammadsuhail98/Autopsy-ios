@@ -9,55 +9,67 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Spacer()
-            Image("main_screen_logo")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 0))
-            Button(action: {
-                
-            }) {
-                Label("New Case", image: "new_case")
-                .frame(width: 250, height: 40)
-                .padding()
-                .background(Color.white)
-                .foregroundColor(Color.textColor)
-                .clipShape(.rect(cornerRadii: .init(topLeading: 5, bottomLeading: 5, bottomTrailing: 5, topTrailing: 5)))
-                .font(Font(CTFont(.label, size: 15)))
-                .bold()
-                .shadow(color: .shadow, radius: 2, x: 1, y: 1)
-                .dialogIcon(Image("new_case"))
+        ZStack {
+            backgroundView()
+            VStack {
+                Spacer()
+                mainImageView()
+                VStack {
+                    Button { print("New case") } label: {
+                        FilledIconButtonView(title: "New Case", image: "new_case")
+                    }
+                    Button { print("Open case") } label: {
+                        FilledIconButtonView(title: "Open Case", image: "open_case")
+                    }
+                }
+                Spacer()
+                DocLinkView(title: "Online Autopsy Documentation >")
             }
-
-            Button(action: {
-                
-            }) {
-                Label("Open Case", image: "open_case")
-                .frame(width: 250, height: 40)
-                .padding()
-                .background(Color.white)
-                .foregroundColor(Color.textColor)
-                .clipShape(.rect(cornerRadii: .init(topLeading: 5, bottomLeading: 5, bottomTrailing: 5, topTrailing: 5)))
-                .font(Font(CTFont(.label, size: 15)))
-                .bold()
-                .shadow(color: .shadow, radius: 2, x: 1, y: 1)
-                .dialogIcon(Image("new_case"))
-            }
-            
-            Spacer()
-            
-            Link("Online Autopsy Documentation >", destination: URL(string: "https://www.sleuthkit.org/autopsy/docs.php")!)
-                .font(Font(CTFont(.label, size: 13)))
-                .fontWeight(.light)
-                .foregroundColor(.textColor)
-            
         }
-        .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.background)
     }
     
+}
+
+struct mainImageView: View {
+    var body: some View {
+        Image("main_screen_logo")
+            .imageScale(.large)
+            .foregroundStyle(.tint)
+            .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 0))
+    }
+}
+
+struct FilledIconButtonView: View {
+    var title: String
+    var image: String
+    
+    var body: some View {
+        Label(title, image: image)
+            .frame(width: 300, height: 70)
+            .background(Color.white)
+            .foregroundColor(Color.textColor)
+            .cornerRadius(5)
+            .font(.system(size: 15, weight: .bold))
+            .shadow(color: .shadow, radius: 2, x: 1, y: 1)
+    }
+}
+
+struct DocLinkView: View {
+    var title: String
+    
+    var body: some View {
+        Link(title, destination: URL(string: "https://www.sleuthkit.org/autopsy/docs.php")!)
+            .font(Font(CTFont(.label, size: 13)))
+            .fontWeight(.light)
+            .foregroundColor(.textColor)
+    }
+}
+
+struct backgroundView: View {
+    var body: some View {
+        Color.background
+            .ignoresSafeArea()
+    }
 }
 
 #Preview {
