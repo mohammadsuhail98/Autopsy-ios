@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MainView.swift
 //  Autopsy
 //
 //  Created by mohammad suhail on 29/7/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
     var body: some View {
         ZStack {
             backgroundView()
@@ -73,5 +73,5 @@ struct backgroundView: View {
 }
 
 #Preview {
-    ContentView()
+    MainView()
 }
