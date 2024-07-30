@@ -12,6 +12,7 @@
 		0BD72BDC2C57E690001918C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BD72BDB2C57E690001918C3 /* Assets.xcassets */; };
 		0BD72BDF2C57E690001918C3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BD72BDE2C57E690001918C3 /* Preview Assets.xcassets */; };
 		0BD72BEA2C57F93A001918C3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BE92C57F93A001918C3 /* Color.swift */; };
+		0BD72BEC2C593C75001918C3 /* NewCaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BEB2C593C75001918C3 /* NewCaseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		0BD72BDB2C57E690001918C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BD72BDE2C57E690001918C3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0BD72BE92C57F93A001918C3 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		0BD72BEB2C593C75001918C3 /* NewCaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCaseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				0BD72BDB2C57E690001918C3 /* Assets.xcassets */,
 				0BD72BD72C57E68D001918C3 /* AutopsyApp.swift */,
 				0BD72BD92C57E68D001918C3 /* ContentView.swift */,
+				0BD72BEB2C593C75001918C3 /* NewCaseView.swift */,
 				0BD72BE52C57F286001918C3 /* Utils */,
 				0BD72BDD2C57E690001918C3 /* Preview Content */,
 			);
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BD72BDA2C57E68D001918C3 /* ContentView.swift in Sources */,
+				0BD72BEC2C593C75001918C3 /* NewCaseView.swift in Sources */,
 				0BD72BEA2C57F93A001918C3 /* Color.swift in Sources */,
 				0BD72BD82C57E68D001918C3 /* AutopsyApp.swift in Sources */,
 			);
