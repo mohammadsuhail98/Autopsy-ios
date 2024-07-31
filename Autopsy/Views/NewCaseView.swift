@@ -26,11 +26,12 @@ struct NewCaseView: View {
     var body: some View {
         NavigationView {
             Form {
+                
                 Section(header: Text("New Case Information")
-                    .bold()
+                    .font(.custom(CFont.graphikMedium.rawValue, size: 15))
+                    .foregroundColor(.black)
                     .frame(width: UIScreen.screenWidth, height: 50)
                     .multilineTextAlignment(.center)
-                    .background(Color.red)
                         
                 ) {
                     TextField("Case Name", text: $caseName)
@@ -58,6 +59,8 @@ struct NewCaseView: View {
                 }
             }
             .navigationBarTitle("New Case")
+            .navigationtitlefon
+            .font(.custom(CFont.graphikLight.rawValue, size: 15))
             .navigationBarTitleDisplayMode(.inline)
         }
     }
