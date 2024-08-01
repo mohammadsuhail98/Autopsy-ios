@@ -9,25 +9,23 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        ZStack {
-            backgroundView()
-            VStack {
-                Spacer()
-                mainImageView()
+        NavigationStack {
+            ZStack {
+                backgroundView()
                 VStack {
-                    Button { 
-                        print("New case")
-                    } label: {
-                        FilledIconButtonView(title: "New Case", image: "new_case")
+                    Spacer()
+                    mainImageView()
+                    VStack {
+                        NavigationLink(destination: NewCaseView()) {
+                            FilledIconButtonView(title: "New Case", image: "new_case")
+                        }
+                        NavigationLink(destination: NewCaseView()) {
+                            FilledIconButtonView(title: "Open Case", image: "open_case")
+                        }
                     }
-                    Button {
-                        print("Open case")
-                    } label: {
-                        FilledIconButtonView(title: "Open Case", image: "open_case")
-                    }
+                    Spacer()
+                    DocLinkView(title: "Online Autopsy Documentation >")
                 }
-                Spacer()
-                DocLinkView(title: "Online Autopsy Documentation >")
             }
         }
     }
