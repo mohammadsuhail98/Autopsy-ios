@@ -36,4 +36,18 @@ extension Color {
         return Color(hex: 0x000000, opacity: 0.15)
     }
     
+    public static var textFieldBackgroud: Color {
+        return Color(hex: 0xefefef)
+    }
+    
+    public static var themeBlue: Color {
+        return Color(hex: 0x0f7aff)
+    }
+    
+}
+
+extension UIColor {
+    public static var textFieldBackgroud: UIColor {
+        return UIColor(_colorLiteralRed: 239/255, green: 239/255, blue: 239/255, alpha: 1)
+    }
 }

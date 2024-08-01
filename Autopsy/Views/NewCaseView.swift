@@ -24,45 +24,151 @@ struct NewCaseView: View {
     }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
-                
-                Section(header: Text("New Case Information")
-                    .font(.custom(CFont.graphikMedium.rawValue, size: 15))
-                    .foregroundColor(.black)
-                    .frame(width: UIScreen.screenWidth, height: 50)
-                    .multilineTextAlignment(.center)
-                        
-                ) {
-                    TextField("Case Name", text: $caseName)
+                            
+                Section(header: SectionTitleView(title: "New Case Information")) {
                     
+                    EntryFieldStackView(titleText: "Case Name", value: $caseName)
+            
                     Picker("Case Type", selection: $caseType) {
                         ForEach(CaseType.allCases) { type in
                             Text(type.rawValue).tag(type)
                         }
                     }
+                    .listRowSeparator(.hidden)
                     .pickerStyle(SegmentedPickerStyle())
+                    .padding(.vertical, 5)
                     
-                    TextField("Case Number", text: $caseNumber)
-                        .keyboardType(.numberPad)
+                    EntryFieldStackView(titleText: "Case Number", value: $caseNumber)
                 }
                 
                 
-                
-                Section(header: Text("Examiner Information")) {
-                    TextField("Name", text: $examinerName)
-                    TextField("Phone", text: $phone)
-                        .keyboardType(.phonePad)
-                    TextField("Email", text: $email)
-                        .keyboardType(.emailAddress)
-                    TextField("Notes", text: $notes)
+                Section(header: SectionTitleView(title: "Examiner Information")) {
+                    EntryFieldStackView(titleText: "Name", value: $examinerName, optional: true)
+                    EntryFieldStackView(titleText: "Phone", value: $phone, optional: true)
+                    EntryFieldStackView(titleText: "Email", value: $email, optional: true)
+                    EntryFieldStackView(titleText: "Notes", value: $notes, optional: true)
                 }
+                
+                Button {
+                    print($caseName.wrappedValue)
+                    print($caseNumber.wrappedValue)
+                    print($examinerName.wrappedValue)
+                    print($phone.wrappedValue)
+                    print($email.wrappedValue)
+                    print($notes.wrappedValue)
+                } label: {
+                    Text("Finish")
+                        .frame(width: UIScreen.screenWidth - 75, height: 50)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.themeBlue, lineWidth: 2)
+                        )
+                        .foregroundColor(Color.themeBlue)
+                        .font(.custom(CFont.graphikMedium.rawValue, size: 15))
+                }
+                
             }
+            .scrollContentBackground(.hidden)
             .navigationBarTitle("New Case")
-            .navigationtitlefon
-            .font(.custom(CFont.graphikLight.rawValue, size: 15))
             .navigationBarTitleDisplayMode(.inline)
         }
+    }
+}
+
+struct SectionTitleView: View {
+    
+    var title: String
+    
+    var body: some View {
+        Text(title)
+            .font(.custom(CFont.graphikMedium.rawValue, size: 17))
+            .foregroundColor(.textColor)
+            .frame(width: UIScreen.screenWidth, height: 50)
+            .multilineTextAlignment(.center)
+            .textCase(.none)
+    }
+}
+
+
+
+struct EntryFieldStackView: View {
+    
+    var titleText: String
+    @Binding var value: String
+    var optional: Bool = false
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 5) {
+            TitleTextFieldView(titleText: titleText, optional: optional)
+            TextFieldView(titleText: titleText, value: $value)
+        }
+        .frame(maxWidth: .infinity)
+        .listRowSeparator(.hidden, edges: .all)
+    }
+}
+
+struct TitleTextFieldView: View {
+    
+    var titleText: String
+    var optional: Bool
+
+    var body: some View {
+        HStack {
+            Text(titleText)
+                .font(.custom(CFont.graphikRegular.rawValue, size: 15))
+                .foregroundColor(.textColor)
+            
+            if optional {
+                Text("Optional")
+                    .font(.custom(CFont.graphikLight.rawValue, size: 13))
+                    .foregroundColor(.gray)
+            }
+        }
+    }
+}
+
+
+struct TextFieldView: View {
+    
+    var titleText: String
+    @Binding var value: String
+    
+    var body: some View {
+        TextField(titleText, text: $value)
+            .textFieldStyle(RoundedTextFieldStyle())
+            .keyboardType(keyboardType(for: titleText))
+            .font(.custom(CFont.graphikRegular.rawValue, size: 15))
+            .previewLayout(.sizeThatFits)
+            .listRowInsets(.init())
+            .listRowBackground(Color.clear)
+            .frame(height: 50)
+            .listRowSeparator(.hidden)
+            .padding(.vertical, 5)
+    }
+    
+    private func keyboardType(for title: String) -> UIKeyboardType {
+        switch title {
+        case "Phone":
+            return .phonePad
+        case "Email":
+            return .emailAddress
+        default:
+            return .default
+        }
+    }
+}
+
+struct RoundedTextFieldStyle: TextFieldStyle {
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .padding(.vertical)
+            .padding(.horizontal, 24)
+            .background(
+                Color(UIColor.textFieldBackgroud)
+            )
+            .cornerRadius(5)
     }
 }
 
