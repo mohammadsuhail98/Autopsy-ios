@@ -36,7 +36,7 @@ extension Color {
         return Color(hex: 0x000000, opacity: 0.15)
     }
     
-    public static var textFieldBackgroud: Color {
+    public static var textFieldBackground: Color {
         return Color(hex: 0xefefef)
     }
     

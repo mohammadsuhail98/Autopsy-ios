@@ -31,6 +31,7 @@ struct NewCaseView: View {
                     
                     EntryFieldStackView(titleText: "Case Name", value: $caseName)
             
+                    //TODO: Review if Case_type field should be implemented
                     Picker("Case Type", selection: $caseType) {
                         ForEach(CaseType.allCases) { type in
                             Text(type.rawValue).tag(type)
@@ -48,7 +49,7 @@ struct NewCaseView: View {
                     EntryFieldStackView(titleText: "Name", value: $examinerName, optional: true)
                     EntryFieldStackView(titleText: "Phone", value: $phone, optional: true)
                     EntryFieldStackView(titleText: "Email", value: $email, optional: true)
-                    EntryFieldStackView(titleText: "Notes", value: $notes, optional: true)
+                    TextEditorView(titleText: "Notes", value: $notes)
                 }
                 
                 Button {
@@ -90,8 +91,6 @@ struct SectionTitleView: View {
             .textCase(.none)
     }
 }
-
-
 
 struct EntryFieldStackView: View {
     
@@ -157,6 +156,28 @@ struct TextFieldView: View {
         default:
             return .default
         }
+    }
+}
+
+struct TextEditorView: View {
+    
+    var titleText: String
+    @Binding var value: String
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 5) {
+            TitleTextFieldView(titleText: titleText, optional: true)
+
+            TextEditor(text: $value)
+                .font(.custom(CFont.graphikRegular.rawValue, size: 15))
+                .textFieldStyle(RoundedTextFieldStyle())
+                .padding(.vertical, 10)
+                .padding(.horizontal, 10)
+                .background(Color.textFieldBackground)
+                .cornerRadius(5)
+                .frame(height: 150)
+        }
+        .padding(.vertical, 5)
     }
 }
 
