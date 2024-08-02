@@ -43,21 +43,6 @@ struct mainImageView: View {
     }
 }
 
-struct FilledIconButtonView: View {
-    var title: String
-    var image: String
-    
-    var body: some View {
-        Label(title, image: image)
-            .font(Font.custom(CFont.graphikMedium.rawValue, size: 15))
-            .frame(width: 300, height: 70)
-            .background(Color.white)
-            .foregroundColor(Color.textColor)
-            .cornerRadius(5)
-            .shadow(color: .shadow, radius: 2, x: 1, y: 1)
-    }
-}
-
 struct DocLinkView: View {
     var title: String
     
@@ -65,13 +50,6 @@ struct DocLinkView: View {
         Link(title, destination: URL(string: "https://www.sleuthkit.org/autopsy/docs.php")!)
             .font(Font.custom(CFont.graphikLight.rawValue, size: 13))
             .foregroundColor(.textColor)
-    }
-}
-
-struct backgroundView: View {
-    var body: some View {
-        Color.background
-            .ignoresSafeArea()
     }
 }
 

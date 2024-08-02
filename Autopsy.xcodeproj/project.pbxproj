@@ -13,7 +13,7 @@
 		0BD72BEA2C57F93A001918C3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BE92C57F93A001918C3 /* Color.swift */; };
 		0BD72BEC2C593C75001918C3 /* NewCaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BEB2C593C75001918C3 /* NewCaseView.swift */; };
 		0BD72BF02C593ECB001918C3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BEF2C593ECB001918C3 /* MainView.swift */; };
-		0BD72BF32C59428A001918C3 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BF22C59428A001918C3 /* Enums.swift */; };
+		0BD72BF32C59428A001918C3 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BF22C59428A001918C3 /* CustomFont.swift */; };
 		0BD72BF52C5942A2001918C3 /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BF42C5942A2001918C3 /* UIScreen.swift */; };
 		0BD72C0B2C594BA7001918C3 /* GraphikThin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0BD72BF92C594532001918C3 /* GraphikThin.otf */; };
 		0BD72C0C2C594BA7001918C3 /* GraphikMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0BD72BFC2C594533001918C3 /* GraphikMedium.otf */; };
@@ -22,6 +22,9 @@
 		0BD72C0F2C594BA7001918C3 /* GraphikRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0BD72BF82C594532001918C3 /* GraphikRegular.otf */; };
 		0BD72C102C594BA7001918C3 /* GraphikBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0BD72BF72C594532001918C3 /* GraphikBold.otf */; };
 		0BD72C112C594BA7001918C3 /* GraphikSemibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0BD72BFD2C594533001918C3 /* GraphikSemibold.otf */; };
+		0BD72C162C5D2C42001918C3 /* FilledIconButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72C152C5D2C42001918C3 /* FilledIconButtonView.swift */; };
+		0BD72C192C5D2C74001918C3 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72C182C5D2C74001918C3 /* BackgroundView.swift */; };
+		0BD72C1B2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72C1A2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +35,7 @@
 		0BD72BE92C57F93A001918C3 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		0BD72BEB2C593C75001918C3 /* NewCaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCaseView.swift; sourceTree = "<group>"; };
 		0BD72BEF2C593ECB001918C3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		0BD72BF22C59428A001918C3 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		0BD72BF22C59428A001918C3 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		0BD72BF42C5942A2001918C3 /* UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
 		0BD72BF72C594532001918C3 /* GraphikBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GraphikBold.otf; sourceTree = "<group>"; };
 		0BD72BF82C594532001918C3 /* GraphikRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GraphikRegular.otf; sourceTree = "<group>"; };
@@ -42,6 +45,9 @@
 		0BD72BFC2C594533001918C3 /* GraphikMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GraphikMedium.otf; sourceTree = "<group>"; };
 		0BD72BFD2C594533001918C3 /* GraphikSemibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GraphikSemibold.otf; sourceTree = "<group>"; };
 		0BD72C052C59464F001918C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0BD72C152C5D2C42001918C3 /* FilledIconButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledIconButtonView.swift; sourceTree = "<group>"; };
+		0BD72C182C5D2C74001918C3 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		0BD72C1A2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextFieldStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,11 +81,13 @@
 			isa = PBXGroup;
 			children = (
 				0BD72C052C59464F001918C3 /* Info.plist */,
-				0BD72BDB2C57E690001918C3 /* Assets.xcassets */,
 				0BD72BD72C57E68D001918C3 /* AutopsyApp.swift */,
 				0BD72BEE2C593CD9001918C3 /* Models */,
 				0BD72BED2C593CD3001918C3 /* Views */,
-				0BD72BE52C57F286001918C3 /* Utils */,
+				0BD72C132C5D2B37001918C3 /* ViewModifiers */,
+				0BD72BF12C594279001918C3 /* Enums */,
+				0BD72BE52C57F286001918C3 /* Commons */,
+				0BD72C142C5D2B48001918C3 /* Resources */,
 				0BD72BDD2C57E690001918C3 /* Preview Content */,
 			);
 			path = Autopsy;
@@ -93,14 +101,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		0BD72BE52C57F286001918C3 /* Utils */ = {
+		0BD72BE52C57F286001918C3 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				0BD72BF62C5942FF001918C3 /* Fonts */,
-				0BD72BF12C594279001918C3 /* Enums */,
 				0BD72BE82C57F913001918C3 /* Extensions */,
 			);
-			path = Utils;
+			path = Commons;
 			sourceTree = "<group>";
 		};
 		0BD72BE82C57F913001918C3 /* Extensions */ = {
@@ -131,7 +137,7 @@
 		0BD72BF12C594279001918C3 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				0BD72BF22C59428A001918C3 /* Enums.swift */,
+				0BD72BF22C59428A001918C3 /* CustomFont.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -148,6 +154,25 @@
 				0BD72BF92C594532001918C3 /* GraphikThin.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		0BD72C132C5D2B37001918C3 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				0BD72C152C5D2C42001918C3 /* FilledIconButtonView.swift */,
+				0BD72C182C5D2C74001918C3 /* BackgroundView.swift */,
+				0BD72C1A2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		0BD72C142C5D2B48001918C3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0BD72BDB2C57E690001918C3 /* Assets.xcassets */,
+				0BD72BF62C5942FF001918C3 /* Fonts */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,8 +254,11 @@
 			files = (
 				0BD72BEC2C593C75001918C3 /* NewCaseView.swift in Sources */,
 				0BD72BF52C5942A2001918C3 /* UIScreen.swift in Sources */,
+				0BD72C1B2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift in Sources */,
+				0BD72C192C5D2C74001918C3 /* BackgroundView.swift in Sources */,
 				0BD72BEA2C57F93A001918C3 /* Color.swift in Sources */,
-				0BD72BF32C59428A001918C3 /* Enums.swift in Sources */,
+				0BD72BF32C59428A001918C3 /* CustomFont.swift in Sources */,
+				0BD72C162C5D2C42001918C3 /* FilledIconButtonView.swift in Sources */,
 				0BD72BF02C593ECB001918C3 /* MainView.swift in Sources */,
 				0BD72BD82C57E68D001918C3 /* AutopsyApp.swift in Sources */,
 			);
