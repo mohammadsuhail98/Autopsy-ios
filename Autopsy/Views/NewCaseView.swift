@@ -86,8 +86,7 @@ struct SectionTitleView: View {
         Text(title)
             .font(.custom(CFont.graphikMedium.rawValue, size: 17))
             .foregroundColor(.textColor)
-            .frame(width: UIScreen.screenWidth, height: 50)
-            .multilineTextAlignment(.center)
+            .frame(width: UIScreen.screenWidth - 75, height: 50)
             .textCase(.none)
     }
 }

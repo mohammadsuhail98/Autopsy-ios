@@ -25,6 +25,7 @@
 		0BD72C162C5D2C42001918C3 /* FilledIconButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72C152C5D2C42001918C3 /* FilledIconButtonView.swift */; };
 		0BD72C192C5D2C74001918C3 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72C182C5D2C74001918C3 /* BackgroundView.swift */; };
 		0BD72C1B2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72C1A2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift */; };
+		0BD72C1D2C5D3174001918C3 /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72C1C2C5D3174001918C3 /* Case.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		0BD72C152C5D2C42001918C3 /* FilledIconButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledIconButtonView.swift; sourceTree = "<group>"; };
 		0BD72C182C5D2C74001918C3 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		0BD72C1A2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextFieldStyle.swift; sourceTree = "<group>"; };
+		0BD72C1C2C5D3174001918C3 /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 		0BD72BEE2C593CD9001918C3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0BD72C1C2C5D3174001918C3 /* Case.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				0BD72BEA2C57F93A001918C3 /* Color.swift in Sources */,
 				0BD72BF32C59428A001918C3 /* CustomFont.swift in Sources */,
 				0BD72C162C5D2C42001918C3 /* FilledIconButtonView.swift in Sources */,
+				0BD72C1D2C5D3174001918C3 /* Case.swift in Sources */,
 				0BD72BF02C593ECB001918C3 /* MainView.swift in Sources */,
 				0BD72BD82C57E68D001918C3 /* AutopsyApp.swift in Sources */,
 			);
