@@ -27,12 +27,14 @@ struct TitleWithIconView: View {
                 .foregroundColor(.textColor)
                 .textCase(.none)
                 .padding(.bottom, 5)
-            
+                .multilineTextAlignment(.center)
+
             Text(subtitle)
                 .font(.custom(CFont.graphikLight.rawValue, size: 15))
                 .foregroundColor(.textColor)
                 .textCase(.none)
                 .padding(.bottom, 30)
+                .multilineTextAlignment(.center)
         }
     }
 }

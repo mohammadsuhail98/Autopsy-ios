@@ -10,10 +10,12 @@ import SwiftUI
 struct BorderedBtnLabelView: View {
     
     var title: String
+    var width: CGFloat = UIScreen.screenWidth - 75
+    var height: CGFloat = 50
     
     var body: some View {
         Text(title)
-            .frame(width: UIScreen.screenWidth - 75, height: 50)
+            .frame(width: width, height: height)
             .overlay(
                 RoundedRectangle(cornerRadius: 5)
                     .stroke(Color.themeBlue, lineWidth: 2)

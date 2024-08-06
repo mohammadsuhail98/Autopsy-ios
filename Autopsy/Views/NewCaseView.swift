@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PopupView
 
 struct NewCaseView: View {
     @State private var caseName: String = ""
@@ -15,6 +16,7 @@ struct NewCaseView: View {
     @State private var phone: String = ""
     @State private var email: String = ""
     @State private var notes: String = ""
+    @State private var showingResultPopup = false
     
     enum CaseType: String, CaseIterable, Identifiable {
         case singleUser = "Single-User"
@@ -26,7 +28,7 @@ struct NewCaseView: View {
     var body: some View {
         NavigationStack {
             Form {
-                            
+                
                 Section(header: SectionTitleView(title: "New Case Information")) {
                     
                     EntryFieldStackView(titleText: "Case Name", value: $caseName)
@@ -59,6 +61,7 @@ struct NewCaseView: View {
                     print($phone.wrappedValue)
                     print($email.wrappedValue)
                     print($notes.wrappedValue)
+                    showingResultPopup = true
                 } label: {
                     BorderedBtnLabelView(title: "Finish")
                 }
@@ -67,9 +70,21 @@ struct NewCaseView: View {
             .scrollContentBackground(.hidden)
             .navigationBarTitle("New Case")
             .navigationBarTitleDisplayMode(.inline)
+            .popup(isPresented: $showingResultPopup) {
+                ResultPopupView()
+            } customize: {
+                $0
+                    .isOpaque(true)
+                    .type(.floater(verticalPadding: 20, horizontalPadding: 20, useSafeAreaInset: true))
+                    .position(.center)
+                    .animation(.spring())
+                    .closeOnTapOutside(true)
+                    .backgroundColor(.black.opacity(0.5))
+            }
         }
     }
 }
+
 
 struct SectionTitleView: View {
     
@@ -81,72 +96,6 @@ struct SectionTitleView: View {
             .foregroundColor(.textColor)
             .frame(width: UIScreen.screenWidth - 75, height: 50)
             .textCase(.none)
-    }
-}
-
-struct EntryFieldStackView: View {
-    
-    var titleText: String
-    @Binding var value: String
-    var optional: Bool = false
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            TitleTextFieldView(titleText: titleText, optional: optional)
-            TextFieldView(titleText: titleText, value: $value)
-        }
-        .frame(maxWidth: .infinity)
-        .listRowSeparator(.hidden, edges: .all)
-    }
-}
-
-struct TitleTextFieldView: View {
-    
-    var titleText: String
-    var optional: Bool
-
-    var body: some View {
-        HStack {
-            Text(titleText)
-                .font(.custom(CFont.graphikRegular.rawValue, size: 15))
-                .foregroundColor(.textColor)
-            
-            if optional {
-                Text("Optional")
-                    .font(.custom(CFont.graphikLight.rawValue, size: 13))
-                    .foregroundColor(.gray)
-            }
-        }
-    }
-}
-
-
-struct TextFieldView: View {
-    
-    var titleText: String
-    @Binding var value: String
-    
-    var body: some View {
-        TextField(titleText, text: $value)
-            .textFieldStyle(RoundedTextFieldStyle())
-            .keyboardType(keyboardType(for: titleText))
-            .font(.custom(CFont.graphikRegular.rawValue, size: 15))
-            .previewLayout(.sizeThatFits)
-            .listRowBackground(Color.clear)
-            .frame(height: 50)
-            .listRowSeparator(.hidden)
-            .padding(.vertical, 5)
-    }
-    
-    private func keyboardType(for title: String) -> UIKeyboardType {
-        switch title {
-        case "Phone":
-            return .phonePad
-        case "Email":
-            return .emailAddress
-        default:
-            return .default
-        }
     }
 }
 
@@ -174,4 +123,46 @@ struct TextEditorView: View {
 
 #Preview {
     NewCaseView()
+}
+
+struct ResultPopupView: View {
+    var body: some View {
+        VStack() {
+            TitleWithIconView(icon: "create_case_success", title: "Case Name", subtitle: "Case has been added to database Successfully!")
+                .padding(.horizontal, 40)
+            
+            VStack(spacing: 10) {
+                Button {
+                    
+                } label: {
+                    Text("Add New Data Source")
+                        .font(Font.custom(CFont.graphikSemibold.rawValue, size: 13))
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 50)
+                        .background(Color.themeBlue)
+                        .foregroundColor(Color.white)
+                        .cornerRadius(5)
+                        .shadow(color: .shadow, radius: 2, x: 1, y: 1)
+                }
+                
+                Button {
+                    
+                } label: {
+                    Text("Finish")
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 50)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.themeBlue, lineWidth: 2)
+                        )
+                        .foregroundColor(Color.themeBlue)
+                        .font(.custom(CFont.graphikSemibold.rawValue, size: 13))
+                }
+            }
+            .padding(.horizontal, 40)
+        }
+        .frame(width: UIScreen.screenWidth - 40, height: 400)
+        .background(.white)
+        .cornerRadius(5.0)
+    }
 }
