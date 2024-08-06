@@ -60,14 +60,7 @@ struct NewCaseView: View {
                     print($email.wrappedValue)
                     print($notes.wrappedValue)
                 } label: {
-                    Text("Finish")
-                        .frame(width: UIScreen.screenWidth - 75, height: 50)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color.themeBlue, lineWidth: 2)
-                        )
-                        .foregroundColor(Color.themeBlue)
-                        .font(.custom(CFont.graphikMedium.rawValue, size: 15))
+                    BorderedBtnLabelView(title: "Finish")
                 }
                 
             }
@@ -139,7 +132,6 @@ struct TextFieldView: View {
             .keyboardType(keyboardType(for: titleText))
             .font(.custom(CFont.graphikRegular.rawValue, size: 15))
             .previewLayout(.sizeThatFits)
-            .listRowInsets(.init())
             .listRowBackground(Color.clear)
             .frame(height: 50)
             .listRowSeparator(.hidden)

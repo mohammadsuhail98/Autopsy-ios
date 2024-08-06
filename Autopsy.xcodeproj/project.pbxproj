@@ -26,6 +26,10 @@
 		0BD72C192C5D2C74001918C3 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72C182C5D2C74001918C3 /* BackgroundView.swift */; };
 		0BD72C1B2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72C1A2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift */; };
 		0BD72C1D2C5D3174001918C3 /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72C1C2C5D3174001918C3 /* Case.swift */; };
+		1815774D2C60C492007E0997 /* BorderedBtnLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815774C2C60C492007E0997 /* BorderedBtnLabelView.swift */; };
+		1815774F2C60CD02007E0997 /* AddDataSourceTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815774E2C60CD02007E0997 /* AddDataSourceTypeView.swift */; };
+		181577512C60D170007E0997 /* SelectDataSourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181577502C60D170007E0997 /* SelectDataSourceView.swift */; };
+		181577532C621323007E0997 /* TitleWithIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181577522C621323007E0997 /* TitleWithIconView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +54,10 @@
 		0BD72C182C5D2C74001918C3 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		0BD72C1A2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextFieldStyle.swift; sourceTree = "<group>"; };
 		0BD72C1C2C5D3174001918C3 /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
+		1815774C2C60C492007E0997 /* BorderedBtnLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedBtnLabelView.swift; sourceTree = "<group>"; };
+		1815774E2C60CD02007E0997 /* AddDataSourceTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDataSourceTypeView.swift; sourceTree = "<group>"; };
+		181577502C60D170007E0997 /* SelectDataSourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDataSourceView.swift; sourceTree = "<group>"; };
+		181577522C621323007E0997 /* TitleWithIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleWithIconView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +133,8 @@
 			children = (
 				0BD72BEF2C593ECB001918C3 /* MainView.swift */,
 				0BD72BEB2C593C75001918C3 /* NewCaseView.swift */,
+				1815774E2C60CD02007E0997 /* AddDataSourceTypeView.swift */,
+				181577502C60D170007E0997 /* SelectDataSourceView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,6 +175,8 @@
 				0BD72C152C5D2C42001918C3 /* FilledIconButtonView.swift */,
 				0BD72C182C5D2C74001918C3 /* BackgroundView.swift */,
 				0BD72C1A2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift */,
+				1815774C2C60C492007E0997 /* BorderedBtnLabelView.swift */,
+				181577522C621323007E0997 /* TitleWithIconView.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -256,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BD72BEC2C593C75001918C3 /* NewCaseView.swift in Sources */,
+				181577512C60D170007E0997 /* SelectDataSourceView.swift in Sources */,
 				0BD72BF52C5942A2001918C3 /* UIScreen.swift in Sources */,
 				0BD72C1B2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift in Sources */,
 				0BD72C192C5D2C74001918C3 /* BackgroundView.swift in Sources */,
@@ -264,7 +277,10 @@
 				0BD72C162C5D2C42001918C3 /* FilledIconButtonView.swift in Sources */,
 				0BD72C1D2C5D3174001918C3 /* Case.swift in Sources */,
 				0BD72BF02C593ECB001918C3 /* MainView.swift in Sources */,
+				181577532C621323007E0997 /* TitleWithIconView.swift in Sources */,
+				1815774D2C60C492007E0997 /* BorderedBtnLabelView.swift in Sources */,
 				0BD72BD82C57E68D001918C3 /* AutopsyApp.swift in Sources */,
+				1815774F2C60CD02007E0997 /* AddDataSourceTypeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -80,7 +80,7 @@ struct CaseItemView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(caseItem.name)
-                .font(.custom(CFont.graphikRegular.rawValue, size: 17))
+                .font(.custom(CFont.graphikMedium.rawValue, size: 15))
                 .padding(.bottom, 5)
                 .foregroundColor(.textColor)
             Text(caseItem.creationDate)
