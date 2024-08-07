@@ -68,9 +68,10 @@ struct RecentCasesView: View {
 struct RecentCasesSectionView: View {
     var body: some View {
         Text("Recent Cases")
-            .frame(maxWidth: UIScreen.screenWidth - 75, maxHeight: 40, alignment: .leading)
+            .frame(maxWidth: .infinity, maxHeight: 40, alignment: .leading)
             .font(.custom(CFont.graphikMedium.rawValue, size: 18))
             .foregroundColor(.textColor)
+            .padding(.horizontal, 30)
     }
 }
 
@@ -88,7 +89,8 @@ struct CaseItemView: View {
                 .padding(.bottom, 5)
                 .foregroundColor(.textColor)
         }
-        .padding(EdgeInsets(top: 0, leading: 20, bottom: 5, trailing: 0))
+        .padding(.leading, 20)
+        .padding(.bottom, 5)
         .listRowBackground(Color.clear)
     }
 }
