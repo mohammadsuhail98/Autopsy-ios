@@ -20,7 +20,6 @@ struct MainView: View {
             ZStack {
                 backgroundView()
                 VStack {
-                    Spacer(minLength: 50)
                     mainImageView()
                     VStack {
                         NavigationLink(destination: NewCaseView()) {
@@ -32,6 +31,7 @@ struct MainView: View {
                     Spacer()
                     DocLinkView(title: "Online Autopsy Documentation >")
                 }
+                .padding(.top, 50)
             }
         }
     }
