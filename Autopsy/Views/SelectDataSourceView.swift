@@ -64,7 +64,7 @@ struct SelectDataSourceView: View {
                 }
                 .scrollContentBackground(.hidden)
                 .navigationBarTitle("Add Data Source", displayMode: .inline)
-                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarModifier(backgroundColor: .systemBackground, foregroundColor: .black, tintColor: .black, withSeparator: false)
             }
         }
     }

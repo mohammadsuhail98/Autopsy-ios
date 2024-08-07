@@ -68,8 +68,8 @@ struct NewCaseView: View {
                 
             }
             .scrollContentBackground(.hidden)
-            .navigationBarTitle("New Case")
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitle("New Case", displayMode: .inline)
+            .navigationBarModifier(backgroundColor: .systemBackground, foregroundColor: .black, tintColor: .black, withSeparator: false)
             .popup(isPresented: $showingResultPopup) {
                 ResultPopupView()
             } customize: {
@@ -121,10 +121,6 @@ struct TextEditorView: View {
     }
 }
 
-#Preview {
-    NewCaseView()
-}
-
 struct ResultPopupView: View {
     var body: some View {
         VStack() {
@@ -165,4 +161,8 @@ struct ResultPopupView: View {
         .background(.white)
         .cornerRadius(5.0)
     }
+}
+
+#Preview {
+    NewCaseView()
 }

@@ -32,6 +32,8 @@
 		181577532C621323007E0997 /* TitleWithIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181577522C621323007E0997 /* TitleWithIconView.swift */; };
 		181577562C624B15007E0997 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 181577552C624B15007E0997 /* PopupView */; };
 		181577582C6262CE007E0997 /* EntryFieldStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181577572C6262CE007E0997 /* EntryFieldStackView.swift */; };
+		1815775A2C63A2F5007E0997 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181577592C63A2F5007E0997 /* NavigationBarModifier.swift */; };
+		1815775C2C63A3AE007E0997 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815775B2C63A3AE007E0997 /* View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,8 @@
 		181577502C60D170007E0997 /* SelectDataSourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDataSourceView.swift; sourceTree = "<group>"; };
 		181577522C621323007E0997 /* TitleWithIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleWithIconView.swift; sourceTree = "<group>"; };
 		181577572C6262CE007E0997 /* EntryFieldStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryFieldStackView.swift; sourceTree = "<group>"; };
+		181577592C63A2F5007E0997 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
+		1815775B2C63A3AE007E0997 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				0BD72BE92C57F93A001918C3 /* Color.swift */,
+				1815775B2C63A3AE007E0997 /* View.swift */,
 				0BD72BF42C5942A2001918C3 /* UIScreen.swift */,
 			);
 			path = Extensions;
@@ -182,6 +187,7 @@
 				1815774C2C60C492007E0997 /* BorderedBtnLabelView.swift */,
 				181577522C621323007E0997 /* TitleWithIconView.swift */,
 				181577572C6262CE007E0997 /* EntryFieldStackView.swift */,
+				181577592C63A2F5007E0997 /* NavigationBarModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -282,12 +288,14 @@
 				181577512C60D170007E0997 /* SelectDataSourceView.swift in Sources */,
 				0BD72BF52C5942A2001918C3 /* UIScreen.swift in Sources */,
 				0BD72C1B2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift in Sources */,
+				1815775C2C63A3AE007E0997 /* View.swift in Sources */,
 				0BD72C192C5D2C74001918C3 /* BackgroundView.swift in Sources */,
 				0BD72BEA2C57F93A001918C3 /* Color.swift in Sources */,
 				0BD72BF32C59428A001918C3 /* CustomFont.swift in Sources */,
 				0BD72C162C5D2C42001918C3 /* FilledIconButtonView.swift in Sources */,
 				0BD72C1D2C5D3174001918C3 /* Case.swift in Sources */,
 				0BD72BF02C593ECB001918C3 /* MainView.swift in Sources */,
+				1815775A2C63A2F5007E0997 /* NavigationBarModifier.swift in Sources */,
 				181577532C621323007E0997 /* TitleWithIconView.swift in Sources */,
 				1815774D2C60C492007E0997 /* BorderedBtnLabelView.swift in Sources */,
 				0BD72BD82C57E68D001918C3 /* AutopsyApp.swift in Sources */,

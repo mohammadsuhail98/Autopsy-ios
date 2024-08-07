@@ -25,6 +25,7 @@ struct AddDataSourceTypeView: View {
                     .padding(.top, 50)
                 }
                 .navigationBarTitle("Add Data Source", displayMode: .inline)
+                .navigationBarModifier(backgroundColor: .systemBackground, foregroundColor: .black, tintColor: .black, withSeparator: false)
             }
         }
     }
