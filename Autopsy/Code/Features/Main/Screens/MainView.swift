@@ -17,22 +17,20 @@ struct MainView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack {
-                backgroundView()
+            VStack {
+                mainImageView()
                 VStack {
-                    mainImageView()
-                    VStack {
-                        NavigationLink(destination: NewCaseView()) {
-                            FilledIconButtonView(title: "New Case", image: "new_case")
-                        }
-                        RecentCasesView(recentCases: recentCases)
-                            .padding(.top, 16)
+                    NavigationLink(destination: NewCaseView()) {
+                        FilledIconButtonView(title: "New Case", image: "new_case")
                     }
-                    Spacer()
-                    DocLinkView(title: "Online Autopsy Documentation >")
+                    RecentCasesView(recentCases: recentCases)
+                        .padding(.top, 16)
                 }
-                .padding(.top, 50)
+                Spacer()
+                DocLinkView(title: "Online Autopsy Documentation >")
             }
+            .padding(.top, 50)
+            .customBackground()
         }
     }
     

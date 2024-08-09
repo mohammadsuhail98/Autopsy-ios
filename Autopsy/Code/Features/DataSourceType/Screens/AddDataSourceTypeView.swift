@@ -9,23 +9,21 @@ import SwiftUI
 
 struct AddDataSourceTypeView: View {
     var body: some View {
-        ZStack {
-            backgroundView()
-            ScrollView {
-                VStack() {
-                    TitleWithIconView(icon: "type_data_source", title: "Case Name", subtitle: "Select Type of Data Source")
-                    
-                    NavigationLink(destination: SelectDataSourceView()) {
-                        DataSourceLabelView(title: "Disk Image or VM File")
-                    }
-                    .padding(.horizontal)
-                    
+        ScrollView {
+            VStack() {
+                TitleWithIconView(icon: "type_data_source", title: "Case Name", subtitle: "Select Type of Data Source")
+                
+                NavigationLink(destination: SelectDataSourceView()) {
+                    DataSourceLabelView(title: "Disk Image or VM File")
                 }
-                .padding(.top, 50)
+                .padding(.horizontal)
+                
             }
-            .navigationBarTitle("Add Data Source", displayMode: .inline)
-            .navigationBarModifier(backgroundColor: .systemBackground, foregroundColor: .black, tintColor: .black, withSeparator: false)
+            .padding(.top, 50)
         }
+        .customBackground()
+        .navigationBarTitle("Add Data Source", displayMode: .inline)
+        .navigationBarModifier(backgroundColor: .systemBackground, foregroundColor: .black, tintColor: .black, withSeparator: false)
     }
 }
 

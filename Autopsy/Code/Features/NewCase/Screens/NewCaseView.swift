@@ -41,6 +41,7 @@ struct NewCaseView: View {
                 .listRowSeparator(.hidden)
                 .pickerStyle(SegmentedPickerStyle())
                 .padding(.vertical, 5)
+                .listRowBackground(Color.background)
                 
                 EntryFieldStackView(titleText: "Case Number", value: $caseNumber)
             }
@@ -64,9 +65,11 @@ struct NewCaseView: View {
             } label: {
                 BorderedBtnLabelView(title: "Finish")
             }
+            .listRowBackground(Color.background)
             
         }
         .scrollContentBackground(.hidden)
+        .customBackground()
         .navigationBarTitle("New Case", displayMode: .inline)
         .navigationBarModifier(backgroundColor: .systemBackground, foregroundColor: .black, tintColor: .black, withSeparator: false)
         .popup(isPresented: $showingResultPopup) {
@@ -115,6 +118,7 @@ struct TextEditorView: View {
                 .cornerRadius(5)
                 .frame(height: 150)
         }
+        .listRowBackground(Color.background)
         .padding(.vertical, 5)
     }
 }

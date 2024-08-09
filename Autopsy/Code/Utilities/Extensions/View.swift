@@ -12,4 +12,8 @@ extension View {
     func navigationBarModifier(backgroundColor: UIColor = .systemBackground, foregroundColor: UIColor = .label, tintColor: UIColor?, withSeparator: Bool) -> some View {
         self.modifier(NavigationBarModifier(backgroundColor: backgroundColor, foregroundColor: foregroundColor, tintColor: tintColor, withSeparator: withSeparator))
     }
+    
+    func customBackground() -> some View {
+        self.modifier(backgroundViewModifier())
+    }
 }

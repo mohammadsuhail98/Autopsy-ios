@@ -34,6 +34,8 @@
 		181577582C6262CE007E0997 /* EntryFieldStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181577572C6262CE007E0997 /* EntryFieldStackView.swift */; };
 		1815775A2C63A2F5007E0997 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181577592C63A2F5007E0997 /* NavigationBarModifier.swift */; };
 		1815775C2C63A3AE007E0997 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815775B2C63A3AE007E0997 /* View.swift */; };
+		1815777E2C64EF5C007E0997 /* IngestModulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815777D2C64EF5C007E0997 /* IngestModulesView.swift */; };
+		181577802C660995007E0997 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815777F2C660995007E0997 /* MenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,8 @@
 		181577572C6262CE007E0997 /* EntryFieldStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryFieldStackView.swift; sourceTree = "<group>"; };
 		181577592C63A2F5007E0997 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		1815775B2C63A3AE007E0997 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		1815777D2C64EF5C007E0997 /* IngestModulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngestModulesView.swift; sourceTree = "<group>"; };
+		1815777F2C660995007E0997 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +168,7 @@
 				1815775F2C63A995007E0997 /* NewCase */,
 				181577602C63A9A6007E0997 /* DataSourceType */,
 				181577612C63A9CC007E0997 /* SelectDataSource */,
+				1815777B2C64EF1E007E0997 /* IngestModules */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 				1815774C2C60C492007E0997 /* BorderedBtnLabelView.swift */,
 				181577522C621323007E0997 /* TitleWithIconView.swift */,
 				181577572C6262CE007E0997 /* EntryFieldStackView.swift */,
+				1815777F2C660995007E0997 /* MenuView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -397,6 +403,22 @@
 			isa = PBXGroup;
 			children = (
 				181577502C60D170007E0997 /* SelectDataSourceView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		1815777B2C64EF1E007E0997 /* IngestModules */ = {
+			isa = PBXGroup;
+			children = (
+				1815777C2C64EF47007E0997 /* Screens */,
+			);
+			path = IngestModules;
+			sourceTree = "<group>";
+		};
+		1815777C2C64EF47007E0997 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				1815777D2C64EF5C007E0997 /* IngestModulesView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -484,8 +506,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1815777E2C64EF5C007E0997 /* IngestModulesView.swift in Sources */,
 				0BD72BEC2C593C75001918C3 /* NewCaseView.swift in Sources */,
 				181577512C60D170007E0997 /* SelectDataSourceView.swift in Sources */,
+				181577802C660995007E0997 /* MenuView.swift in Sources */,
 				0BD72BF52C5942A2001918C3 /* UIScreen.swift in Sources */,
 				0BD72C1B2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift in Sources */,
 				1815775C2C63A3AE007E0997 /* View.swift in Sources */,

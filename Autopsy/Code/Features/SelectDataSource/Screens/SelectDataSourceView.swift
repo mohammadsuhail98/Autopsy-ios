@@ -19,51 +19,48 @@ struct SelectDataSourceView: View {
     @State private var sha256: String = ""
     
     var body: some View {
-        ZStack {
-            backgroundView()
-            Form {
-                
-                Section(
-                    header: TitleWithIconView(icon: "type_data_source", title: "Case Name", subtitle: "Select Data Source")
-                ) {
-                    
-                    Button {
-                        
-                    } label: {
-                        FileUploadButtonView()
-                    }
-                    
-                    CheckboxView(isChecked: $isOrphanFiles, title: "Ignore Orphan Files")
-                    
-                    MenuView(titleText: "Time Zone", items: timeZones, selectedItem: $selectedTimeZone)
-                    
-                    MenuView(titleText: "Sector Size", items: sectorSizes, selectedItem: $selectedSectorSize)
-                }
-                .frame(maxWidth: .infinity)
-                .listRowBackground(Color.clear)
-                
-                Section(header: SectionTitleView(title: "Hash Values")) {
-                    EntryFieldStackView(titleText: "MD5", value: $md5, optional: true)
-                    EntryFieldStackView(titleText: "SHA-1", value: $sha1, optional: true)
-                    EntryFieldStackView(titleText: "SHA-256", value: $sha256, optional: true)
-                    
-                    NoteView()
-                }
-                .listRowBackground(Color.clear)
+        Form {
+            
+            Section(
+                header: TitleWithIconView(icon: "type_data_source", title: "Case Name", subtitle: "Select Data Source")
+            ) {
                 
                 Button {
                     
                 } label: {
-                    BorderedBtnLabelView(title: "Next")
-                    
+                    FileUploadButtonView()
                 }
-                .listRowBackground(Color.clear)
                 
+                CheckboxView(isChecked: $isOrphanFiles, title: "Ignore Orphan Files")
+                
+                MenuView(titleText: "Time Zone", items: timeZones, selectedItem: $selectedTimeZone)
+                
+                MenuView(titleText: "Sector Size", items: sectorSizes, selectedItem: $selectedSectorSize)
             }
-            .scrollContentBackground(.hidden)
-            .navigationBarTitle("Add Data Source", displayMode: .inline)
-            .navigationBarModifier(backgroundColor: .systemBackground, foregroundColor: .black, tintColor: .black, withSeparator: false)
+            .frame(maxWidth: .infinity)
+            .listRowBackground(Color.clear)
+            
+            Section(header: SectionTitleView(title: "Hash Values")) {
+                EntryFieldStackView(titleText: "MD5", value: $md5, optional: true)
+                EntryFieldStackView(titleText: "SHA-1", value: $sha1, optional: true)
+                EntryFieldStackView(titleText: "SHA-256", value: $sha256, optional: true)
+                
+                NoteView()
+            }
+            .listRowBackground(Color.clear)
+            
+            Button {
+                
+            } label: {
+                BorderedBtnLabelView(title: "Next")
+            }
+            .listRowBackground(Color.clear)
+            
         }
+        .customBackground()
+        .scrollContentBackground(.hidden)
+        .navigationBarTitle("Add Data Source", displayMode: .inline)
+        .navigationBarModifier(backgroundColor: .systemBackground, foregroundColor: .black, tintColor: .black, withSeparator: false)
     }
 }
 
@@ -101,53 +98,8 @@ struct CheckboxView: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .listRowSeparator(.hidden, edges: .all)
-        .padding(.horizontal)
+        .listRowSeparator(.hidden, edges: .top)
     }
-}
-
-struct MenuView: View {
-    
-    var titleText: String
-    var items: [String] = [String]()
-    @Binding var selectedItem: String
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            Text(titleText)
-                .font(.custom(CFont.graphikRegular.rawValue, size: 15))
-                .foregroundColor(.textColor)
-            
-            Menu {
-                ForEach(items, id: \.self) { item in
-                    Button(action: {
-                        selectedItem = item
-                    }, label: {
-                        Text(item)
-                    })
-                }
-            } label: {
-                HStack {
-                    Text(selectedItem)
-                        .padding(.horizontal)
-                    Spacer()
-                    Image(systemName: "chevron.down")
-                        .foregroundColor(.textColor)
-                }
-                .font(.custom(CFont.graphikRegular.rawValue, size: 15))
-                .foregroundStyle(Color.textColor)
-                .frame(height: 50)
-                .padding(.horizontal)
-                .background(Color.textFieldBackground)
-                .cornerRadius(5)
-            }
-            .padding(.vertical, 5)
-            
-        }
-        .frame(maxWidth: .infinity)
-        .listRowSeparator(.hidden, edges: .all)
-    }
-    
 }
 
 struct NoteView: View {
