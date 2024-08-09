@@ -13,3 +13,13 @@ struct backgroundView: View {
             .ignoresSafeArea()
     }
 }
+
+struct backgroundViewModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        ZStack {
+            Color.background
+                .ignoresSafeArea()
+            content
+        }
+    }
+}

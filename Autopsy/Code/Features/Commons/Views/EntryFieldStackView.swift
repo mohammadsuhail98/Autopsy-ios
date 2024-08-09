@@ -20,6 +20,7 @@ struct EntryFieldStackView: View {
         }
         .frame(maxWidth: .infinity)
         .listRowSeparator(.hidden, edges: .all)
+        .listRowBackground(Color.background)
     }
 }
 
