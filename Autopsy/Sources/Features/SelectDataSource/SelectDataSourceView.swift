@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SelectDataSourceView: View {
     
+    @EnvironmentObject private var router: Router
+
     let timeZones: [String] = TimeZone.knownTimeZoneIdentifiers
     let sectorSizes: [String] = ["Auto Detect","128","256","512","1024"]
     @State var isOrphanFiles: Bool = false
@@ -50,7 +52,7 @@ struct SelectDataSourceView: View {
             .listRowBackground(Color.clear)
             
             Button {
-                
+                router.caseCreationPath.append(.ingestModules)
             } label: {
                 BorderedBtnLabelView(title: "Next")
             }

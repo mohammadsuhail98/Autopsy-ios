@@ -9,6 +9,8 @@ import SwiftUI
 import PopupView
 
 struct NewCaseView: View {
+    @EnvironmentObject private var router: Router
+    
     @State private var caseName: String = ""
     @State private var caseType: CaseType = .singleUser
     @State private var caseNumber: String = ""
@@ -55,12 +57,6 @@ struct NewCaseView: View {
             }
             
             Button {
-                print($caseName.wrappedValue)
-                print($caseNumber.wrappedValue)
-                print($examinerName.wrappedValue)
-                print($phone.wrappedValue)
-                print($email.wrappedValue)
-                print($notes.wrappedValue)
                 showingResultPopup = true
             } label: {
                 BorderedBtnLabelView(title: "Finish")
@@ -73,7 +69,13 @@ struct NewCaseView: View {
         .navigationBarTitle("New Case", displayMode: .inline)
         .navigationBarModifier(backgroundColor: .systemBackground, foregroundColor: .black, tintColor: .black, withSeparator: false)
         .popup(isPresented: $showingResultPopup) {
-            ResultPopupView()
+            ResultPopupView { tag in
+                if tag == 0 {
+                    router.caseCreationPath.append(.addDataSourceType)
+                } else {
+                    router.selectedScenario = .caseHome
+                }
+            }
         } customize: {
             $0
                 .isOpaque(true)
@@ -124,6 +126,9 @@ struct TextEditorView: View {
 }
 
 struct ResultPopupView: View {
+    
+    var onFinished: (Int) -> Void
+    
     var body: some View {
         VStack() {
             TitleWithIconView(icon: "create_case_success", title: "Case Name", subtitle: "Case has been added to database Successfully!")
@@ -131,7 +136,9 @@ struct ResultPopupView: View {
             
             VStack(spacing: 10) {
                 
-                NavigationLink(destination: AddDataSourceTypeView()){
+                Button {
+                    onFinished(0)
+                } label: {
                     Text("Add New Data Source")
                         .font(Font.custom(CFont.graphikSemibold.rawValue, size: 13))
                         .frame(maxWidth: .infinity)
@@ -143,7 +150,7 @@ struct ResultPopupView: View {
                 }
                 
                 Button {
-                    
+                    onFinished(1)
                 } label: {
                     Text("Finish")
                         .frame(maxWidth: .infinity)

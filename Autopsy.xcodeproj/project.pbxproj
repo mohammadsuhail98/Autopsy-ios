@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BA3C5882C66C29E00A921AD /* AutopsyAppAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA3C5872C66C29E00A921AD /* AutopsyAppAppDelegate.swift */; };
+		0BA3C58B2C66C40500A921AD /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA3C58A2C66C40500A921AD /* MainVM.swift */; };
+		0BA3C58E2C66C51900A921AD /* MainVMKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA3C58D2C66C51900A921AD /* MainVMKey.swift */; };
+		0BA3C5922C66CA1F00A921AD /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA3C5912C66CA1F00A921AD /* Router.swift */; };
+		0BA3C5952C66DC6100A921AD /* CaseHomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA3C5942C66DC6100A921AD /* CaseHomeScreen.swift */; };
 		0BD72BD82C57E68D001918C3 /* AutopsyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BD72C57E68D001918C3 /* AutopsyApp.swift */; };
 		0BD72BDC2C57E690001918C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BD72BDB2C57E690001918C3 /* Assets.xcassets */; };
-		0BD72BDF2C57E690001918C3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BD72BDE2C57E690001918C3 /* Preview Assets.xcassets */; };
 		0BD72BEA2C57F93A001918C3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BE92C57F93A001918C3 /* Color.swift */; };
 		0BD72BEC2C593C75001918C3 /* NewCaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BEB2C593C75001918C3 /* NewCaseView.swift */; };
-		0BD72BF02C593ECB001918C3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BEF2C593ECB001918C3 /* MainView.swift */; };
+		0BD72BF02C593ECB001918C3 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BEF2C593ECB001918C3 /* MainScreen.swift */; };
 		0BD72BF32C59428A001918C3 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BF22C59428A001918C3 /* CustomFont.swift */; };
 		0BD72BF52C5942A2001918C3 /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BF42C5942A2001918C3 /* UIScreen.swift */; };
 		0BD72C0B2C594BA7001918C3 /* GraphikThin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0BD72BF92C594532001918C3 /* GraphikThin.otf */; };
@@ -22,7 +26,7 @@
 		0BD72C0F2C594BA7001918C3 /* GraphikRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0BD72BF82C594532001918C3 /* GraphikRegular.otf */; };
 		0BD72C102C594BA7001918C3 /* GraphikBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0BD72BF72C594532001918C3 /* GraphikBold.otf */; };
 		0BD72C112C594BA7001918C3 /* GraphikSemibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0BD72BFD2C594533001918C3 /* GraphikSemibold.otf */; };
-		0BD72C162C5D2C42001918C3 /* FilledIconButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72C152C5D2C42001918C3 /* FilledIconButtonView.swift */; };
+		0BD72C162C5D2C42001918C3 /* AutopsyButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72C152C5D2C42001918C3 /* AutopsyButtonStyle.swift */; };
 		0BD72C192C5D2C74001918C3 /* backgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72C182C5D2C74001918C3 /* backgroundView.swift */; };
 		0BD72C1B2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72C1A2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift */; };
 		0BD72C1D2C5D3174001918C3 /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72C1C2C5D3174001918C3 /* Case.swift */; };
@@ -39,13 +43,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BA3C5872C66C29E00A921AD /* AutopsyAppAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutopsyAppAppDelegate.swift; sourceTree = "<group>"; };
+		0BA3C58A2C66C40500A921AD /* MainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVM.swift; sourceTree = "<group>"; };
+		0BA3C58D2C66C51900A921AD /* MainVMKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVMKey.swift; sourceTree = "<group>"; };
+		0BA3C5912C66CA1F00A921AD /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		0BA3C5942C66DC6100A921AD /* CaseHomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseHomeScreen.swift; sourceTree = "<group>"; };
 		0BD72BD42C57E68D001918C3 /* Autopsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Autopsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BD72BD72C57E68D001918C3 /* AutopsyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutopsyApp.swift; sourceTree = "<group>"; };
 		0BD72BDB2C57E690001918C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0BD72BDE2C57E690001918C3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0BD72BE92C57F93A001918C3 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		0BD72BEB2C593C75001918C3 /* NewCaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCaseView.swift; sourceTree = "<group>"; };
-		0BD72BEF2C593ECB001918C3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		0BD72BEF2C593ECB001918C3 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		0BD72BF22C59428A001918C3 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		0BD72BF42C5942A2001918C3 /* UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
 		0BD72BF72C594532001918C3 /* GraphikBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GraphikBold.otf; sourceTree = "<group>"; };
@@ -55,8 +63,8 @@
 		0BD72BFB2C594532001918C3 /* GraphikLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GraphikLight.otf; sourceTree = "<group>"; };
 		0BD72BFC2C594533001918C3 /* GraphikMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GraphikMedium.otf; sourceTree = "<group>"; };
 		0BD72BFD2C594533001918C3 /* GraphikSemibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GraphikSemibold.otf; sourceTree = "<group>"; };
-		0BD72C052C59464F001918C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		0BD72C152C5D2C42001918C3 /* FilledIconButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledIconButtonView.swift; sourceTree = "<group>"; };
+		0BD72C052C59464F001918C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0BD72C152C5D2C42001918C3 /* AutopsyButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutopsyButtonStyle.swift; sourceTree = "<group>"; };
 		0BD72C182C5D2C74001918C3 /* backgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgroundView.swift; sourceTree = "<group>"; };
 		0BD72C1A2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextFieldStyle.swift; sourceTree = "<group>"; };
 		0BD72C1C2C5D3174001918C3 /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
@@ -83,6 +91,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BA3C5862C66C16100A921AD /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				0BA3C58C2C66C4FA00A921AD /* DI */,
+				0BA3C5892C66C31B00A921AD /* Core */,
+				1815775D2C63A978007E0997 /* Features */,
+				0BD72BD72C57E68D001918C3 /* AutopsyApp.swift */,
+				0BA3C5872C66C29E00A921AD /* AutopsyAppAppDelegate.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		0BA3C5892C66C31B00A921AD /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0BA3C5912C66CA1F00A921AD /* Router.swift */,
+				181577752C63ABCF007E0997 /* Utilities */,
+				1815776E2C63AA40007E0997 /* Commons */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		0BA3C58C2C66C4FA00A921AD /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				0BA3C58D2C66C51900A921AD /* MainVMKey.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		0BA3C5932C66DC5000A921AD /* CaseHome */ = {
+			isa = PBXGroup;
+			children = (
+				0BA3C5942C66DC6100A921AD /* CaseHomeScreen.swift */,
+			);
+			path = CaseHome;
+			sourceTree = "<group>";
+		};
 		0BD72BCB2C57E68D001918C3 = {
 			isa = PBXGroup;
 			children = (
@@ -102,21 +148,10 @@
 		0BD72BD62C57E68D001918C3 /* Autopsy */ = {
 			isa = PBXGroup;
 			children = (
-				0BD72C052C59464F001918C3 /* Info.plist */,
-				181577732C63AA86007E0997 /* Code */,
+				0BA3C5862C66C16100A921AD /* Sources */,
 				0BD72C142C5D2B48001918C3 /* Resources */,
-				0BD72BDD2C57E690001918C3 /* Preview Content */,
-				181577762C63AC30007E0997 /* SupportingFiles */,
 			);
 			path = Autopsy;
-			sourceTree = "<group>";
-		};
-		0BD72BDD2C57E690001918C3 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				0BD72BDE2C57E690001918C3 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		0BD72BE82C57F913001918C3 /* Extensions */ = {
@@ -154,6 +189,7 @@
 		0BD72C142C5D2B48001918C3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0BD72C052C59464F001918C3 /* Info.plist */,
 				0BD72BF62C5942FF001918C3 /* Fonts */,
 				0BD72BDB2C57E690001918C3 /* Assets.xcassets */,
 			);
@@ -163,7 +199,7 @@
 		1815775D2C63A978007E0997 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				1815776E2C63AA40007E0997 /* Commons */,
+				0BA3C5932C66DC5000A921AD /* CaseHome */,
 				1815775E2C63A983007E0997 /* Main */,
 				1815775F2C63A995007E0997 /* NewCase */,
 				181577602C63A9A6007E0997 /* DataSourceType */,
@@ -176,10 +212,8 @@
 		1815775E2C63A983007E0997 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				181577772C63ADE1007E0997 /* Screens */,
-				181577642C63AA03007E0997 /* Models */,
-				181577632C63AA00007E0997 /* Views */,
-				181577622C63A9FA007E0997 /* ViewModels */,
+				0BD72BEF2C593ECB001918C3 /* MainScreen.swift */,
+				0BA3C58A2C66C40500A921AD /* MainVM.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -187,10 +221,7 @@
 		1815775F2C63A995007E0997 /* NewCase */ = {
 			isa = PBXGroup;
 			children = (
-				181577782C63ADEE007E0997 /* Screens */,
-				181577672C63AA16007E0997 /* Models */,
-				181577662C63AA12007E0997 /* Views */,
-				181577652C63AA0D007E0997 /* ViewModels */,
+				0BD72BEB2C593C75001918C3 /* NewCaseView.swift */,
 			);
 			path = NewCase;
 			sourceTree = "<group>";
@@ -198,10 +229,7 @@
 		181577602C63A9A6007E0997 /* DataSourceType */ = {
 			isa = PBXGroup;
 			children = (
-				181577792C63ADF7007E0997 /* Screens */,
-				1815776A2C63AA22007E0997 /* Models */,
-				181577692C63AA1E007E0997 /* Views */,
-				181577682C63AA1A007E0997 /* ViewModels */,
+				1815774E2C60CD02007E0997 /* AddDataSourceTypeView.swift */,
 			);
 			path = DataSourceType;
 			sourceTree = "<group>";
@@ -209,97 +237,9 @@
 		181577612C63A9CC007E0997 /* SelectDataSource */ = {
 			isa = PBXGroup;
 			children = (
-				1815777A2C63ADFB007E0997 /* Screens */,
-				1815776D2C63AA2F007E0997 /* Models */,
-				1815776C2C63AA2B007E0997 /* Views */,
-				1815776B2C63AA26007E0997 /* ViewModels */,
+				181577502C60D170007E0997 /* SelectDataSourceView.swift */,
 			);
 			path = SelectDataSource;
-			sourceTree = "<group>";
-		};
-		181577622C63A9FA007E0997 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		181577632C63AA00007E0997 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				0BD72C152C5D2C42001918C3 /* FilledIconButtonView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		181577642C63AA03007E0997 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		181577652C63AA0D007E0997 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		181577662C63AA12007E0997 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		181577672C63AA16007E0997 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		181577682C63AA1A007E0997 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		181577692C63AA1E007E0997 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		1815776A2C63AA22007E0997 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		1815776B2C63AA26007E0997 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		1815776C2C63AA2B007E0997 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		1815776D2C63AA2F007E0997 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		1815776E2C63AA40007E0997 /* Commons */ = {
@@ -324,6 +264,7 @@
 		181577702C63AA4A007E0997 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0BD72C152C5D2C42001918C3 /* AutopsyButtonStyle.swift */,
 				0BD72C182C5D2C74001918C3 /* backgroundView.swift */,
 				0BD72C1A2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift */,
 				1815774C2C60C492007E0997 /* BorderedBtnLabelView.swift */,
@@ -339,15 +280,6 @@
 			children = (
 			);
 			path = Screens;
-			sourceTree = "<group>";
-		};
-		181577732C63AA86007E0997 /* Code */ = {
-			isa = PBXGroup;
-			children = (
-				1815775D2C63A978007E0997 /* Features */,
-				181577752C63ABCF007E0997 /* Utilities */,
-			);
-			path = Code;
 			sourceTree = "<group>";
 		};
 		181577742C63AAB9007E0997 /* ViewModifiers */ = {
@@ -367,60 +299,12 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		181577762C63AC30007E0997 /* SupportingFiles */ = {
-			isa = PBXGroup;
-			children = (
-				0BD72BD72C57E68D001918C3 /* AutopsyApp.swift */,
-			);
-			path = SupportingFiles;
-			sourceTree = "<group>";
-		};
-		181577772C63ADE1007E0997 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				0BD72BEF2C593ECB001918C3 /* MainView.swift */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
-		181577782C63ADEE007E0997 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				0BD72BEB2C593C75001918C3 /* NewCaseView.swift */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
-		181577792C63ADF7007E0997 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				1815774E2C60CD02007E0997 /* AddDataSourceTypeView.swift */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
-		1815777A2C63ADFB007E0997 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				181577502C60D170007E0997 /* SelectDataSourceView.swift */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
 		1815777B2C64EF1E007E0997 /* IngestModules */ = {
-			isa = PBXGroup;
-			children = (
-				1815777C2C64EF47007E0997 /* Screens */,
-			);
-			path = IngestModules;
-			sourceTree = "<group>";
-		};
-		1815777C2C64EF47007E0997 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				1815777D2C64EF5C007E0997 /* IngestModulesView.swift */,
 			);
-			path = Screens;
+			path = IngestModules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -489,7 +373,6 @@
 			files = (
 				0BD72C0E2C594BA7001918C3 /* GraphikBlack.otf in Resources */,
 				0BD72C0D2C594BA7001918C3 /* GraphikLight.otf in Resources */,
-				0BD72BDF2C57E690001918C3 /* Preview Assets.xcassets in Resources */,
 				0BD72C0B2C594BA7001918C3 /* GraphikThin.otf in Resources */,
 				0BD72C112C594BA7001918C3 /* GraphikSemibold.otf in Resources */,
 				0BD72BDC2C57E690001918C3 /* Assets.xcassets in Resources */,
@@ -513,15 +396,20 @@
 				0BD72BF52C5942A2001918C3 /* UIScreen.swift in Sources */,
 				0BD72C1B2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift in Sources */,
 				1815775C2C63A3AE007E0997 /* View.swift in Sources */,
+				0BA3C58B2C66C40500A921AD /* MainVM.swift in Sources */,
 				0BD72C192C5D2C74001918C3 /* backgroundView.swift in Sources */,
+				0BA3C5882C66C29E00A921AD /* AutopsyAppAppDelegate.swift in Sources */,
+				0BA3C5922C66CA1F00A921AD /* Router.swift in Sources */,
 				0BD72BEA2C57F93A001918C3 /* Color.swift in Sources */,
+				0BA3C58E2C66C51900A921AD /* MainVMKey.swift in Sources */,
 				0BD72BF32C59428A001918C3 /* CustomFont.swift in Sources */,
-				0BD72C162C5D2C42001918C3 /* FilledIconButtonView.swift in Sources */,
+				0BD72C162C5D2C42001918C3 /* AutopsyButtonStyle.swift in Sources */,
 				0BD72C1D2C5D3174001918C3 /* Case.swift in Sources */,
-				0BD72BF02C593ECB001918C3 /* MainView.swift in Sources */,
+				0BD72BF02C593ECB001918C3 /* MainScreen.swift in Sources */,
 				1815775A2C63A2F5007E0997 /* NavigationBarModifier.swift in Sources */,
 				181577532C621323007E0997 /* TitleWithIconView.swift in Sources */,
 				1815774D2C60C492007E0997 /* BorderedBtnLabelView.swift in Sources */,
+				0BA3C5952C66DC6100A921AD /* CaseHomeScreen.swift in Sources */,
 				0BD72BD82C57E68D001918C3 /* AutopsyApp.swift in Sources */,
 				181577582C6262CE007E0997 /* EntryFieldStackView.swift in Sources */,
 				1815774F2C60CD02007E0997 /* AddDataSourceTypeView.swift in Sources */,
@@ -659,11 +547,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Autopsy/Preview Content\"";
 				DEVELOPMENT_TEAM = C7TZHYALRJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Autopsy/Info.plist;
+				INFOPLIST_FILE = Autopsy/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -691,11 +578,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Autopsy/Preview Content\"";
 				DEVELOPMENT_TEAM = C7TZHYALRJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Autopsy/Info.plist;
+				INFOPLIST_FILE = Autopsy/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct IngestModulesView: View {
     
+    @EnvironmentObject private var router: Router
+
     let filters: [String] = ["All files, Directories and Unallocated space",
                                "All files and Directories (without Unallocated space)"]
     @State private var selectedFilter: String = "All files, Directories and Unallocated space"
@@ -30,7 +32,12 @@ struct IngestModulesView: View {
             .scrollContentBackground(.hidden)
             .listStyle(.plain)
             
-            BorderedBtnLabelView(title: "Add Data Source")
+            Button {
+                router.selectedScenario = .caseHome
+            } label: {
+                BorderedBtnLabelView(title: "Add Data Source")
+            }
+            
         }
         .padding(.horizontal, 30)
         .customBackground()

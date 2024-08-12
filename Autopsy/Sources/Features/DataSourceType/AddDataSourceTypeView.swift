@@ -8,15 +8,20 @@
 import SwiftUI
 
 struct AddDataSourceTypeView: View {
+    
+    @EnvironmentObject private var router: Router
+
     var body: some View {
         ScrollView {
             VStack() {
                 TitleWithIconView(icon: "type_data_source", title: "Case Name", subtitle: "Select Type of Data Source")
                 
-                NavigationLink(destination: SelectDataSourceView()) {
+                Button {
+                    router.caseCreationPath.append(.addDataSource)
+                } label: {
                     DataSourceLabelView(title: "Disk Image or VM File")
+                        .padding(.horizontal)
                 }
-                .padding(.horizontal)
                 
             }
             .padding(.top, 50)
