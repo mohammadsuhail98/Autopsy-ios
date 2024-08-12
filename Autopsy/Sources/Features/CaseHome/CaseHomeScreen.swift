@@ -14,15 +14,33 @@ struct CaseHomeScreen: View {
     var body: some View {
         NavigationStack {
             TabView {
-                Text("page 1")
+                DataSourceListScreen()
                     .tabItem {
-                        Text("page 1")
+                        TabItemView(icon: "data_sources_tabbar", text: "Data Sources")
                     }
+                    .toolbarBackground(.visible, for: .tabBar)
+                    .toolbarColorScheme(.light, for: .tabBar)
                 
-                Text("page 2")
+                Text("Views")
                     .tabItem {
-                        Text("page 2")
+                        TabItemView(icon: "views_tabbar", text: "Views")
                     }
+                    .toolbarBackground(.visible, for: .tabBar)
+                    .toolbarColorScheme(.light, for: .tabBar)
+                
+                Text("Results")
+                    .tabItem {
+                        TabItemView(icon: "results_tabbar", text: "Results")
+                    }
+                    .toolbarBackground(.visible, for: .tabBar)
+                    .toolbarColorScheme(.light, for: .tabBar)
+                
+                Text("Case Details")
+                    .tabItem {
+                        TabItemView(icon: "case_tabbar", text: "Case")
+                    }
+                    .toolbarBackground(.visible, for: .tabBar)
+                    .toolbarColorScheme(.light, for: .tabBar)
             }
         }
     }
@@ -30,4 +48,18 @@ struct CaseHomeScreen: View {
 
 #Preview {
     CaseHomeScreen()
+}
+
+struct TabItemView: View {
+    
+    var icon: String
+    var text: String
+    
+    var body: some View {
+        VStack {
+            Image(icon)
+                .renderingMode(.template)
+            Text(text)
+        }
+    }
 }
