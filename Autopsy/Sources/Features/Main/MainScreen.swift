@@ -70,7 +70,7 @@ struct MainScreen: View {
             }
             
         case .caseHome:
-            NavigationStack(path: $router.caseCreationPath) {
+            NavigationStack(path: $router.caseHomePath) {
                 CaseHomeScreen()
                     .navigationDestination(for: CaseHomePath.self) { path in
                         switch path {
