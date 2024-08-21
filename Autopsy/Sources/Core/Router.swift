@@ -21,7 +21,7 @@ enum CaseCreationPath: Equatable {
 }
 
 enum CaseHomePath: Equatable {
-    case test
+    case caseDetails
 }
 
 class Router: ObservableObject {

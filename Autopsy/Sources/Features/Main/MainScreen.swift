@@ -74,8 +74,8 @@ struct MainScreen: View {
                 CaseHomeScreen()
                     .navigationDestination(for: CaseHomePath.self) { path in
                         switch path {
-                        case .test:
-                            EmptyView()
+                        case .caseDetails:
+                            CaseDetailsScreen()
                         }
                     }
             }
