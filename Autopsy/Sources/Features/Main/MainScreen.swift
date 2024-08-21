@@ -54,17 +54,11 @@ struct MainScreen: View {
                 .customBackground()
                 .navigationDestination(for: CaseCreationPath.self) { path in
                     switch path {
-                    case .newCase:
-                        NewCaseView()
-                        
-                    case .addDataSourceType:
-                        AddDataSourceTypeView()
-                        
-                    case .addDataSource:
-                        SelectDataSourceView()
-                        
-                    case .ingestModules:
-                        IngestModulesView()
+                    case .mainScreen: MainScreen()
+                    case .newCase: NewCaseView()
+                    case .addDataSourceType: AddDataSourceTypeView()
+                    case .addDataSource: SelectDataSourceView()
+                    case .ingestModules: IngestModulesView()
                     }
                 }
             }
@@ -74,8 +68,11 @@ struct MainScreen: View {
                 CaseHomeScreen()
                     .navigationDestination(for: CaseHomePath.self) { path in
                         switch path {
-                        case .caseDetails:
-                            CaseDetailsScreen()
+                        case .caseDetails: CaseDetailsScreen()
+                        case .addDataSourceType: AddDataSourceTypeView()
+                        case .addDataSource: SelectDataSourceView()
+                        case .ingestModules: IngestModulesView()
+                        case .dataSourceList: CaseHomeScreen()
                         }
                     }
             }

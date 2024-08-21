@@ -14,6 +14,7 @@ enum Scenario: Equatable {
 }
 
 enum CaseCreationPath: Equatable {
+    case mainScreen
     case newCase
     case addDataSourceType
     case addDataSource
@@ -22,6 +23,10 @@ enum CaseCreationPath: Equatable {
 
 enum CaseHomePath: Equatable {
     case caseDetails
+    case dataSourceList
+    case addDataSourceType
+    case addDataSource
+    case ingestModules
 }
 
 class Router: ObservableObject {

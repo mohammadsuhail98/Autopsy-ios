@@ -50,13 +50,6 @@ struct DataSourceListScreen: View {
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
         .customBackground()
-        .navigationBarTitle("Case Name", displayMode: .inline)
-        .toolbar(.visible, for: .navigationBar)
-        .toolbar {
-            Button("Add") {
-                print("Add tapped!")
-            }
-        }
         
     }
 }
@@ -87,7 +80,7 @@ struct TitleHStackLabelValue: View {
         HStack() {
             Text(label)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .font(.custom(CFont.graphikMedium.rawValue, size: 17))
+                .font(.custom(CFont.graphikMedium.rawValue, size: 15))
                 .foregroundColor(.textColor)
             Image(systemName: "chevron.right")
                 .foregroundColor(.textColor)
@@ -107,11 +100,11 @@ struct SubtitleHStackLabelValue: View {
     var body: some View {
         HStack() {
             Text(label)
-                .font(.custom(CFont.graphikRegular.rawValue, size: 15))
+                .font(.custom(CFont.graphikRegular.rawValue, size: 14))
                 .foregroundColor(.gray)
             Text(value)
                 .frame(maxWidth: .infinity, alignment: .trailing)
-                .font(.custom(CFont.graphikRegular.rawValue, size: 15))
+                .font(.custom(CFont.graphikRegular.rawValue, size: 14))
                 .foregroundColor(.textColor)
         }
         .padding(.horizontal, 30)

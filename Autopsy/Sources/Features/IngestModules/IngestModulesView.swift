@@ -33,7 +33,8 @@ struct IngestModulesView: View {
             .listStyle(.plain)
             
             Button {
-                router.selectedScenario = .caseHome
+                router.selectedScenario == .caseCreation ? router.selectedScenario = .caseHome : router.caseHomePath.append(.dataSourceList)
+                
             } label: {
                 BorderedBtnLabelView(title: "Add Data Source")
             }

@@ -17,7 +17,7 @@ struct AddDataSourceTypeView: View {
                 TitleWithIconView(icon: "type_data_source", title: "Case Name", subtitle: "Select Type of Data Source")
                 
                 Button {
-                    router.caseCreationPath.append(.addDataSource)
+                    router.selectedScenario == .caseCreation ? router.caseCreationPath.append(.addDataSource) : router.caseHomePath.append(.addDataSource)
                 } label: {
                     DataSourceLabelView(title: "Disk Image or VM File")
                         .padding(.horizontal)

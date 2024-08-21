@@ -48,6 +48,9 @@ struct CaseScreen: View {
                 
                 CaseOptionRow(icon: "close", title: "Close Case", action: {
                     
+                    router.caseCreationPath.removeAll()
+                    router.selectedScenario = .caseCreation
+                    
                 }, iconWidth: 15, iconHeight: 15)
             }
         }

@@ -52,7 +52,7 @@ struct SelectDataSourceView: View {
             .listRowBackground(Color.clear)
             
             Button {
-                router.caseCreationPath.append(.ingestModules)
+                router.selectedScenario == .caseCreation ? router.caseCreationPath.append(.ingestModules) : router.caseHomePath.append(.ingestModules)
             } label: {
                 BorderedBtnLabelView(title: "Next")
             }
