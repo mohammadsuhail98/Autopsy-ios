@@ -43,6 +43,8 @@
 		181577882C6A3ABB007E0997 /* DataSourceListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181577872C6A3ABB007E0997 /* DataSourceListScreen.swift */; };
 		1815778B2C74825A007E0997 /* CaseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815778A2C74825A007E0997 /* CaseScreen.swift */; };
 		1815778E2C749833007E0997 /* CaseDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815778D2C749833007E0997 /* CaseDetailsScreen.swift */; };
+		181577912C773143007E0997 /* DSContentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181577902C773143007E0997 /* DSContentScreen.swift */; };
+		183DDFC82C7741ED00CE047F /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 183DDFC72C7741ED00CE047F /* PopupView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +85,7 @@
 		181577872C6A3ABB007E0997 /* DataSourceListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceListScreen.swift; sourceTree = "<group>"; };
 		1815778A2C74825A007E0997 /* CaseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseScreen.swift; sourceTree = "<group>"; };
 		1815778D2C749833007E0997 /* CaseDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDetailsScreen.swift; sourceTree = "<group>"; };
+		181577902C773143007E0997 /* DSContentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSContentScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183DDFC82C7741ED00CE047F /* PopupView in Frameworks */,
 				181577562C624B15007E0997 /* PopupView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,6 +209,7 @@
 		1815775D2C63A978007E0997 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				1815778F2C773128007E0997 /* DataSourceContent */,
 				1815778C2C749821007E0997 /* CaseDetails */,
 				181577892C748248007E0997 /* Case */,
 				181577862C6A3AA5007E0997 /* DataSourceList */,
@@ -332,6 +337,14 @@
 			path = CaseDetails;
 			sourceTree = "<group>";
 		};
+		1815778F2C773128007E0997 /* DataSourceContent */ = {
+			isa = PBXGroup;
+			children = (
+				181577902C773143007E0997 /* DSContentScreen.swift */,
+			);
+			path = DataSourceContent;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -350,6 +363,7 @@
 			name = Autopsy;
 			packageProductDependencies = (
 				181577552C624B15007E0997 /* PopupView */,
+				183DDFC72C7741ED00CE047F /* PopupView */,
 			);
 			productName = Autopsy;
 			productReference = 0BD72BD42C57E68D001918C3 /* Autopsy.app */;
@@ -436,6 +450,7 @@
 				0BD72BF02C593ECB001918C3 /* MainScreen.swift in Sources */,
 				1815775A2C63A2F5007E0997 /* NavigationBarModifier.swift in Sources */,
 				181577532C621323007E0997 /* TitleWithIconView.swift in Sources */,
+				181577912C773143007E0997 /* DSContentScreen.swift in Sources */,
 				1815774D2C60C492007E0997 /* BorderedBtnLabelView.swift in Sources */,
 				0BA3C5952C66DC6100A921AD /* CaseHomeScreen.swift in Sources */,
 				0BD72BD82C57E68D001918C3 /* AutopsyApp.swift in Sources */,
@@ -664,6 +679,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		181577552C624B15007E0997 /* PopupView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 181577542C624B15007E0997 /* XCRemoteSwiftPackageReference "PopupView" */;
+			productName = PopupView;
+		};
+		183DDFC72C7741ED00CE047F /* PopupView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 181577542C624B15007E0997 /* XCRemoteSwiftPackageReference "PopupView" */;
 			productName = PopupView;

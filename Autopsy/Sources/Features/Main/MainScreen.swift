@@ -73,6 +73,7 @@ struct MainScreen: View {
                         case .addDataSource: SelectDataSourceView()
                         case .ingestModules: IngestModulesView()
                         case .dataSourceList: CaseHomeScreen()
+                        case .dataSourceContent: DSContentScreen()
                         }
                     }
             }
