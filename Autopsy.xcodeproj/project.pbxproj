@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B4A89BC2C7B4613007565AB /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4A89BB2C7B4613007565AB /* NetworkRouter.swift */; };
+		0B4A89BF2C7B465D007565AB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0B4A89BE2C7B465D007565AB /* Alamofire */; };
+		0B4A89C12C7B465D007565AB /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0B4A89C02C7B465D007565AB /* AlamofireDynamic */; };
+		0B4A89C32C7B5014007565AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4A89C22C7B5014007565AB /* Constants.swift */; };
+		0B4A89C62C7B65D5007565AB /* CasesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4A89C52C7B65D5007565AB /* CasesManager.swift */; };
+		0B4A89C82C7B6A9B007565AB /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4A89C72C7B6A9B007565AB /* APIClient.swift */; };
 		0BA3C5882C66C29E00A921AD /* AutopsyAppAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA3C5872C66C29E00A921AD /* AutopsyAppAppDelegate.swift */; };
 		0BA3C58B2C66C40500A921AD /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA3C58A2C66C40500A921AD /* MainVM.swift */; };
 		0BA3C58E2C66C51900A921AD /* MainVMKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA3C58D2C66C51900A921AD /* MainVMKey.swift */; };
@@ -48,6 +54,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B4A89BB2C7B4613007565AB /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		0B4A89C22C7B5014007565AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0B4A89C52C7B65D5007565AB /* CasesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesManager.swift; sourceTree = "<group>"; };
+		0B4A89C72C7B6A9B007565AB /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		0BA3C5872C66C29E00A921AD /* AutopsyAppAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutopsyAppAppDelegate.swift; sourceTree = "<group>"; };
 		0BA3C58A2C66C40500A921AD /* MainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVM.swift; sourceTree = "<group>"; };
 		0BA3C58D2C66C51900A921AD /* MainVMKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVMKey.swift; sourceTree = "<group>"; };
@@ -93,6 +103,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B4A89BF2C7B465D007565AB /* Alamofire in Frameworks */,
+				0B4A89C12C7B465D007565AB /* AlamofireDynamic in Frameworks */,
 				183DDFC82C7741ED00CE047F /* PopupView in Frameworks */,
 				181577562C624B15007E0997 /* PopupView in Frameworks */,
 			);
@@ -101,6 +113,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B4A89C42C7B65C4007565AB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0B4A89C92C7B847A007565AB /* Managers */,
+				0B4A89BB2C7B4613007565AB /* NetworkRouter.swift */,
+				0B4A89C72C7B6A9B007565AB /* APIClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		0B4A89C92C7B847A007565AB /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0B4A89C52C7B65D5007565AB /* CasesManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		0BA3C5862C66C16100A921AD /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +146,7 @@
 		0BA3C5892C66C31B00A921AD /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				0B4A89C42C7B65C4007565AB /* Network */,
 				0BA3C5912C66CA1F00A921AD /* Router.swift */,
 				181577752C63ABCF007E0997 /* Utilities */,
 				1815776E2C63AA40007E0997 /* Commons */,
@@ -262,6 +293,7 @@
 				181577742C63AAB9007E0997 /* ViewModifiers */,
 				181577702C63AA4A007E0997 /* Views */,
 				1815776F2C63AA45007E0997 /* Models */,
+				0B4A89C22C7B5014007565AB /* Constants.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -364,6 +396,8 @@
 			packageProductDependencies = (
 				181577552C624B15007E0997 /* PopupView */,
 				183DDFC72C7741ED00CE047F /* PopupView */,
+				0B4A89BE2C7B465D007565AB /* Alamofire */,
+				0B4A89C02C7B465D007565AB /* AlamofireDynamic */,
 			);
 			productName = Autopsy;
 			productReference = 0BD72BD42C57E68D001918C3 /* Autopsy.app */;
@@ -395,6 +429,7 @@
 			mainGroup = 0BD72BCB2C57E68D001918C3;
 			packageReferences = (
 				181577542C624B15007E0997 /* XCRemoteSwiftPackageReference "PopupView" */,
+				0B4A89BD2C7B465D007565AB /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 0BD72BD52C57E68D001918C3 /* Products */;
 			projectDirPath = "";
@@ -431,8 +466,10 @@
 				1815778B2C74825A007E0997 /* CaseScreen.swift in Sources */,
 				1815777E2C64EF5C007E0997 /* IngestModulesView.swift in Sources */,
 				0BD72BEC2C593C75001918C3 /* NewCaseView.swift in Sources */,
+				0B4A89C82C7B6A9B007565AB /* APIClient.swift in Sources */,
 				181577882C6A3ABB007E0997 /* DataSourceListScreen.swift in Sources */,
 				181577512C60D170007E0997 /* SelectDataSourceView.swift in Sources */,
+				0B4A89C32C7B5014007565AB /* Constants.swift in Sources */,
 				181577802C660995007E0997 /* MenuView.swift in Sources */,
 				0BD72BF52C5942A2001918C3 /* UIScreen.swift in Sources */,
 				0BD72C1B2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift in Sources */,
@@ -445,7 +482,9 @@
 				0BD72BEA2C57F93A001918C3 /* Color.swift in Sources */,
 				0BA3C58E2C66C51900A921AD /* MainVMKey.swift in Sources */,
 				0BD72BF32C59428A001918C3 /* CustomFont.swift in Sources */,
+				0B4A89C62C7B65D5007565AB /* CasesManager.swift in Sources */,
 				0BD72C162C5D2C42001918C3 /* AutopsyButtonStyle.swift in Sources */,
+				0B4A89BC2C7B4613007565AB /* NetworkRouter.swift in Sources */,
 				0BD72C1D2C5D3174001918C3 /* Case.swift in Sources */,
 				0BD72BF02C593ECB001918C3 /* MainScreen.swift in Sources */,
 				1815775A2C63A2F5007E0997 /* NavigationBarModifier.swift in Sources */,
@@ -667,6 +706,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0B4A89BD2C7B465D007565AB /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
 		181577542C624B15007E0997 /* XCRemoteSwiftPackageReference "PopupView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/exyte/PopupView.git";
@@ -678,6 +725,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0B4A89BE2C7B465D007565AB /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B4A89BD2C7B465D007565AB /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		0B4A89C02C7B465D007565AB /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B4A89BD2C7B465D007565AB /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
 		181577552C624B15007E0997 /* PopupView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 181577542C624B15007E0997 /* XCRemoteSwiftPackageReference "PopupView" */;

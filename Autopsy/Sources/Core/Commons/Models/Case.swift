@@ -18,3 +18,16 @@ struct Case: Identifiable, Equatable {
         self.creationDate = creationDate
     }
 }
+
+struct CaseEntity: Codable {
+    var id: Int?
+    var deviceID, casePath, creationDate, name: String?
+    var number, type: Int?
+    var examinerName, examinerPhone, examinerEmail, examinerNotes: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case deviceID = "deviceId"
+        case casePath, creationDate, name, number, type, examinerName, examinerPhone, examinerEmail, examinerNotes
+    }
+}
