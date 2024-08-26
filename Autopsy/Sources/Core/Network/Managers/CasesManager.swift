@@ -10,41 +10,41 @@ import Alamofire
 
 class CasesManager: APIClient {
     
-    class func createCase(caseRequest: CreateCaseRequest, successBlock: ((CaseEntity) -> Void)? = nil, errorBlock: ((String) -> Void)? = nil) {
+    class func createCase(caseRequest: CreateCaseRequest, successBlock: ((CaseEntity) -> Void)? = nil, errorBlock: ((AutopsyError) -> Void)? = nil) {
         
         var parameters: [String : Any] = [CreateCaseRequest.keys.name : caseRequest.name,
                                           CreateCaseRequest.keys.deviceId : caseRequest.deviceId]
         
-        if caseRequest.number != -1 { parameters[CreateCaseRequest.keys.number] = caseRequest.number }
-        if let examinerName = caseRequest.examinerName { parameters[CreateCaseRequest.keys.examinerName] = examinerName }
-        if let examinerPhone = caseRequest.examinerPhone { parameters[CreateCaseRequest.keys.examinerPhone] = examinerPhone }
-        if let examinerEmail = caseRequest.examinerEmail { parameters[CreateCaseRequest.keys.examinerEmail] = examinerEmail }
-        if let examinerNotes = caseRequest.examinerNotes { parameters[CreateCaseRequest.keys.examinerNotes] = examinerNotes }
+        if Int(caseRequest.number) ?? -1 != -1 { parameters[CreateCaseRequest.keys.number] = caseRequest.number }
+        if !caseRequest.examinerName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { parameters[CreateCaseRequest.keys.examinerName] = caseRequest.examinerName }
+        if !caseRequest.examinerPhone.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { parameters[CreateCaseRequest.keys.examinerPhone] = caseRequest.examinerPhone }
+        if !caseRequest.examinerEmail.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { parameters[CreateCaseRequest.keys.examinerEmail] = caseRequest.examinerEmail }
+        if !caseRequest.examinerNotes.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { parameters[CreateCaseRequest.keys.examinerNotes] = caseRequest.examinerNotes }
 
-        if (caseRequest.deviceId.isEmpty) { errorBlock?("Failed to get device ID") }
+        if (caseRequest.deviceId.isEmpty) { errorBlock?(AutopsyError.error("Failed to get device ID", 0)) }
         
-        createRequest(withRoute: .createCase, parameters: parameters) { (result: Result<CaseEntity, Error>) in
+        createRequest(withRoute: .createCase, parameters: parameters) { (result: Result<CaseEntity, AutopsyError>) in
             switch result {
             case .success(let caseDetails):
                 successBlock?(caseDetails)
             case .failure(let error):
-                errorBlock?(error.localizedDescription)
+                errorBlock?(error)
             }
         }
         
     }
     
-    class func getCase(caseId: Int, successBlock: ((CaseEntity) -> Void)? = nil, errorBlock: ((NSError) -> Void)? = nil) {
+    class func getCase(caseId: Int, successBlock: ((CaseEntity) -> Void)? = nil, errorBlock: ((AutopsyError) -> Void)? = nil) {
         
-        createRequest(withRoute: .getCaseDetails(caseId)) { (result: Result<CaseEntity, Error>) in
+        createRequest(withRoute: .getCaseDetails(caseId)) { (result: Result<CaseEntity, AutopsyError>) in
             switch result {
             case .success(let caseDetails):
                 print("Case details: \(caseDetails)")
             case .failure(let error):
-                print("Error: \(error.localizedDescription)")
+                errorBlock?(error)
             }
         }
-            
+        
     }
     
 }
@@ -61,10 +61,10 @@ struct CreateCaseRequest {
     }
     
     var name = ""
-    var number = -1
+    var number = ""
     var deviceId = ""
-    var examinerName: String?
-    var examinerPhone: String?
-    var examinerEmail: String?
-    var examinerNotes: String?
+    var examinerName = ""
+    var examinerPhone = ""
+    var examinerEmail = ""
+    var examinerNotes = ""
 }

@@ -23,7 +23,7 @@
 		0BD72BD82C57E68D001918C3 /* AutopsyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BD72C57E68D001918C3 /* AutopsyApp.swift */; };
 		0BD72BDC2C57E690001918C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BD72BDB2C57E690001918C3 /* Assets.xcassets */; };
 		0BD72BEA2C57F93A001918C3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BE92C57F93A001918C3 /* Color.swift */; };
-		0BD72BEC2C593C75001918C3 /* NewCaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BEB2C593C75001918C3 /* NewCaseView.swift */; };
+		0BD72BEC2C593C75001918C3 /* NewCaseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BEB2C593C75001918C3 /* NewCaseScreen.swift */; };
 		0BD72BF02C593ECB001918C3 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BEF2C593ECB001918C3 /* MainScreen.swift */; };
 		0BD72BF32C59428A001918C3 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BF22C59428A001918C3 /* CustomFont.swift */; };
 		0BD72BF52C5942A2001918C3 /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD72BF42C5942A2001918C3 /* UIScreen.swift */; };
@@ -53,6 +53,11 @@
 		1815778E2C749833007E0997 /* CaseDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815778D2C749833007E0997 /* CaseDetailsScreen.swift */; };
 		181577912C773143007E0997 /* DSContentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181577902C773143007E0997 /* DSContentScreen.swift */; };
 		183DDFC82C7741ED00CE047F /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 183DDFC72C7741ED00CE047F /* PopupView */; };
+		184D18682C7C76FA0093D28D /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 184D18672C7C76FA0093D28D /* ActivityIndicatorView */; };
+		184D186A2C7C85310093D28D /* ActivityIndicatorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D18692C7C85310093D28D /* ActivityIndicatorModifier.swift */; };
+		184D186C2C7C8FDA0093D28D /* LoadingHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D186B2C7C8FDA0093D28D /* LoadingHUDView.swift */; };
+		184D186F2C7CC5D50093D28D /* AutopsyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D186E2C7CC5D50093D28D /* AutopsyError.swift */; };
+		184D18722C7CC6580093D28D /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 184D18712C7CC6580093D28D /* SwiftyJSON */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,7 +75,7 @@
 		0BD72BD72C57E68D001918C3 /* AutopsyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutopsyApp.swift; sourceTree = "<group>"; };
 		0BD72BDB2C57E690001918C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BD72BE92C57F93A001918C3 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		0BD72BEB2C593C75001918C3 /* NewCaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCaseView.swift; sourceTree = "<group>"; };
+		0BD72BEB2C593C75001918C3 /* NewCaseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCaseScreen.swift; sourceTree = "<group>"; };
 		0BD72BEF2C593ECB001918C3 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		0BD72BF22C59428A001918C3 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		0BD72BF42C5942A2001918C3 /* UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
@@ -99,6 +104,9 @@
 		1815778A2C74825A007E0997 /* CaseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseScreen.swift; sourceTree = "<group>"; };
 		1815778D2C749833007E0997 /* CaseDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDetailsScreen.swift; sourceTree = "<group>"; };
 		181577902C773143007E0997 /* DSContentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSContentScreen.swift; sourceTree = "<group>"; };
+		184D18692C7C85310093D28D /* ActivityIndicatorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorModifier.swift; sourceTree = "<group>"; };
+		184D186B2C7C8FDA0093D28D /* LoadingHUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingHUDView.swift; sourceTree = "<group>"; };
+		184D186E2C7CC5D50093D28D /* AutopsyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutopsyError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,9 +115,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B4A89CC2C7BA866007565AB /* FormValidator in Frameworks */,
+				184D18722C7CC6580093D28D /* SwiftyJSON in Frameworks */,
 				0B4A89BF2C7B465D007565AB /* Alamofire in Frameworks */,
 				0B4A89C12C7B465D007565AB /* AlamofireDynamic in Frameworks */,
 				183DDFC82C7741ED00CE047F /* PopupView in Frameworks */,
+				184D18682C7C76FA0093D28D /* ActivityIndicatorView in Frameworks */,
 				181577562C624B15007E0997 /* PopupView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,6 +133,7 @@
 				0B4A89C92C7B847A007565AB /* Managers */,
 				0B4A89BB2C7B4613007565AB /* NetworkRouter.swift */,
 				0B4A89C72C7B6A9B007565AB /* APIClient.swift */,
+				184D186E2C7CC5D50093D28D /* AutopsyError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -270,7 +281,7 @@
 		1815775F2C63A995007E0997 /* NewCase */ = {
 			isa = PBXGroup;
 			children = (
-				0BD72BEB2C593C75001918C3 /* NewCaseView.swift */,
+				0BD72BEB2C593C75001918C3 /* NewCaseScreen.swift */,
 				0B4A89CD2C7BAC79007565AB /* NewCaseVM.swift */,
 			);
 			path = NewCase;
@@ -321,6 +332,7 @@
 				181577522C621323007E0997 /* TitleWithIconView.swift */,
 				181577572C6262CE007E0997 /* EntryFieldStackView.swift */,
 				1815777F2C660995007E0997 /* MenuView.swift */,
+				184D186B2C7C8FDA0093D28D /* LoadingHUDView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -329,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				181577592C63A2F5007E0997 /* NavigationBarModifier.swift */,
+				184D18692C7C85310093D28D /* ActivityIndicatorModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -404,6 +417,8 @@
 				0B4A89BE2C7B465D007565AB /* Alamofire */,
 				0B4A89C02C7B465D007565AB /* AlamofireDynamic */,
 				0B4A89CB2C7BA866007565AB /* FormValidator */,
+				184D18672C7C76FA0093D28D /* ActivityIndicatorView */,
+				184D18712C7CC6580093D28D /* SwiftyJSON */,
 			);
 			productName = Autopsy;
 			productReference = 0BD72BD42C57E68D001918C3 /* Autopsy.app */;
@@ -437,6 +452,8 @@
 				181577542C624B15007E0997 /* XCRemoteSwiftPackageReference "PopupView" */,
 				0B4A89BD2C7B465D007565AB /* XCRemoteSwiftPackageReference "Alamofire" */,
 				0B4A89CA2C7BA866007565AB /* XCRemoteSwiftPackageReference "SwiftUIFormValidator" */,
+				184D18662C7C76FA0093D28D /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
+				184D18702C7CC6580093D28D /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 0BD72BD52C57E68D001918C3 /* Products */;
 			projectDirPath = "";
@@ -472,7 +489,7 @@
 			files = (
 				1815778B2C74825A007E0997 /* CaseScreen.swift in Sources */,
 				1815777E2C64EF5C007E0997 /* IngestModulesView.swift in Sources */,
-				0BD72BEC2C593C75001918C3 /* NewCaseView.swift in Sources */,
+				0BD72BEC2C593C75001918C3 /* NewCaseScreen.swift in Sources */,
 				0B4A89C82C7B6A9B007565AB /* APIClient.swift in Sources */,
 				181577882C6A3ABB007E0997 /* DataSourceListScreen.swift in Sources */,
 				181577512C60D170007E0997 /* SelectDataSourceView.swift in Sources */,
@@ -482,10 +499,12 @@
 				0BD72BF52C5942A2001918C3 /* UIScreen.swift in Sources */,
 				0BD72C1B2C5D2CAB001918C3 /* RoundedTextFieldStyle.swift in Sources */,
 				1815778E2C749833007E0997 /* CaseDetailsScreen.swift in Sources */,
+				184D186F2C7CC5D50093D28D /* AutopsyError.swift in Sources */,
 				1815775C2C63A3AE007E0997 /* View.swift in Sources */,
 				0BA3C58B2C66C40500A921AD /* MainVM.swift in Sources */,
 				0BD72C192C5D2C74001918C3 /* backgroundView.swift in Sources */,
 				0BA3C5882C66C29E00A921AD /* AutopsyAppAppDelegate.swift in Sources */,
+				184D186C2C7C8FDA0093D28D /* LoadingHUDView.swift in Sources */,
 				0BA3C5922C66CA1F00A921AD /* Router.swift in Sources */,
 				0BD72BEA2C57F93A001918C3 /* Color.swift in Sources */,
 				0BA3C58E2C66C51900A921AD /* MainVMKey.swift in Sources */,
@@ -501,6 +520,7 @@
 				1815774D2C60C492007E0997 /* BorderedBtnLabelView.swift in Sources */,
 				0BA3C5952C66DC6100A921AD /* CaseHomeScreen.swift in Sources */,
 				0BD72BD82C57E68D001918C3 /* AutopsyApp.swift in Sources */,
+				184D186A2C7C85310093D28D /* ActivityIndicatorModifier.swift in Sources */,
 				181577582C6262CE007E0997 /* EntryFieldStackView.swift in Sources */,
 				1815774F2C60CD02007E0997 /* AddDataSourceTypeView.swift in Sources */,
 			);
@@ -738,6 +758,22 @@
 				minimumVersion = 3.0.5;
 			};
 		};
+		184D18662C7C76FA0093D28D /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/ActivityIndicatorView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.1;
+			};
+		};
+		184D18702C7CC6580093D28D /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -765,6 +801,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 181577542C624B15007E0997 /* XCRemoteSwiftPackageReference "PopupView" */;
 			productName = PopupView;
+		};
+		184D18672C7C76FA0093D28D /* ActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 184D18662C7C76FA0093D28D /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */;
+			productName = ActivityIndicatorView;
+		};
+		184D18712C7CC6580093D28D /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 184D18702C7CC6580093D28D /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

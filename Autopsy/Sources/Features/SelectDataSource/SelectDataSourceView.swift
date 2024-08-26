@@ -10,7 +10,7 @@ import SwiftUI
 struct SelectDataSourceView: View {
     
     @EnvironmentObject private var router: Router
-
+    
     let timeZones: [String] = TimeZone.knownTimeZoneIdentifiers
     let sectorSizes: [String] = ["Auto Detect","128","256","512","1024"]
     @State var isOrphanFiles: Bool = false
@@ -42,7 +42,12 @@ struct SelectDataSourceView: View {
             .frame(maxWidth: .infinity)
             .listRowBackground(Color.clear)
             
-            Section(header: SectionTitleView(title: "Hash Values")) {
+            Section(header: Text("Hash Values")
+                .font(.custom(CFont.graphikMedium.rawValue, size: 17))
+                .foregroundColor(.textColor)
+                .frame(width: UIScreen.screenWidth - 75, height: 50)
+                .textCase(.none)
+            ) {
                 EntryFieldStackView(titleText: "MD5", value: $md5, optional: true)
                 EntryFieldStackView(titleText: "SHA-1", value: $sha1, optional: true)
                 EntryFieldStackView(titleText: "SHA-256", value: $sha256, optional: true)

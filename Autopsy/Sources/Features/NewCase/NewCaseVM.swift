@@ -10,39 +10,32 @@ import Combine
 import UIKit
 
 class NewCaseVM: ObservableObject {
-    
-    @Published var caseName: String = ""
-    @Published var caseNumber: String = ""
-    @Published var examinerName: String = ""
-    @Published var phone: String = ""
-    @Published var email: String = ""
-    @Published var notes: String = ""
-    
-    func sendData(){
+
+    @Published var loading: Bool = false
+    @Published var caseRequest = CreateCaseRequest()
+
+    func sendData(successBlock: ((CaseEntity) -> Void)? = nil, errorBlock: ((String) -> Void)? = nil){
         guard caseNameValid() else {
-            print("case Name is not valid")
+            errorBlock?("case Name is not valid")
             return
         }
+        self.loading = true
         
-        var caseRequest = CreateCaseRequest()
-        caseRequest.name = caseName
-        caseRequest.number = Int(caseNumber) ?? -1
-        caseRequest.examinerName = examinerName
-        caseRequest.examinerEmail = email
-        caseRequest.examinerPhone = phone
-        caseRequest.examinerNotes = notes
-        caseRequest.deviceId = UIDevice.current.identifierForVendor?.uuidString ?? ""
+        caseRequest.deviceId = Constants.deviceId
         
         CasesManager.createCase(caseRequest: caseRequest) { caseDetails in
-            print("case created: \(caseDetails)")
+            self.loading = false
+            successBlock?(caseDetails)
         } errorBlock: { error in
+            self.loading = false
+            errorBlock?(error.errorMsg)
             print(error)
         }
         
     }
     
     func caseNameValid() -> Bool {
-        return !caseName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        return !caseRequest.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
     
 }
