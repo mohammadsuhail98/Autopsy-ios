@@ -7,12 +7,15 @@
 
 import SwiftUI
 import PopupView
+import FormValidator
+
 
 struct NewCaseView: View {
+    @StateObject var vm = NewCaseVM()
+    
     @EnvironmentObject private var router: Router
     
     @State private var caseName: String = ""
-    @State private var caseType: CaseType = .singleUser
     @State private var caseNumber: String = ""
     @State private var examinerName: String = ""
     @State private var phone: String = ""
@@ -20,44 +23,24 @@ struct NewCaseView: View {
     @State private var notes: String = ""
     @State private var showingResultPopup = false
     
-    enum CaseType: String, CaseIterable, Identifiable {
-        case singleUser = "Single-User"
-        case multiUser = "Multi-User"
-        
-        var id: String { self.rawValue }
-    }
-    
     var body: some View {
         Form {
             
             Section(header: SectionTitleView(title: "New Case Information")) {
-                
-                EntryFieldStackView(titleText: "Case Name", value: $caseName)
-                
-                //TODO: Review if Case_type field should be implemented
-                Picker("Case Type", selection: $caseType) {
-                    ForEach(CaseType.allCases) { type in
-                        Text(type.rawValue).tag(type)
-                    }
-                }
-                .listRowSeparator(.hidden)
-                .pickerStyle(SegmentedPickerStyle())
-                .padding(.vertical, 5)
-                .listRowBackground(Color.background)
-                
-                EntryFieldStackView(titleText: "Case Number", value: $caseNumber)
+                EntryFieldStackView(titleText: "Case Name", value: $vm.caseName)
+                EntryFieldStackView(titleText: "Case Number", value: $vm.caseNumber, optional: true)
             }
             
-            
             Section(header: SectionTitleView(title: "Examiner Information")) {
-                EntryFieldStackView(titleText: "Name", value: $examinerName, optional: true)
-                EntryFieldStackView(titleText: "Phone", value: $phone, optional: true)
-                EntryFieldStackView(titleText: "Email", value: $email, optional: true)
-                TextEditorView(titleText: "Notes", value: $notes)
+                EntryFieldStackView(titleText: "Name", value: $vm.examinerName, optional: true)
+                EntryFieldStackView(titleText: "Phone", value: $vm.phone, optional: true)
+                EntryFieldStackView(titleText: "Email", value: $vm.email, optional: true)
+                TextEditorView(titleText: "Notes", value: $vm.notes)
             }
             
             Button {
-                showingResultPopup = true
+                vm.sendData()
+//                showingResultPopup = true
             } label: {
                 BorderedBtnLabelView(title: "Finish")
             }
