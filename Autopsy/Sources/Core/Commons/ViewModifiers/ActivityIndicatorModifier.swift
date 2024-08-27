@@ -18,7 +18,6 @@ struct ActivityIndicatorModifier: AnimatableModifier {
     func body(content: Content) -> some View {
         ZStack {
             if isLoading {
-                
                 ZStack(alignment: .center) {
                     content
                     LoadingHUDView(loading: $isLoading)

@@ -14,10 +14,6 @@ class MainVM: ObservableObject {
     @Published var errMsg: String = ""
     @Published var showErrorPopup: Bool = false
     
-    init() {
-        
-    }
-    
     func getCases(){
         CasesManager.getCases { [weak self] cases in
             guard let self else { return }
