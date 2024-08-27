@@ -10,7 +10,7 @@ import PopupView
 
 struct MainScreen: View {
     
-    @EnvironmentObject private var vm = MainVM()
+    @ObservedObject private var vm = MainVM()
     @EnvironmentObject private var router: Router
 
     var body: some View {
