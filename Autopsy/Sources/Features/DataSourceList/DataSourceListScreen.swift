@@ -14,50 +14,87 @@ struct DataSourceListScreen: View {
         
     var body: some View {
         ZStack {
-            List {
-                Section {
-                    Text("Data Sources")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .frame(height: 60)
-                        .font(.custom(CFont.graphikMedium.rawValue, size: 20))
-                        .foregroundColor(.textColor)
-                        .padding(.horizontal, 30)
+            
+            if vm.shoudShowEmptyState {
+                DataSourcesEmptyView {
+                    router.caseHomePath.append(.addDataSourceType)
                 }
-                .listRowBackground(Color.clear)
-                .listRowInsets(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
-                .listRowSeparator(.hidden)
-                
-                ForEach(vm.dataSources) { item in
-                    DataSourceCardView(dataSource: item) { id in
-                        router.caseHomePath.append(.dataSourceContent)
+            } else {
+                List {
+                    Section {
+                        Text("Data Sources")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .frame(height: 60)
+                            .font(.custom(CFont.graphikMedium.rawValue, size: 20))
+                            .foregroundColor(.textColor)
+                            .padding(.horizontal, 30)
                     }
+                    .listRowBackground(Color.clear)
+                    .listRowInsets(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
+                    .listRowSeparator(.hidden)
+                    
+                    ForEach(vm.dataSources) { item in
+                        DataSourceCardView(dataSource: item) { id in
+                            router.caseHomePath.append(.dataSourceContent)
+                        }
+                    }
+                    .shadow(color: .shadow, radius: 2, x: 1, y: 1)
+                    .listRowBackground(Color.clear)
+                    .listRowInsets(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
+                    .listRowSeparator(.hidden)
                 }
-                .shadow(color: .shadow, radius: 2, x: 1, y: 1)
-                .listRowBackground(Color.clear)
-                .listRowInsets(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
-                .listRowSeparator(.hidden)
-            }
-            .listStyle(.plain)
-            .scrollContentBackground(.hidden)
-            .customBackground()
-            .onAppear {
-                vm.getDataSourceList()
-            }
-            .popup(isPresented: $vm.showErrorPopup) {
-                ErrorToastView(msg: vm.errMsg)
-            } customize: { $0
-                .type(.floater())
-                .position(.bottom)
-                .animation(.spring())
-                .closeOnTapOutside(true)
-                .autohideIn(2)
-            }
-            .refreshable {
-                vm.getDataSourceList()
+                .listStyle(.plain)
+                .scrollContentBackground(.hidden)
+                .customBackground()
+                .onAppear {
+                    vm.getDataSourceList()
+                }
+                .popup(isPresented: $vm.showErrorPopup) {
+                    ErrorToastView(msg: vm.errMsg)
+                } customize: { $0
+                    .type(.floater())
+                    .position(.bottom)
+                    .animation(.spring())
+                    .closeOnTapOutside(true)
+                    .autohideIn(2)
+                }
+                .refreshable {
+                    vm.getDataSourceList()
+                }
             }
             
             if vm.loading { LoadingHUDView(loading: $vm.loading) }
         }
+    }
+}
+
+struct DataSourcesEmptyView: View {
+    
+    var completion: (() -> Void)?
+    
+    var body: some View {
+        Spacer()
+        
+        VStack {
+            Image("no_data_sources")
+            
+            Text("No Data Sources Yet!")
+                .frame(maxWidth: .infinity, alignment: .center)
+                .font(.custom(CFont.graphikMedium.rawValue, size: 15))
+                .foregroundColor(.textColor)
+                .padding(.vertical, 10)
+            
+            Button {
+                completion?()
+            } label: {
+                BorderedBtnLabelView(title: "Add Data Source")
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.horizontal, 50)
+        .frame(height: 400)
+        
+        Spacer()
     }
 }
 
@@ -82,8 +119,6 @@ struct DataSourceCardView: View {
             .background(Color.white)
             .cornerRadius(0)
         }
-        
-
     }
 }
 

@@ -14,6 +14,7 @@ class DataSourceListVM: ObservableObject {
     @Published var errMsg: String = ""
     @Published var showErrorPopup: Bool = false
     @Published var loading: Bool = false
+    @Published var shoudShowEmptyState: Bool = false
 
     func getDataSourceList(){
         guard let caseEntity = FocusedCase.shared.getCase() else { return }
@@ -21,7 +22,10 @@ class DataSourceListVM: ObservableObject {
         
         DataSourceManager.getDataSources(caseId: caseEntity.id ?? 0) { [weak self] dataSourceList in
             guard let self else { return }
+            
             self.loading = false
+            self.shoudShowEmptyState = dataSourceList.isEmpty
+            
             self.dataSources = dataSourceList
             
         } errorBlock: { [weak self] error in
