@@ -102,6 +102,7 @@ struct MainScreen: View {
                         case .ingestModules: IngestModulesView()
                         case .dataSourceList: CaseHomeScreen()
                         case .dataSourceContent: DSContentScreen()
+                        case .newCase: NewCaseScreen()
                         }
                     }
             }

@@ -19,23 +19,23 @@ struct CaseScreen: View {
                 CaseOptionRow(icon: "case_details", title: "Case Details", action: {
                     router.caseHomePath.append(.caseDetails)
                 })
+                
+                CaseOptionRow(icon: "new_case", title: "New Case", action: {
+                    router.caseHomePath.append(.newCase)
+                })
             }
             
             Section {
                 
-                CaseOptionRow(icon: "new_case", title: "New Case", action: {
-
-                })
-                
                 CaseOptionRow(icon: "open_case", title: "Open Case", action: {
-
+                    
                 })
             }
             
             Section {
                 
                 CaseOptionRow(icon: "add", title: "Add Data Source", action: {
-
+                    router.caseHomePath.append(.addDataSourceType)
                 }, iconWidth: 20, iconHeight: 20)
             }
             

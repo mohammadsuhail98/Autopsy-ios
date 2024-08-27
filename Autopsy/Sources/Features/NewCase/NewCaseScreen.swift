@@ -46,6 +46,7 @@ struct NewCaseScreen: View {
                 
                 Button {
                     vm.sendData { caseEntity in
+                        FocusedCase.shared.setCase(caseItem: caseEntity)
                         showingResultPopup = true
                     } errorBlock: { error in
                         
@@ -66,11 +67,7 @@ struct NewCaseScreen: View {
         }
         .popup(isPresented: $showingResultPopup) {
             ResultPopupView { tag in
-                if tag == 0 {
-                    router.caseCreationPath.append(.addDataSourceType)
-                } else {
-                    router.selectedScenario = .caseHome
-                }
+                vm.updateRoutes(tag, router: router)
             }
         } customize: { $0
             .isOpaque(true)

@@ -39,6 +39,24 @@ class NewCaseVM: ObservableObject {
         
     }
     
+    func updateRoutes(_ tag: Int, router: Router){
+        let isCaseCreation = router.selectedScenario == .caseCreation
+
+        if tag == 0 {
+            if isCaseCreation {
+                router.caseCreationPath.append(.addDataSourceType)
+            } else {
+                router.caseHomePath.append(.dataSourceList)
+            }
+        } else {
+            if isCaseCreation {
+                router.selectedScenario = .caseHome
+            } else {
+                router.caseHomePath.append(.dataSourceList)
+            }
+        }
+    }
+    
     func caseNameValid() -> Bool {
         return !caseRequest.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
