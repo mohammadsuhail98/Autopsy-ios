@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct CaseDetailsScreen: View {
+    
+    @StateObject var vm = CaseDetailsVM()
+
     var body: some View {
-        
         
         List {
              Section(header: HStack {
@@ -23,22 +25,15 @@ struct CaseDetailsScreen: View {
                  Button(action: {
 
                  }) {
-                     Text("Edit")
-                         .font(.custom(CFont.graphikRegular.rawValue, size: 12))
-                         .foregroundColor(Color.themeBlue)
-                         .padding(.horizontal)
-                         .padding(.vertical, 6)
-                         .overlay(
-                             RoundedRectangle(cornerRadius: 3)
-                                 .stroke(Color.themeBlue, lineWidth: 1)
-                         )
+                     CaseDetailsEditButton()
                  }
+                 
              }) {
-                 CaseDetailRow(label: "Case Name", value: "Forensics Test Case")
-                 CaseDetailRow(label: "Case Number", value: "23")
-                 CaseDetailRow(label: "Created Date", value: "2024/07/10 23:54:00 (CEST)")
-                 CaseDetailRow(label: "Case Type", value: "Single-User Case")
-                 CaseDetailRow(label: "Case UUID", value: "99c1cc72-c618-4566-aead-efe316082f1d")
+                 CaseDetailRow(label: "Case Name", value: vm.caseDetails.name ?? "")
+                 CaseDetailRow(label: "Case Number", value: "\(vm.caseDetails.number ?? 0)")
+                 CaseDetailRow(label: "Created Date", value: vm.caseDetails.formattedDate)
+                 CaseDetailRow(label: "Case Type", value: "Single-User")
+                 CaseDetailRow(label: "Case UUID", value: vm.caseDetails.deviceID ?? "")
              }
              .listRowBackground(Color.white)
              .headerProminence(.increased)
@@ -54,31 +49,37 @@ struct CaseDetailsScreen: View {
                  
                  Button(action: {
                     
-                     
                  }) {
-                     Text("Edit")
-                         .font(.custom(CFont.graphikRegular.rawValue, size: 12))
-                         .foregroundColor(Color.themeBlue)
-                         .padding(.horizontal)
-                         .padding(.vertical, 6)
-                         .overlay(
-                             RoundedRectangle(cornerRadius: 3)
-                                 .stroke(Color.themeBlue, lineWidth: 1)
-                         )
+                    CaseDetailsEditButton()
                  }
              }) {
-                 CaseDetailRow(label: "Name", value: "Test Examiner")
-                 CaseDetailRow(label: "Phone", value: "+34 542 56 37 14")
-                 CaseDetailRow(label: "Email", value: "email@email.com")
-                 CaseDetailRow(label: "Notes", value: "No Notes")
+                 CaseDetailRow(label: "Name", value: vm.caseDetails.examinerName ?? "")
+                 CaseDetailRow(label: "Phone", value: vm.caseDetails.examinerPhone ?? "")
+                 CaseDetailRow(label: "Email", value: vm.caseDetails.examinerEmail ?? "")
+                 CaseDetailRow(label: "Notes", value: vm.caseDetails.examinerNotes ?? "")
              }
              .listRowBackground(Color.white)
              .headerProminence(.increased)
          }
+        .navigationTitle("Case Details")
         .scrollContentBackground(.hidden)
         .shadow(color: .shadow, radius: 2, x: 1, y: 1)
         .customBackground()
 
+    }
+}
+
+struct CaseDetailsEditButton: View {
+    var body: some View {
+        Text("Edit")
+            .font(.custom(CFont.graphikRegular.rawValue, size: 12))
+            .foregroundColor(Color.themeBlue)
+            .padding(.horizontal)
+            .padding(.vertical, 6)
+            .overlay(
+                RoundedRectangle(cornerRadius: 3)
+                    .stroke(Color.themeBlue, lineWidth: 1)
+            )
     }
 }
 

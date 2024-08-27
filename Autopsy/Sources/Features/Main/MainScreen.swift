@@ -13,6 +13,8 @@ struct MainScreen: View {
     @EnvironmentObject private var vm: MainVM
     @EnvironmentObject private var router: Router
 
+    @StateObject var caseDetailsVM = CaseDetailsVM()
+
     var body: some View {
         
         switch router.selectedScenario {
@@ -92,7 +94,9 @@ struct MainScreen: View {
                 CaseHomeScreen()
                     .navigationDestination(for: CaseHomePath.self) { path in
                         switch path {
-                        case .caseDetails: CaseDetailsScreen()
+                        case .caseDetails: 
+                            CaseDetailsScreen()
+                                .environmentObject(caseDetailsVM)
                         case .addDataSourceType: AddDataSourceTypeView()
                         case .addDataSource: SelectDataSourceView()
                         case .ingestModules: IngestModulesView()
