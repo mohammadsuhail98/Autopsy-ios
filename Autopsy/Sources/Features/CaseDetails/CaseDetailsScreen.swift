@@ -6,80 +6,177 @@
 //
 
 import SwiftUI
+import PopupView
 
 struct CaseDetailsScreen: View {
     
     @StateObject var vm = CaseDetailsVM()
+    @State var showEditCaseSheet: Bool = false
 
     var body: some View {
         
         List {
-             Section(header: HStack {
-                 Text("Case Details")
-                     .font(.custom(CFont.graphikMedium.rawValue, size: 17))
-                     .foregroundColor(.textColor)
-                     .padding(.vertical, 10)
-
-                 Spacer()
-                 
-                 Button(action: {
-
-                 }) {
-                     CaseDetailsEditButton()
-                 }
-                 
-             }) {
-                 CaseDetailRow(label: "Case Name", value: vm.caseDetails.name ?? "")
-                 CaseDetailRow(label: "Case Number", value: "\(vm.caseDetails.number ?? 0)")
-                 CaseDetailRow(label: "Created Date", value: vm.caseDetails.formattedDate)
-                 CaseDetailRow(label: "Case Type", value: "Single-User")
-                 CaseDetailRow(label: "Case UUID", value: vm.caseDetails.deviceID ?? "")
-             }
-             .listRowBackground(Color.white)
-             .headerProminence(.increased)
+            Section(header:
+                        Text("Case Details")
+                .font(.custom(CFont.graphikMedium.rawValue, size: 17))
+                .foregroundColor(.textColor)
+                .padding(.vertical, 10)
+            ) {
+                CaseDetailRow(label: "Case Name", value: vm.caseDetails.name ?? "")
+                CaseDetailRow(label: "Case Number", value: "\(vm.caseDetails.number ?? 0)")
+                CaseDetailRow(label: "Created Date", value: vm.caseDetails.formattedDate)
+                CaseDetailRow(label: "Case Type", value: "Single-User")
+                CaseDetailRow(label: "Case UUID", value: vm.caseDetails.deviceID ?? "")
+            }
+            .listRowBackground(Color.white)
+            .headerProminence(.increased)
             
-             Section(header: HStack {
-                 
-                 Text("Examiner Details")
-                     .font(.custom(CFont.graphikMedium.rawValue, size: 17))
-                     .foregroundColor(.textColor)
-                     .padding(.vertical, 10)
-                 
-                 Spacer()
-                 
-                 Button(action: {
-                    
-                 }) {
-                    CaseDetailsEditButton()
-                 }
-             }) {
-                 CaseDetailRow(label: "Name", value: vm.caseDetails.examinerName ?? "")
-                 CaseDetailRow(label: "Phone", value: vm.caseDetails.examinerPhone ?? "")
-                 CaseDetailRow(label: "Email", value: vm.caseDetails.examinerEmail ?? "")
-                 CaseDetailRow(label: "Notes", value: vm.caseDetails.examinerNotes ?? "")
-             }
-             .listRowBackground(Color.white)
-             .headerProminence(.increased)
-         }
+            Section(header:
+                        Text("Examiner Details")
+                .font(.custom(CFont.graphikMedium.rawValue, size: 17))
+                .foregroundColor(.textColor)
+                .padding(.vertical, 10)
+            ) {
+                CaseDetailRow(label: "Name", value: vm.caseDetails.examinerName ?? "")
+                CaseDetailRow(label: "Phone", value: vm.caseDetails.examinerPhone ?? "")
+                CaseDetailRow(label: "Email", value: vm.caseDetails.examinerEmail ?? "")
+                CaseDetailRow(label: "Notes", value: vm.caseDetails.examinerNotes ?? "")
+            }
+            .listRowBackground(Color.white)
+            .headerProminence(.increased)
+        }
         .navigationTitle("Case Details")
         .scrollContentBackground(.hidden)
         .shadow(color: .shadow, radius: 2, x: 1, y: 1)
         .customBackground()
-
+        .popup(isPresented: $showEditCaseSheet) {
+            EditCaseSheet(isShowing: $showEditCaseSheet,
+                          caseNumber: "\(vm.caseDetails.number ?? 0)",
+                          name: vm.caseDetails.examinerName ?? "",
+                          phone: vm.caseDetails.examinerPhone ?? "",
+                          email: vm.caseDetails.examinerEmail ?? "",
+                          notes: vm.caseDetails.examinerNotes ?? "") { number, exName, exPhone, exEmail, exNotes in
+                print(exName)
+            }
+        } customize: { $0
+                .position(.bottom)
+                .closeOnTap(false)
+                .closeOnTapOutside(true)
+                .backgroundColor(.black.opacity(0.4))
+                .isOpaque(true)
+                .useKeyboardSafeArea(true)
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .primaryAction) {
+                Button {
+                    showEditCaseSheet = true
+                } label: {
+                    Text("Edit")
+                        .font(.custom(CFont.graphikMedium.rawValue, size: 15))
+                        .foregroundColor(Color.textColor)
+                }
+            }
+        }
+        
     }
 }
 
-struct CaseDetailsEditButton: View {
+private struct EditCaseSheet: View {
+    
+    @Binding var isShowing: Bool
+
+    @State var caseNumber: String = ""
+    @State var name: String = ""
+    @State var phone: String = ""
+    @State var email: String = ""
+    @State var notes: String = ""
+
+    var completion: ((String, String, String, String, String)->())
+    
     var body: some View {
-        Text("Edit")
-            .font(.custom(CFont.graphikRegular.rawValue, size: 12))
-            .foregroundColor(Color.themeBlue)
-            .padding(.horizontal)
-            .padding(.vertical, 6)
-            .overlay(
-                RoundedRectangle(cornerRadius: 3)
-                    .stroke(Color.themeBlue, lineWidth: 1)
-            )
+        List {
+            Text("Edit Examiner Details")
+                .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden)
+                .frame(maxWidth: .infinity)
+                .frame(alignment: .center)
+                .font(.custom(CFont.graphikMedium.rawValue, size: 17))
+                .foregroundColor(.textColor)
+                .kerning(0.38)
+
+            Text("Case details")
+                .listRowBackground(Color.clear)
+                .font(.custom(CFont.graphikMedium.rawValue, size: 17))
+                .foregroundColor(.textColor)
+                .frame(maxWidth: .infinity)
+            
+            EntryFieldStackView(titleText: "Case Number", value: $caseNumber)
+
+            Text("Examiner details")
+                .listRowBackground(Color.clear)
+                .font(.custom(CFont.graphikMedium.rawValue, size: 17))
+                .foregroundColor(.textColor)
+                .frame(maxWidth: .infinity)
+            
+            EntryFieldStackView(titleText: "Examiner Name", value: $name)
+
+            EntryFieldStackView(titleText: "Examiner Phone", value: $phone)
+
+            EntryFieldStackView(titleText: "Examiner Email", value: $email)
+
+            EntryFieldStackView(titleText: "Examiner Notes", value: $notes)
+
+
+            Button {
+                isShowing = false
+                completion(caseNumber, name, phone, email, notes)
+            } label: {
+                BorderedBtnLabelView(title: "Save Changes")
+            }
+            .padding(.vertical, 12)
+            .listRowBackground(Color.clear)
+            .listRowSeparator(.hidden)
+        }
+        .scrollIndicators(.hidden)
+        .listStyle(.plain)
+        .scrollContentBackground(.hidden)
+        .padding(16)
+        .background(Color.background.cornerRadius(18))
+        .padding(.horizontal, 8)
+        .padding(.bottom, 30)
+        
+    }
+}
+
+
+struct CaseDetailsSectionHeader: View {
+    
+    var text: String = ""
+    var completion: ((Int) -> Void)
+    
+    var body: some View {
+        HStack {
+            Text(text)
+                .font(.custom(CFont.graphikMedium.rawValue, size: 17))
+                .foregroundColor(.textColor)
+                .padding(.vertical, 10)
+            
+            Spacer()
+            
+            Button(action: {
+                completion(text.lowercased() == "case details" ? 0 : 1)
+            }) {
+                Text("Edit")
+                    .font(.custom(CFont.graphikRegular.rawValue, size: 12))
+                    .foregroundColor(Color.themeBlue)
+                    .padding(.horizontal)
+                    .padding(.vertical, 6)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 3)
+                            .stroke(Color.themeBlue, lineWidth: 1)
+                    )
+            }
+        }
     }
 }
 
