@@ -50,4 +50,8 @@ extension UIColor {
     public static var textFieldBackgroud: UIColor {
         return UIColor(_colorLiteralRed: 239/255, green: 239/255, blue: 239/255, alpha: 1)
     }
+    
+    public static var themeBackgroud: UIColor {
+        return UIColor(_colorLiteralRed: 250/255, green: 250/255, blue: 250/255, alpha: 1)
+    }
 }

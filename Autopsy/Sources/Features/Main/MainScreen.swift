@@ -33,11 +33,20 @@ struct MainScreen: View {
                     .buttonStyle(.autopsy(icon: "new_case"))
                     
                     Section {
-                        List(vm.recentCases) { caseItem in
-                            CaseItemView(caseItem: caseItem)
+                        List {
+                            ForEach(vm.recentCases) { caseItem in
+                                CaseItemView(caseItem: caseItem)
+                                    .onTapGesture {
+                                        print(caseItem)
+                                        FocusedCase.shared.setCase(caseItem: caseItem)
+                                        router.selectedScenario = .caseHome
+                                    }
+                            }
+                            .listRowBackground(Color.clear)
                         }
                         .listStyle(.plain)
                         .scrollContentBackground(.hidden)
+                       
                     } header: {
                         Text("Recent Cases")
                             .frame(maxWidth: .infinity, maxHeight: 40, alignment: .leading)
@@ -65,6 +74,8 @@ struct MainScreen: View {
                     .closeOnTapOutside(true)
                     .autohideIn(2)
                 }
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarModifier(backgroundColor: .systemBackground, foregroundColor: .black, tintColor: .black, withSeparator: true)
                 .navigationDestination(for: CaseCreationPath.self) { path in
                     switch path {
                     case .mainScreen: MainScreen()
@@ -90,6 +101,8 @@ struct MainScreen: View {
                         }
                     }
             }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarModifier(backgroundColor: .themeBackgroud, foregroundColor: .black, tintColor: .black, withSeparator: true)
             
         }
     }
@@ -98,21 +111,25 @@ struct MainScreen: View {
 
 struct CaseItemView: View {
     let caseItem: CaseEntity
-
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(caseItem.name ?? "")
-                .font(.custom(CFont.graphikMedium.rawValue, size: 15))
-                .padding(.bottom, 5)
-                .foregroundColor(.textColor)
-            Text(caseItem.formattedDate)
-                .font(.custom(CFont.graphikLight.rawValue, size: 15))
-                .padding(.bottom, 5)
-                .foregroundColor(.textColor)
+        HStack{
+            VStack(alignment: .leading) {
+                Text(caseItem.name ?? "")
+                    .font(.custom(CFont.graphikMedium.rawValue, size: 15))
+                    .padding(.bottom, 5)
+                    .foregroundColor(.textColor)
+                Text(caseItem.formattedDate)
+                    .font(.custom(CFont.graphikLight.rawValue, size: 15))
+                    .padding(.bottom, 5)
+                    .foregroundColor(.textColor)
+            }
+            
+            Spacer()
         }
         .padding(.leading, 20)
         .padding(.bottom, 5)
-        .listRowBackground(Color.clear)
+        .contentShape(Rectangle())
     }
 }
 
