@@ -19,6 +19,8 @@ struct DataSourceListScreen: View {
                 DataSourcesEmptyView {
                     router.caseHomePath.append(.addDataSourceType)
                 }
+                .customBackground()
+
             } else {
                 List {
                     Section {
@@ -92,7 +94,6 @@ struct DataSourcesEmptyView: View {
         }
         .frame(maxWidth: .infinity)
         .padding(.horizontal, 50)
-        .frame(height: 400)
         
         Spacer()
     }
