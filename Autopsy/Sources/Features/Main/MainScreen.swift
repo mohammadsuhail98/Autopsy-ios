@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import PopupView
 
 struct MainScreen: View {
-    @Environment(\.mainVM) private var vm: MainVM
-    @EnvironmentObject private var router: Router
     
+    @EnvironmentObject private var vm = MainVM()
+    @EnvironmentObject private var router: Router
 
     var body: some View {
         
@@ -52,10 +53,22 @@ struct MainScreen: View {
                 }
                 .padding(.top, 50)
                 .customBackground()
+                .onAppear() {
+                    vm.getCases()
+                }
+                .popup(isPresented: $vm.showErrorPopup) {
+                    ErrorToastView(msg: vm.errMsg)
+                } customize: { $0
+                    .type(.floater())
+                    .position(.bottom)
+                    .animation(.spring())
+                    .closeOnTapOutside(true)
+                    .autohideIn(2)
+                }
                 .navigationDestination(for: CaseCreationPath.self) { path in
                     switch path {
                     case .mainScreen: MainScreen()
-                    case .newCase: NewCaseView()
+                    case .newCase: NewCaseScreen()
                     case .addDataSourceType: AddDataSourceTypeView()
                     case .addDataSource: SelectDataSourceView()
                     case .ingestModules: IngestModulesView()
@@ -84,15 +97,15 @@ struct MainScreen: View {
 }
 
 struct CaseItemView: View {
-    let caseItem: Case
+    let caseItem: CaseEntity
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text(caseItem.name)
+            Text(caseItem.name ?? "")
                 .font(.custom(CFont.graphikMedium.rawValue, size: 15))
                 .padding(.bottom, 5)
                 .foregroundColor(.textColor)
-            Text(caseItem.creationDate)
+            Text(caseItem.formattedDate)
                 .font(.custom(CFont.graphikLight.rawValue, size: 15))
                 .padding(.bottom, 5)
                 .foregroundColor(.textColor)

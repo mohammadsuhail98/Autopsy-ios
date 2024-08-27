@@ -13,10 +13,14 @@ class NewCaseVM: ObservableObject {
 
     @Published var loading: Bool = false
     @Published var caseRequest = CreateCaseRequest()
-
+    @Published var errMsg = ""
+    @Published var showErrorPopup = false
+    
     func sendData(successBlock: ((CaseEntity) -> Void)? = nil, errorBlock: ((String) -> Void)? = nil){
         guard caseNameValid() else {
-            errorBlock?("case Name is not valid")
+            errMsg = "Case Name is not valid"
+            self.showErrorPopup = true
+            errorBlock?(errMsg)
             return
         }
         self.loading = true
@@ -28,8 +32,9 @@ class NewCaseVM: ObservableObject {
             successBlock?(caseDetails)
         } errorBlock: { error in
             self.loading = false
+            self.errMsg = error.errorMsg
+            self.showErrorPopup = true
             errorBlock?(error.errorMsg)
-            print(error)
         }
         
     }

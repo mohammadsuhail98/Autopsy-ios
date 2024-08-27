@@ -16,7 +16,7 @@ struct NewCaseScreen: View {
     @EnvironmentObject private var router: Router
     
     @State private var showingResultPopup = false
-    @State private var showErrorPopup = true
+
 
     var body: some View {
         
@@ -45,11 +45,11 @@ struct NewCaseScreen: View {
                     }
                 
                 Button {
-//                    vm.sendData { caseEntity in
-//                        showingResultPopup = true
-//                    } errorBlock: { error in
-//                        print(error)
-//                    }
+                    vm.sendData { caseEntity in
+                        showingResultPopup = true
+                    } errorBlock: { error in
+                        
+                    }
                 } label: {
                     BorderedBtnLabelView(title: "Finish")
                 }
@@ -80,8 +80,8 @@ struct NewCaseScreen: View {
             .closeOnTapOutside(true)
             .backgroundColor(.black.opacity(0.5))
         }
-        .popup(isPresented: $showErrorPopup) {
-            
+        .popup(isPresented: $vm.showErrorPopup) {
+            ErrorToastView(msg: vm.errMsg)
         } customize: { $0
             .type(.floater())
             .position(.bottom)

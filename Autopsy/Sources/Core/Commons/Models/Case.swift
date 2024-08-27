@@ -7,24 +7,25 @@
 
 import SwiftUI
 
-struct Case: Identifiable, Equatable {
-    let id: UUID
-    let name: String
-    let creationDate: String
-    
-    init(id: UUID, name: String, creationDate: String) {
-        self.id = id
-        self.name = name
-        self.creationDate = creationDate
-    }
-}
-
-struct CaseEntity: Codable {
+struct CaseEntity: Codable, Identifiable {
     var id: Int?
     var deviceID, casePath, creationDate, name: String?
     var number, type: Int?
     var examinerName, examinerPhone, examinerEmail, examinerNotes: String?
-
+    
+    var formattedDate: String {
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
+        if let date = inputFormatter.date(from: creationDate ?? "") {
+            let outputFormatter = DateFormatter()
+            outputFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+            return outputFormatter.string(from: date)
+        } else {
+            return creationDate ?? ""
+        }
+    }
+    
     enum CodingKeys: String, CodingKey {
         case id
         case deviceID = "deviceId"

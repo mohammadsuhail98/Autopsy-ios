@@ -57,7 +57,7 @@ extension NetworkRouter {
     }
     
     var host: String {
-        return "localhost"
+        return "192.168.0.147"
     }
     
     var port: Int {
@@ -75,7 +75,7 @@ extension NetworkRouter {
             return basePath.cases + "/\(caseId)"
             
         case .getCasesList:
-            return basePath.cases + "/all"
+            return basePath.cases
             
         case .getDataSourceList(let caseId),
                 .addDataSource(let caseId):
@@ -153,7 +153,7 @@ extension NetworkRouter {
     }
     
     var headers: HTTPHeaders? {
-        return ["deviceId" : "0ca4e3e8-e90a-43c2-b6b8-bf95e15f83ee"]
+        return ["deviceId" : Constants.deviceId]
     }
     
     var queryItems: [URLQueryItem]? {

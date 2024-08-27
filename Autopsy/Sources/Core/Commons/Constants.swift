@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Constants {
     
@@ -24,6 +25,10 @@ struct Constants {
             return "/api/datasource/\(dsId)/content"
         }
         
+    }
+    
+    static var deviceId: String {
+        return UIDevice.current.identifierForVendor?.uuidString ?? ""
     }
     
     

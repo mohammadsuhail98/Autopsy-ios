@@ -16,10 +16,10 @@ class CasesManager: APIClient {
                                           CreateCaseRequest.keys.deviceId : caseRequest.deviceId]
         
         if Int(caseRequest.number) ?? -1 != -1 { parameters[CreateCaseRequest.keys.number] = caseRequest.number }
-        if !caseRequest.examinerName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { parameters[CreateCaseRequest.keys.examinerName] = caseRequest.examinerName }
-        if !caseRequest.examinerPhone.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { parameters[CreateCaseRequest.keys.examinerPhone] = caseRequest.examinerPhone }
-        if !caseRequest.examinerEmail.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { parameters[CreateCaseRequest.keys.examinerEmail] = caseRequest.examinerEmail }
-        if !caseRequest.examinerNotes.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { parameters[CreateCaseRequest.keys.examinerNotes] = caseRequest.examinerNotes }
+        if notEmpty(caseRequest.examinerName) { parameters[CreateCaseRequest.keys.examinerName] = caseRequest.examinerName }
+        if notEmpty(caseRequest.examinerPhone) { parameters[CreateCaseRequest.keys.examinerPhone] = caseRequest.examinerPhone }
+        if notEmpty(caseRequest.examinerEmail) { parameters[CreateCaseRequest.keys.examinerEmail] = caseRequest.examinerEmail }
+        if notEmpty(caseRequest.examinerNotes) { parameters[CreateCaseRequest.keys.examinerNotes] = caseRequest.examinerNotes }
 
         if (caseRequest.deviceId.isEmpty) { errorBlock?(AutopsyError.error("Failed to get device ID", 0)) }
         
@@ -32,6 +32,9 @@ class CasesManager: APIClient {
             }
         }
         
+        func notEmpty(_ text: String) -> Bool {
+            return !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        }
     }
     
     class func getCase(caseId: Int, successBlock: ((CaseEntity) -> Void)? = nil, errorBlock: ((AutopsyError) -> Void)? = nil) {
@@ -45,6 +48,17 @@ class CasesManager: APIClient {
             }
         }
         
+    }
+    
+    class func getCases(successBlock: (([CaseEntity]) -> Void)? = nil, errorBlock: ((AutopsyError) -> Void)? = nil) {
+        createRequest(withRoute: .getCasesList) { (result: Result<[CaseEntity], AutopsyError>) in
+            switch result {
+            case .success(let cases):
+                successBlock?(cases)
+            case .failure(let error):
+                errorBlock?(error)
+            }
+        }
     }
     
 }
