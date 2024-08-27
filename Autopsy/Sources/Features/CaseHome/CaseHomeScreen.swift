@@ -11,7 +11,8 @@ struct CaseHomeScreen: View {
     
     @EnvironmentObject private var router: Router
     @State var selection = 0
-    
+    @StateObject var dataSourceListVM = DataSourceListVM()
+
     var body: some View {
         TabView(selection: $selection) {
             DataSourceListScreen()
@@ -20,6 +21,7 @@ struct CaseHomeScreen: View {
                 }.tag(0)
                 .toolbarBackground(.visible, for: .tabBar)
                 .toolbarColorScheme(.light, for: .tabBar)
+                .environmentObject(dataSourceListVM)
             
             Text("Views")
                 .tabItem {
