@@ -12,11 +12,12 @@ struct AutopsyApp: App {
     @UIApplicationDelegateAdaptor(AutopsyAppAppDelegate.self) var appDelegate
     
     @StateObject var router = Router()
+    @StateObject var mainVM = MainVM()
     
     var body: some Scene {
         WindowGroup {
             MainScreen()
-                .environment(\.mainVM, MainVM())
+                .environmentObject(mainVM)
                 .environmentObject(router)
         }
     }

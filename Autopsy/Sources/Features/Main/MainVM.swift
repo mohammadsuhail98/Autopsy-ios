@@ -14,10 +14,16 @@ class MainVM: ObservableObject {
     @Published var errMsg: String = ""
     @Published var showErrorPopup: Bool = false
     
+    init() {
+        
+    }
+    
     func getCases(){
-        CasesManager.getCases { cases in
-            self.recentCases = cases
-        } errorBlock: { error in
+        CasesManager.getCases { [weak self] cases in
+            guard let self else { return }
+            self.recentCases = cases.reversed()
+        } errorBlock: { [weak self] error in
+            guard let self else { return }
             self.errMsg = error.errorMsg
             self.showErrorPopup = true
         }

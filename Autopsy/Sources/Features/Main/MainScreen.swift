@@ -10,7 +10,7 @@ import PopupView
 
 struct MainScreen: View {
     
-    @ObservedObject private var vm = MainVM()
+    @EnvironmentObject private var vm: MainVM
     @EnvironmentObject private var router: Router
 
     var body: some View {
@@ -53,7 +53,7 @@ struct MainScreen: View {
                 }
                 .padding(.top, 50)
                 .customBackground()
-                .onAppear() {
+                .onAppear {
                     vm.getCases()
                 }
                 .popup(isPresented: $vm.showErrorPopup) {
