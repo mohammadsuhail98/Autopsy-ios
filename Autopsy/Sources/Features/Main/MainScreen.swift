@@ -14,6 +14,7 @@ struct MainScreen: View {
     @EnvironmentObject private var router: Router
 
     @StateObject var caseDetailsVM = CaseDetailsVM()
+    @StateObject var geolocationVM = GeoLocationVM()
 
     var body: some View {
         
@@ -103,6 +104,9 @@ struct MainScreen: View {
                         case .dataSourceList: CaseHomeScreen()
                         case .dataSourceContent: DSContentScreen()
                         case .newCase: NewCaseScreen()
+                        case .geolocation:
+                            GeoLocationScreen()
+                                .environmentObject(geolocationVM)
                         }
                     }
             }

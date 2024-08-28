@@ -45,6 +45,7 @@ enum NetworkRouter {
     // GEOLOCATION
     case getAllGeolocations(Int)
     case getGeolocationsByDataSource(Int, [Int])
+    case getGeolocationImage(String)
     
 }
 
@@ -129,6 +130,9 @@ extension NetworkRouter {
             
         case .getGeolocationsByDataSource:
             return basePath.geolocation + "/data_sources"
+            
+        case .getGeolocationImage:
+            return basePath.geolocation + "/image"
         }
     }
     
@@ -147,7 +151,7 @@ extension NetworkRouter {
                 .getFileContent, .getFileText, .getFileHex, .getFileApplication, .getFileAnalysisResults,
                 .getFilesByViewType, .getCurrentMimeTypes, .getFilesByMimeType, .getDeletedFiles,
                 .getFilesBySize, .getCurrentAnalysisResultTypes, .getFilesByType, .getAllGeolocations,
-                .getGeolocationsByDataSource:
+                .getGeolocationsByDataSource, .getGeolocationImage:
             return .get
         }
     }
@@ -183,6 +187,9 @@ extension NetworkRouter {
         case .getGeolocationsByDataSource(let caseId, let dataSourcesIds):
             return [URLQueryItem(name: "caseId", value: "\(caseId)"),
                     URLQueryItem(name: "dataSourceIds", value: "\(dataSourcesIds)")]
+            
+        case .getGeolocationImage(let filePath):
+            return [URLQueryItem(name: "path", value: "\(filePath)")]
         }
     }
     

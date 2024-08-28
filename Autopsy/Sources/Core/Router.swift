@@ -29,6 +29,7 @@ enum CaseHomePath: Equatable {
     case ingestModules
     case dataSourceContent
     case newCase
+    case geolocation
 }
 
 class Router: ObservableObject {

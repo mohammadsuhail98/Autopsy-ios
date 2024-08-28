@@ -10,7 +10,7 @@ import PopupView
 
 struct CaseDetailsScreen: View {
     
-    @StateObject var vm = CaseDetailsVM()
+    @EnvironmentObject var vm: CaseDetailsVM
     @State var showEditCaseSheet: Bool = false
 
     var body: some View {

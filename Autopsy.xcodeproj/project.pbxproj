@@ -65,6 +65,10 @@
 		184D186C2C7C8FDA0093D28D /* LoadingHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D186B2C7C8FDA0093D28D /* LoadingHUDView.swift */; };
 		184D186F2C7CC5D50093D28D /* AutopsyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D186E2C7CC5D50093D28D /* AutopsyError.swift */; };
 		184D18722C7CC6580093D28D /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 184D18712C7CC6580093D28D /* SwiftyJSON */; };
+		184D18742C7F387F0093D28D /* GeolocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D18732C7F387F0093D28D /* GeolocationManager.swift */; };
+		184D18762C7F3C8C0093D28D /* GeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D18752C7F3C8C0093D28D /* GeoLocation.swift */; };
+		184D187A2C7F3CED0093D28D /* GeoLocationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D18782C7F3CED0093D28D /* GeoLocationVM.swift */; };
+		184D187B2C7F3CED0093D28D /* GeoLocationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D18792C7F3CED0093D28D /* GeoLocationScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +123,10 @@
 		184D18692C7C85310093D28D /* ActivityIndicatorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorModifier.swift; sourceTree = "<group>"; };
 		184D186B2C7C8FDA0093D28D /* LoadingHUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingHUDView.swift; sourceTree = "<group>"; };
 		184D186E2C7CC5D50093D28D /* AutopsyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutopsyError.swift; sourceTree = "<group>"; };
+		184D18732C7F387F0093D28D /* GeolocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationManager.swift; sourceTree = "<group>"; };
+		184D18752C7F3C8C0093D28D /* GeoLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocation.swift; sourceTree = "<group>"; };
+		184D18782C7F3CED0093D28D /* GeoLocationVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoLocationVM.swift; sourceTree = "<group>"; };
+		184D18792C7F3CED0093D28D /* GeoLocationScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoLocationScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +165,7 @@
 			children = (
 				0B4A89C52C7B65D5007565AB /* CasesManager.swift */,
 				0B097C2F2C7E580D00136993 /* DataSourceManager.swift */,
+				184D18732C7F387F0093D28D /* GeolocationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -271,6 +280,7 @@
 		1815775D2C63A978007E0997 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				184D18772C7F3CD20093D28D /* Geolocation */,
 				1815778F2C773128007E0997 /* DataSourceContent */,
 				1815778C2C749821007E0997 /* CaseDetails */,
 				181577892C748248007E0997 /* Case */,
@@ -335,6 +345,7 @@
 			children = (
 				0BD72C1C2C5D3174001918C3 /* Case.swift */,
 				0B097C2B2C7E2ABA00136993 /* DataSource.swift */,
+				184D18752C7F3C8C0093D28D /* GeoLocation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -412,6 +423,15 @@
 				181577902C773143007E0997 /* DSContentScreen.swift */,
 			);
 			path = DataSourceContent;
+			sourceTree = "<group>";
+		};
+		184D18772C7F3CD20093D28D /* Geolocation */ = {
+			isa = PBXGroup;
+			children = (
+				184D18792C7F3CED0093D28D /* GeoLocationScreen.swift */,
+				184D18782C7F3CED0093D28D /* GeoLocationVM.swift */,
+			);
+			path = Geolocation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -512,11 +532,13 @@
 				1815778B2C74825A007E0997 /* CaseScreen.swift in Sources */,
 				1815777E2C64EF5C007E0997 /* IngestModulesView.swift in Sources */,
 				0BD72BEC2C593C75001918C3 /* NewCaseScreen.swift in Sources */,
+				184D18762C7F3C8C0093D28D /* GeoLocation.swift in Sources */,
 				0B4A89C82C7B6A9B007565AB /* APIClient.swift in Sources */,
 				181577882C6A3ABB007E0997 /* DataSourceListScreen.swift in Sources */,
 				181577512C60D170007E0997 /* SelectDataSourceView.swift in Sources */,
 				0B097C2C2C7E2ABA00136993 /* DataSource.swift in Sources */,
 				0B4A89C32C7B5014007565AB /* Constants.swift in Sources */,
+				184D18742C7F387F0093D28D /* GeolocationManager.swift in Sources */,
 				0B4A89CE2C7BAC79007565AB /* NewCaseVM.swift in Sources */,
 				181577802C660995007E0997 /* MenuView.swift in Sources */,
 				0BD72BF52C5942A2001918C3 /* UIScreen.swift in Sources */,
@@ -524,6 +546,7 @@
 				1815778E2C749833007E0997 /* CaseDetailsScreen.swift in Sources */,
 				184D186F2C7CC5D50093D28D /* AutopsyError.swift in Sources */,
 				1815775C2C63A3AE007E0997 /* View.swift in Sources */,
+				184D187A2C7F3CED0093D28D /* GeoLocationVM.swift in Sources */,
 				0BA3C58B2C66C40500A921AD /* MainVM.swift in Sources */,
 				0BD72C192C5D2C74001918C3 /* backgroundView.swift in Sources */,
 				0BA3C5882C66C29E00A921AD /* AutopsyAppAppDelegate.swift in Sources */,
@@ -532,6 +555,7 @@
 				0BD72BEA2C57F93A001918C3 /* Color.swift in Sources */,
 				0BA3C58E2C66C51900A921AD /* MainVMKey.swift in Sources */,
 				0B097C322C7E6CF000136993 /* CaseDetailsVM.swift in Sources */,
+				184D187B2C7F3CED0093D28D /* GeoLocationScreen.swift in Sources */,
 				0BD72BF32C59428A001918C3 /* CustomFont.swift in Sources */,
 				0B4A89C62C7B65D5007565AB /* CasesManager.swift in Sources */,
 				0B097C302C7E580D00136993 /* DataSourceManager.swift in Sources */,

@@ -28,7 +28,7 @@ struct CaseScreen: View {
             Section {
                 
                 CaseOptionRow(icon: "geolocation", title: "Geolocation", action: {
-                    
+                    router.caseHomePath.append(.geolocation)
                 })
             }
             
