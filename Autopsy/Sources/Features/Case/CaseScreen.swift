@@ -27,7 +27,7 @@ struct CaseScreen: View {
             
             Section {
                 
-                CaseOptionRow(icon: "open_case", title: "Open Case", action: {
+                CaseOptionRow(icon: "geolocation", title: "Geolocation", action: {
                     
                 })
             }
@@ -42,7 +42,7 @@ struct CaseScreen: View {
             Section {
 
                 CaseOptionRow(icon: "confirm_delete", title: "Delete Case", action: {
-
+                    
                 }, iconWidth: 20, iconHeight: 22)
                 
                 
