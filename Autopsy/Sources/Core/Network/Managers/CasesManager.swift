@@ -60,10 +60,36 @@ class CasesManager: APIClient {
         }
     }
     
+    class func updateCase(caseRequest: CreateCaseRequest, successBlock: ((CaseEntity) -> Void)? = nil, errorBlock: ((AutopsyError) -> Void)? = nil) {
+        
+        var parameters: [String : Any] = [:]
+        
+        parameters[CreateCaseRequest.keys.caseId] = caseRequest.id
+        if notEmpty(caseRequest.number) { parameters[CreateCaseRequest.keys.number] = caseRequest.number }
+        if notEmpty(caseRequest.examinerName) { parameters[CreateCaseRequest.keys.examinerName] = caseRequest.examinerName }
+        if notEmpty(caseRequest.examinerPhone) { parameters[CreateCaseRequest.keys.examinerPhone] = caseRequest.examinerPhone }
+        if notEmpty(caseRequest.examinerEmail) { parameters[CreateCaseRequest.keys.examinerEmail] = caseRequest.examinerEmail }
+        if notEmpty(caseRequest.examinerNotes) { parameters[CreateCaseRequest.keys.examinerNotes] = caseRequest.examinerNotes }
+        
+        createRequest(withRoute: .updateCase(caseRequest.id), parameters: parameters) { (result: Result<CaseEntity, AutopsyError>) in
+            switch result {
+            case .success(let caseDetails):
+                successBlock?(caseDetails)
+            case .failure(let error):
+                errorBlock?(error)
+            }
+        }
+        
+        func notEmpty(_ text: String) -> Bool {
+            return !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        }
+    }
+    
 }
 
 struct CreateCaseRequest {
     struct keys {
+        static let caseId = "caseId"
         static let name = "name"
         static let number = "number"
         static let deviceId = "deviceId"
@@ -73,6 +99,7 @@ struct CreateCaseRequest {
         static let examinerNotes = "examinerNotes"
     }
     
+    var id: Int = -1
     var name = ""
     var number = ""
     var deviceId = ""

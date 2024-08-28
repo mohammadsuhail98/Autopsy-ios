@@ -15,40 +15,45 @@ struct CaseDetailsScreen: View {
 
     var body: some View {
         
-        List {
-            Section(header:
-                        Text("Case Details")
-                .font(.custom(CFont.graphikMedium.rawValue, size: 17))
-                .foregroundColor(.textColor)
-                .padding(.vertical, 10)
-            ) {
-                CaseDetailRow(label: "Case Name", value: vm.caseDetails.name ?? "")
-                CaseDetailRow(label: "Case Number", value: "\(vm.caseDetails.number ?? 0)")
-                CaseDetailRow(label: "Created Date", value: vm.caseDetails.formattedDate)
-                CaseDetailRow(label: "Case Type", value: "Single-User")
-                CaseDetailRow(label: "Case UUID", value: vm.caseDetails.deviceID ?? "")
+        ZStack {
+            List {
+                Section(header:
+                            Text("Case Details")
+                    .font(.custom(CFont.graphikMedium.rawValue, size: 17))
+                    .foregroundColor(.textColor)
+                    .padding(.vertical, 10)
+                ) {
+                    CaseDetailRow(label: "Case Name", value: vm.caseDetails.name ?? "")
+                    CaseDetailRow(label: "Case Number", value: "\(vm.caseDetails.number ?? 0)")
+                    CaseDetailRow(label: "Created Date", value: vm.caseDetails.formattedDate)
+                    CaseDetailRow(label: "Case Type", value: "Single-User")
+                    CaseDetailRow(label: "Case UUID", value: vm.caseDetails.deviceID ?? "")
+                }
+                .listRowBackground(Color.white)
+                .headerProminence(.increased)
+                
+                Section(header:
+                            Text("Examiner Details")
+                    .font(.custom(CFont.graphikMedium.rawValue, size: 17))
+                    .foregroundColor(.textColor)
+                    .padding(.vertical, 10)
+                ) {
+                    CaseDetailRow(label: "Name", value: vm.caseDetails.examinerName ?? "")
+                    CaseDetailRow(label: "Phone", value: vm.caseDetails.examinerPhone ?? "")
+                    CaseDetailRow(label: "Email", value: vm.caseDetails.examinerEmail ?? "")
+                    CaseDetailRow(label: "Notes", value: vm.caseDetails.examinerNotes ?? "")
+                }
+                .listRowBackground(Color.white)
+                .headerProminence(.increased)
             }
-            .listRowBackground(Color.white)
-            .headerProminence(.increased)
+            .navigationTitle("Case Details")
+            .scrollContentBackground(.hidden)
+            .shadow(color: .shadow, radius: 2, x: 1, y: 1)
+            .customBackground()
             
-            Section(header:
-                        Text("Examiner Details")
-                .font(.custom(CFont.graphikMedium.rawValue, size: 17))
-                .foregroundColor(.textColor)
-                .padding(.vertical, 10)
-            ) {
-                CaseDetailRow(label: "Name", value: vm.caseDetails.examinerName ?? "")
-                CaseDetailRow(label: "Phone", value: vm.caseDetails.examinerPhone ?? "")
-                CaseDetailRow(label: "Email", value: vm.caseDetails.examinerEmail ?? "")
-                CaseDetailRow(label: "Notes", value: vm.caseDetails.examinerNotes ?? "")
-            }
-            .listRowBackground(Color.white)
-            .headerProminence(.increased)
+            if vm.loading { LoadingHUDView(loading: $vm.loading) }
+
         }
-        .navigationTitle("Case Details")
-        .scrollContentBackground(.hidden)
-        .shadow(color: .shadow, radius: 2, x: 1, y: 1)
-        .customBackground()
         .popup(isPresented: $showEditCaseSheet) {
             EditCaseSheet(isShowing: $showEditCaseSheet,
                           caseNumber: "\(vm.caseDetails.number ?? 0)",
@@ -56,7 +61,8 @@ struct CaseDetailsScreen: View {
                           phone: vm.caseDetails.examinerPhone ?? "",
                           email: vm.caseDetails.examinerEmail ?? "",
                           notes: vm.caseDetails.examinerNotes ?? "") { number, exName, exPhone, exEmail, exNotes in
-                print(exName)
+                
+                vm.updateCaseDetails(number: number, exName: exName, exPhone: exPhone, exEmail: exEmail, exNotes: exNotes)
             }
         } customize: { $0
                 .position(.bottom)
@@ -65,6 +71,15 @@ struct CaseDetailsScreen: View {
                 .backgroundColor(.black.opacity(0.4))
                 .isOpaque(true)
                 .useKeyboardSafeArea(true)
+        }
+        .popup(isPresented: $vm.showErrorPopup) {
+            ErrorToastView(msg: vm.errMsg)
+        } customize: { $0
+            .type(.floater())
+            .position(.bottom)
+            .animation(.spring())
+            .closeOnTapOutside(true)
+            .autohideIn(2)
         }
         .toolbar {
             ToolbarItemGroup(placement: .primaryAction) {
@@ -95,15 +110,26 @@ private struct EditCaseSheet: View {
     
     var body: some View {
         List {
-            Text("Edit Examiner Details")
-                .listRowBackground(Color.clear)
-                .listRowSeparator(.hidden)
-                .frame(maxWidth: .infinity)
-                .frame(alignment: .center)
-                .font(.custom(CFont.graphikMedium.rawValue, size: 17))
-                .foregroundColor(.textColor)
-                .kerning(0.38)
-
+            Section {
+                HStack {
+                    Text("Edit Case Details")
+                        .font(.custom(CFont.graphikMedium.rawValue, size: 17))
+                        .foregroundColor(.textColor)
+                        .kerning(0.38)
+                    
+                    Spacer()
+                    
+                    Button {
+                        isShowing = false
+                    } label: {
+                        Image(systemName: "xmark")
+                    }
+                }
+                .padding(10)
+            }
+            .listRowBackground(Color.clear)
+            .listRowSeparator(.visible, edges: .bottom)
+            
             Text("Case details")
                 .listRowBackground(Color.clear)
                 .font(.custom(CFont.graphikMedium.rawValue, size: 17))
@@ -128,8 +154,8 @@ private struct EditCaseSheet: View {
 
 
             Button {
-                isShowing = false
                 completion(caseNumber, name, phone, email, notes)
+                isShowing = false
             } label: {
                 BorderedBtnLabelView(title: "Save Changes")
             }
@@ -140,11 +166,7 @@ private struct EditCaseSheet: View {
         .scrollIndicators(.hidden)
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
-        .padding(16)
         .background(Color.background.cornerRadius(18))
-        .padding(.horizontal, 8)
-        .padding(.bottom, 30)
-        
     }
 }
 
