@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DataSource: Codable, Identifiable {
+struct DataSource: Codable, Identifiable, Hashable {
     var id: Int?
     var dataSourceDeviceID: String?
     var dataSourceID: Int?

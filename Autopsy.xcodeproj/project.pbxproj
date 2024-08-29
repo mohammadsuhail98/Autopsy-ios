@@ -69,6 +69,7 @@
 		184D18762C7F3C8C0093D28D /* GeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D18752C7F3C8C0093D28D /* GeoLocation.swift */; };
 		184D187A2C7F3CED0093D28D /* GeoLocationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D18782C7F3CED0093D28D /* GeoLocationVM.swift */; };
 		184D187B2C7F3CED0093D28D /* GeoLocationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D18792C7F3CED0093D28D /* GeoLocationScreen.swift */; };
+		184D187F2C7F82960093D28D /* FilterGeolocationsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D187E2C7F82960093D28D /* FilterGeolocationsScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +128,7 @@
 		184D18752C7F3C8C0093D28D /* GeoLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocation.swift; sourceTree = "<group>"; };
 		184D18782C7F3CED0093D28D /* GeoLocationVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoLocationVM.swift; sourceTree = "<group>"; };
 		184D18792C7F3CED0093D28D /* GeoLocationScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoLocationScreen.swift; sourceTree = "<group>"; };
+		184D187E2C7F82960093D28D /* FilterGeolocationsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterGeolocationsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -430,6 +432,7 @@
 			children = (
 				184D18792C7F3CED0093D28D /* GeoLocationScreen.swift */,
 				184D18782C7F3CED0093D28D /* GeoLocationVM.swift */,
+				184D187E2C7F82960093D28D /* FilterGeolocationsScreen.swift */,
 			);
 			path = Geolocation;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184D187F2C7F82960093D28D /* FilterGeolocationsScreen.swift in Sources */,
 				1815778B2C74825A007E0997 /* CaseScreen.swift in Sources */,
 				1815777E2C64EF5C007E0997 /* IngestModulesView.swift in Sources */,
 				0BD72BEC2C593C75001918C3 /* NewCaseScreen.swift in Sources */,
@@ -714,7 +718,6 @@
 				INFOPLIST_FILE = Autopsy/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -745,7 +748,6 @@
 				INFOPLIST_FILE = Autopsy/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

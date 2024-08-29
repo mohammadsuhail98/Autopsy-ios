@@ -12,6 +12,7 @@ struct CaseEntity: Codable, Identifiable {
     var deviceID, casePath, creationDate, name: String?
     var number, type: Int?
     var examinerName, examinerPhone, examinerEmail, examinerNotes: String?
+    var dataSourceList: [DataSource]?
     
     var formattedDate: String {
         let inputFormatter = DateFormatter()
@@ -30,5 +31,6 @@ struct CaseEntity: Codable, Identifiable {
         case id
         case deviceID = "deviceId"
         case casePath, creationDate, name, number, type, examinerName, examinerPhone, examinerEmail, examinerNotes
+        case dataSourceList
     }
 }

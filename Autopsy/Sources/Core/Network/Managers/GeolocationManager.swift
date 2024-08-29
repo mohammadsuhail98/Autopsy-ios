@@ -22,4 +22,17 @@ class GeolocationManager: APIClient {
         
     }
     
+    class func getGeolocationsByDataSources(caseId: Int, dataSourceIds: [Int], successBlock: (([GeoLocationEntity]) -> Void)? = nil, errorBlock: ((AutopsyError) -> Void)? = nil) {
+        
+        createRequest(withRoute: .getGeolocationsByDataSource(caseId, dataSourceIds)) { (result: Result<[GeoLocationEntity], AutopsyError>) in
+            switch result {
+            case .success(let geolocations):
+                successBlock?(geolocations)
+            case .failure(let error):
+                errorBlock?(error)
+            }
+        }
+        
+    }
+    
 }

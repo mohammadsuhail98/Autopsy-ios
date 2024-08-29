@@ -185,8 +185,17 @@ extension NetworkRouter {
                     URLQueryItem(name: "mimeType", value: "\(mimeType)")]
 
         case .getGeolocationsByDataSource(let caseId, let dataSourcesIds):
-            return [URLQueryItem(name: "caseId", value: "\(caseId)"),
-                    URLQueryItem(name: "dataSourceIds", value: "\(dataSourcesIds)")]
+            var queryItems: [URLQueryItem] = [
+                URLQueryItem(name: "caseId", value: "\(caseId)")
+            ]
+            
+            let dataSourceQueryItems = dataSourcesIds.map {
+                URLQueryItem(name: "dataSourceIds", value: "\($0)")
+            }
+            
+            queryItems.append(contentsOf: dataSourceQueryItems)
+            
+            return queryItems
             
         case .getGeolocationImage(let filePath):
             return [URLQueryItem(name: "path", value: "\(filePath)")]

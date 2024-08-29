@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import PopupView
 
 struct GeoLocationScreen: View {
     @EnvironmentObject private var vm: GeoLocationVM
@@ -28,20 +29,41 @@ struct GeoLocationScreen: View {
                 }
             }
             .zIndex(1)
+            
+            if vm.loading { LoadingHUDView(loading: $vm.loading) }
+
         }
         .navigationTitle("Geolocation")
         .ignoresSafeArea()
         .toolbar {
             Button {
-                
+                vm.showFilterScreen.toggle()
             } label: {
                 Image(systemName: "line.horizontal.3.decrease.circle")
                     .foregroundColor(.textColor)
             }
+            .fullScreenCover(isPresented: $vm.showFilterScreen) {
+                FilterGeolocationsScreen()
+                    .environmentObject(vm)
+            }
+        }
+        .popup(isPresented: $vm.showErrorPopup) {
+            ErrorToastView(msg: vm.errMsg)
+        } customize: { $0
+            .type(.floater())
+            .position(.bottom)
+            .animation(.spring())
+            .closeOnTapOutside(true)
+            .autohideIn(2)
         }
         .onAppear {
             vm.getLocations()
+            let dataSourceArr = FocusedCase.shared.getCase()?.dataSourceList ?? []
+            vm.selectedDataSourcesIds = Set(dataSourceArr.map({ $0.dataSourceID ?? 0 }))
         }
+        
+        
+        
     }
 }
 
@@ -83,8 +105,10 @@ struct LocationDetailOverlay: View {
                     case .failure:
                         Image(systemName: "photo.fill")
                             .resizable()
-                            .scaledToFit()
-                            .frame(maxWidth: 300, maxHeight: 250)
+                            .scaledToFill()
+                            .frame(maxWidth: 270, maxHeight: 230)
+                            .padding(.top, 0)
+                            .foregroundColor(.gray)
                         
                     case .empty:
                         ProgressView()
@@ -109,7 +133,7 @@ struct LocationDetailOverlay: View {
                 Button(action: onClose) {
                     Text("Close")
                         .font(.custom(CFont.graphikBold.rawValue, size: 14))
-                        .padding(.vertical, 30)
+                        .padding(.vertical, 20)
                         .frame(width: 130, height: 40)
                         .background(Color.themeBlue)
                         .foregroundColor(.white)

@@ -12,15 +12,24 @@ struct EntryFieldStackView: View {
     var titleText: String
     @Binding var value: String
     var optional: Bool = false
-
+    var withTitle: Bool = true
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            TitleTextFieldView(titleText: titleText, optional: optional)
+        if withTitle {
+            VStack(alignment: .leading, spacing: 5) {
+                TitleTextFieldView(titleText: titleText, optional: optional)
+                TextFieldView(titleText: titleText, value: $value)
+            }
+            .frame(maxWidth: .infinity)
+            .listRowSeparator(.hidden, edges: .all)
+            .listRowBackground(Color.background)
+        } else {
             TextFieldView(titleText: titleText, value: $value)
+                .frame(maxWidth: .infinity)
+                .listRowSeparator(.hidden, edges: .all)
+                .listRowBackground(Color.background)
         }
-        .frame(maxWidth: .infinity)
-        .listRowSeparator(.hidden, edges: .all)
-        .listRowBackground(Color.background)
+
     }
 }
 
