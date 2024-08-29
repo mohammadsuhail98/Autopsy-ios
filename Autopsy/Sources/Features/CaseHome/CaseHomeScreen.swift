@@ -30,7 +30,7 @@ struct CaseHomeScreen: View {
                 .toolbarBackground(.visible, for: .tabBar)
                 .toolbarColorScheme(.light, for: .tabBar)
             
-            Text("Results")
+            AnalysisResultsScreen()
                 .tabItem {
                     TabItemView(icon: "results_tabbar", text: "Results")
                 }.tag(2)
