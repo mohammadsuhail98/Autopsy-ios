@@ -1,25 +1,23 @@
 //
-//  AnalysisResultsScreen.swift
+//  AnalysisResultsFilesScreen.swift
 //  Autopsy
 //
-//  Created by Mohammed Suhail Najm Kanaan on 29/8/24.
+//  Created by mohammad suhail on 29/8/24.
 //
 
 import SwiftUI
 
-struct AnalysisResultsScreen: View {
+struct AnalysisResultsFilesScreen: View {
     
-    @EnvironmentObject private var router: Router
-    @EnvironmentObject private var vm: AnalysisResultsVM
+    @EnvironmentObject var vm: AnalysisResultsFilesVM
+    
+    @State var type: AnalysisResultType?
     
     var body: some View {
         ZStack {
             List {
-                ForEach(vm.types) { item in
-                    AnalysisResultTypeHStackLabel(item: item)
-                        .onTapGesture {
-                            router.caseHomePath.append(.analysisResultsFiles(item))
-                        }
+                ForEach(vm.files) { item in
+                    AnalysisResultFileCell(image: vm.typeImage, item: item)
                 }
                 .listRowBackground(Color.clear)
                 .listRowInsets(EdgeInsets(top: 3, leading: 0, bottom: 3, trailing: 0))
@@ -27,21 +25,23 @@ struct AnalysisResultsScreen: View {
             }
             .listStyle(.plain)
             .scrollContentBackground(.hidden)
-            .customBackground()
             .onAppear {
-                vm.getTypes()
+                vm.selectedType = type?.id ?? 0
+                vm.getFilesByType()
             }
             
             if vm.loading { LoadingHUDView(loading: $vm.loading) }
+            
         }
         .customBackground()
-
+        .navigationTitle(type?.name ?? "")
     }
 }
 
-struct AnalysisResultTypeHStackLabel: View {
+struct AnalysisResultFileCell: View {
     
-    var item: AnalysisResultType
+    var image: String
+    var item: AutopsyFile
     
     var body: some View {
         
@@ -51,11 +51,11 @@ struct AnalysisResultTypeHStackLabel: View {
             .overlay {
                 VStack {
                     HStack(spacing: 15) {
-                        Image(item.image)
+                        Image(image)
                             .foregroundColor(.textColor)
                         Text(item.name ?? "")
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .font(.custom(CFont.graphikMedium.rawValue, size: 14))
+                            .font(.custom(CFont.graphikRegular.rawValue, size: 14))
                             .foregroundColor(.textColor)
                         Image(systemName: "chevron.right")
                             .foregroundColor(.textColor)
@@ -63,11 +63,5 @@ struct AnalysisResultTypeHStackLabel: View {
                     .padding(.horizontal, 20)
                 }
             }
-            .contentShape(Rectangle())
     }
-}
-
-
-#Preview {
-    AnalysisResultsScreen()
 }

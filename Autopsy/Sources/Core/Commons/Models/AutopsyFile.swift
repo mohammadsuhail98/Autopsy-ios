@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AutopsyFile: Codable {
+struct AutopsyFile: Codable, Identifiable {
     var name, path: String?
     var type: String?
     var id, uid, gid, size: Int?
@@ -34,3 +34,5 @@ struct AutopsyFile: Codable {
         case fileType, children, crTime, fileSystemType, metaDataText, mimeType, hasAnalysisResults, virtual, file, root, dir, deleted, volume, mtime, ctime, atime
     }
 }
+
+typealias AutopsyFiles = [AutopsyFile]

@@ -21,6 +21,19 @@ class AnalysisResultsManager: APIClient {
         }
         
     }
+    
+    class func getFilesByType(caseId: Int, type: Int, successBlock: ((AutopsyFiles) -> Void)? = nil, errorBlock: ((AutopsyError) -> Void)? = nil) {
+        
+        createRequest(withRoute: .getAnalysisResultsFilesByType(caseId, type)) { (result: Result<AutopsyFiles, AutopsyError>) in
+            switch result {
+            case .success(let files):
+                successBlock?(files)
+            case .failure(let error):
+                errorBlock?(error)
+            }
+        }
+        
+    }
 
     
 }

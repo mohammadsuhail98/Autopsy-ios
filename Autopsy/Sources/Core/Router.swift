@@ -21,7 +21,7 @@ enum CaseCreationPath: Equatable {
     case ingestModules
 }
 
-enum CaseHomePath: Equatable {
+enum CaseHomePath: Equatable, Hashable {
     case caseDetails
     case dataSourceList
     case addDataSourceType
@@ -30,6 +30,7 @@ enum CaseHomePath: Equatable {
     case dataSourceContent
     case newCase
     case geolocation
+    case analysisResultsFiles(AnalysisResultType)
 }
 
 class Router: ObservableObject {

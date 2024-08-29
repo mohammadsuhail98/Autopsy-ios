@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AnalysisResultType: Codable, Identifiable {
+struct AnalysisResultType: Codable, Identifiable, Hashable {
     var id: Int?
     var name: String?
     
