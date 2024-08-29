@@ -12,6 +12,7 @@ struct CaseHomeScreen: View {
     @EnvironmentObject private var router: Router
     @State var selection = 0
     @StateObject var dataSourceListVM = DataSourceListVM()
+    @StateObject var analysisResultsVM = AnalysisResultsVM()
 
     var body: some View {
         TabView(selection: $selection) {
@@ -36,7 +37,8 @@ struct CaseHomeScreen: View {
                 }.tag(2)
                 .toolbarBackground(.visible, for: .tabBar)
                 .toolbarColorScheme(.light, for: .tabBar)
-            
+                .environmentObject(analysisResultsVM)
+
             CaseScreen()
                 .tabItem {
                     TabItemView(icon: "case_tabbar", text: "Case")

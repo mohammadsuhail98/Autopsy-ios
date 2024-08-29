@@ -40,7 +40,7 @@ enum NetworkRouter {
     
     // ANALYSIS RESULTS
     case getCurrentAnalysisResultTypes(Int)
-    case getFilesByType(Int, Int)
+    case getAnalysisResultsFilesByType(Int, Int)
     
     // GEOLOCATION
     case getAllGeolocations(Int)
@@ -58,7 +58,7 @@ extension NetworkRouter {
     }
     
     var host: String {
-        return "192.168.0.147"
+        return "localhost"
     }
     
     var port: Int {
@@ -122,7 +122,7 @@ extension NetworkRouter {
         case .getCurrentAnalysisResultTypes:
             return basePath.analysisResults + "/current_types"
             
-        case .getFilesByType:
+        case .getAnalysisResultsFilesByType:
             return basePath.analysisResults + "/files"
             
         case .getAllGeolocations:
@@ -150,7 +150,7 @@ extension NetworkRouter {
         case .getCaseDetails, .getCasesList, .getDataSourceList, .getDataSource, .getDataSourceContent,
                 .getFileContent, .getFileText, .getFileHex, .getFileApplication, .getFileAnalysisResults,
                 .getFilesByViewType, .getCurrentMimeTypes, .getFilesByMimeType, .getDeletedFiles,
-                .getFilesBySize, .getCurrentAnalysisResultTypes, .getFilesByType, .getAllGeolocations,
+                .getFilesBySize, .getCurrentAnalysisResultTypes, .getAnalysisResultsFilesByType, .getAllGeolocations,
                 .getGeolocationsByDataSource, .getGeolocationImage:
             return .get
         }
@@ -172,7 +172,7 @@ extension NetworkRouter {
             return [URLQueryItem(name: "fileId", value: "\(fileId)")]
 
         case .getFilesByViewType(let caseId, let type), .getDeletedFiles(let caseId, let type),
-                .getFilesBySize(let caseId, let type), .getFilesByType(let caseId, let type):
+                .getFilesBySize(let caseId, let type), .getAnalysisResultsFilesByType(let caseId, let type):
             return [URLQueryItem(name: "caseId", value: "\(caseId)"),
                     URLQueryItem(name: "type", value: "\(type)")]
             

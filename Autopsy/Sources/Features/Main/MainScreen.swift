@@ -40,7 +40,6 @@ struct MainScreen: View {
                             ForEach(vm.recentCases) { caseItem in
                                 CaseItemView(caseItem: caseItem)
                                     .onTapGesture {
-                                        print(caseItem)
                                         FocusedCase.shared.setCase(caseItem: caseItem)
                                         router.selectedScenario = .caseHome
                                     }

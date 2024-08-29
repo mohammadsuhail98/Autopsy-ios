@@ -8,10 +8,61 @@
 import SwiftUI
 
 struct AnalysisResultsScreen: View {
+    
+    @EnvironmentObject private var vm: AnalysisResultsVM
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            List {
+                ForEach(vm.types) { item in
+                    AnalysisResultTypeHStackLabel(item: item)
+                }
+                .listRowBackground(Color.clear)
+                .listRowInsets(EdgeInsets(top: 3, leading: 0, bottom: 3, trailing: 0))
+                .listRowSeparator(.hidden)
+            }
+            .listStyle(.plain)
+            .scrollContentBackground(.hidden)
+            .customBackground()
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .customBackground()
+        .onAppear {
+            vm.getTypes()
+        }
+        
+        if vm.loading { LoadingHUDView(loading: $vm.loading) }
+        
     }
 }
+
+struct AnalysisResultTypeHStackLabel: View {
+    
+    var item: AnalysisResultType
+    
+    var body: some View {
+        
+        Color.white
+            .frame(height: 50)
+            .shadow(color: .shadow, radius: 2, x: 1, y: 1)
+            .overlay {
+                VStack {
+                    HStack(spacing: 15) {
+                        Image(item.image)
+                            .foregroundColor(.textColor)
+                        Text(item.name ?? "")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(.custom(CFont.graphikMedium.rawValue, size: 14))
+                            .foregroundColor(.textColor)
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(.textColor)
+                    }
+                    .padding(.horizontal, 20)
+                }
+            }
+    }
+}
+
 
 #Preview {
     AnalysisResultsScreen()
