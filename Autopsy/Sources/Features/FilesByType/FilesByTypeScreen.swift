@@ -13,6 +13,7 @@ struct FilesByTypeScreen: View {
     @EnvironmentObject var vm: FilesByTypeVM
     
     @State var type: FileViewType?
+    @State var displayProperties: Bool = false
     
     var body: some View {
         ZStack {
@@ -50,7 +51,97 @@ struct FilesByTypeScreen: View {
             vm.selectedType = type
             vm.getFiles()
         }
+        .toolbar {
+            ToolbarItem {
+                if type?.supportedExtensions.count != 0 {
+                    Button {
+                        displayProperties = true
+                    } label: {
+                        Image(systemName: "info.circle.fill")
+                            .foregroundColor(.textColor)
+                    }
+                }
+            }
+        }
+        .popup(isPresented: $displayProperties) {
+            ExtensionsPropertiesView(type: type ?? .filesByExtension, displayProperties: $displayProperties)
+        } customize: { $0
+            .type(.floater(verticalPadding: 20, horizontalPadding: 20, useSafeAreaInset: true))
+            .position(.center)
+            .animation(.spring())
+            .closeOnTapOutside(true)
+            .closeOnTap(false)
+            .backgroundColor(.black.opacity(0.5))
+        }
+    }
+}
+
+struct ExtensionsPropertiesView: View {
+    
+    var type: FileViewType
+    @Binding var displayProperties: Bool
+    
+    var body: some View {
         
+        VStack {
+            Section {
+                
+                VStack(spacing: 20) {
+                    
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("File Type")
+                                .font(.custom(CFont.graphikRegular.rawValue, size: 15))
+                                .foregroundColor(.textColor)
+                                .padding(.bottom, 3)
+
+                            Text(type.title)
+                                .font(.custom(CFont.graphikRegular.rawValue, size: 15))
+                                .foregroundColor(.gray)
+                        }
+                        Spacer()
+                    }
+                    .frame(maxWidth: .infinity)
+                    
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Files Extensions")
+                                .font(.custom(CFont.graphikRegular.rawValue, size: 15))
+                                .foregroundColor(.textColor)
+                                .padding(.bottom, 3)
+
+                            Text(type.supportedExtensions.joined(separator: ", "))
+                                .font(.custom(CFont.graphikRegular.rawValue, size: 15))
+                                .foregroundColor(.gray)
+                        }
+                        Spacer()
+                    }
+                    .frame(maxWidth: .infinity)
+                }
+                
+            } header: {
+                
+                HStack {
+                    Text("Properties")
+                        .font(.custom(CFont.graphikSemibold.rawValue, size: 17))
+                        .foregroundColor(.textColor)
+                    Spacer()
+                    Button {
+                        displayProperties = false
+                    } label: {
+                        Image(systemName: "xmark")
+                            .foregroundColor(.textColor)
+                    }
+                }
+                
+                Divider()
+                    .padding(.vertical, 10)
+            }
+        }
+        .padding(EdgeInsets(top: 20, leading: 24, bottom: 40, trailing: 24))
+        .background(Color.white.cornerRadius(5))
+        .padding(.horizontal, 40)
+
     }
 }
 

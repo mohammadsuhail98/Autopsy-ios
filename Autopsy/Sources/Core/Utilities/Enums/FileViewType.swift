@@ -110,4 +110,31 @@ enum FileViewType: Hashable {
         }
     }
     
+    var supportedExtensions: [String] {
+        switch self {
+        case .images:
+            return FileExtensions.imageExtensions
+        case .videos:
+            return FileExtensions.videoExtensions
+        case .audio:
+            return FileExtensions.audioExtensions
+        case .archives:
+            return FileExtensions.archiveExtensions
+        case .databases:
+            return FileExtensions.databaseExtensions
+        case .documentsHTML:
+            return FileExtensions.webExtensions
+        case .documentsOffice:
+            return FileExtensions.documentExtensions
+        case .documentsPDF:
+            return FileExtensions.pdfExtensions
+        case .documentsPlainText, .documentsRichText:
+            return FileExtensions.textExtensions
+        case .executableEXE, .executableDLL, .executableBAT, .executableCMD, .executableCOM:
+            return FileExtensions.executableExtensions
+        default:
+            return []
+        }
+    }
+    
 }
