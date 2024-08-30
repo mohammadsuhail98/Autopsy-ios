@@ -13,6 +13,7 @@ struct CaseHomeScreen: View {
     @State var selection = 0
     @StateObject var dataSourceListVM = DataSourceListVM()
     @StateObject var analysisResultsVM = AnalysisResultsVM()
+    @StateObject var caseVM = CaseVM()
 
     var body: some View {
         TabView(selection: $selection) {
@@ -45,6 +46,7 @@ struct CaseHomeScreen: View {
                 }.tag(3)
                 .toolbarBackground(.visible, for: .tabBar)
                 .toolbarColorScheme(.light, for: .tabBar)
+                .environmentObject(caseVM)
         }
         .navigationTitle(selection == 0 ? "Case Name" : getNavBarTitle(selection: selection))
         .navigationBarTitleDisplayMode(.inline)

@@ -68,6 +68,14 @@ private extension APIClient {
                     }
                 }
                 
+                if method == .delete {
+                    if code == 200 {
+                        let response = DeleteResponse(statusCode: code)
+                        completion(.success(response as! T))
+                        return
+                    }
+                }
+                
                 switch response.result {
                 case .success(let data):
                     let decoder = JSONDecoder()
@@ -83,6 +91,7 @@ private extension APIClient {
             }
         
     }
+    
 }
 
 class Connectivity {

@@ -85,6 +85,19 @@ class CasesManager: APIClient {
         }
     }
     
+    class func deleteCase(caseId: Int, successBlock: ((DeleteResponse) -> Void)? = nil, errorBlock: ((AutopsyError) -> Void)? = nil) {
+        
+        createRequest(withRoute: .deleteCase(caseId)) { (result: Result<DeleteResponse, AutopsyError>) in
+            switch result {
+            case .success(let response):
+                successBlock?(response)
+            case .failure(let error):
+                errorBlock?(error)
+            }
+        }
+        
+    }
+    
 }
 
 struct CreateCaseRequest {
