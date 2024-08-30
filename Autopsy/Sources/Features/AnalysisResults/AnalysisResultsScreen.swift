@@ -29,6 +29,11 @@ struct AnalysisResultsScreen: View {
             .scrollContentBackground(.hidden)
             .customBackground()
             .onAppear {
+                if vm.types.isEmpty {
+                    vm.getTypes()
+                }
+            }
+            .refreshable {
                 vm.getTypes()
             }
             
@@ -55,7 +60,7 @@ struct AnalysisResultTypeHStackLabel: View {
                             .foregroundColor(.textColor)
                         Text(item.name ?? "")
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .font(.custom(CFont.graphikMedium.rawValue, size: 14))
+                            .font(.custom(CFont.graphikRegular.rawValue, size: 14))
                             .foregroundColor(.textColor)
                         Image(systemName: "chevron.right")
                             .foregroundColor(.textColor)

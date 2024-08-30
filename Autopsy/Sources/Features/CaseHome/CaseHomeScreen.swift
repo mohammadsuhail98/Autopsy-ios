@@ -24,7 +24,7 @@ struct CaseHomeScreen: View {
                 .toolbarColorScheme(.light, for: .tabBar)
                 .environmentObject(dataSourceListVM)
             
-            Text("Views")
+            FileViewsScreen()
                 .tabItem {
                     TabItemView(icon: "views_tabbar", text: "Views")
                 }.tag(1)

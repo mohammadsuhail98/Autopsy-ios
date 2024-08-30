@@ -31,6 +31,8 @@ enum CaseHomePath: Equatable, Hashable {
     case newCase
     case geolocation
     case analysisResultsFiles(AnalysisResultType)
+    case filesByViewType(FileViewType)
+    case filesByExtension
 }
 
 class Router: ObservableObject {

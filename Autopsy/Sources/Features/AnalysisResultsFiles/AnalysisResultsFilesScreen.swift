@@ -55,7 +55,7 @@ struct AnalysisResultFileCell: View {
                             .foregroundColor(.textColor)
                         Text(item.name ?? "")
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .font(.custom(CFont.graphikRegular.rawValue, size: 14))
+                            .font(.custom(CFont.graphikRegular.rawValue, size: 13))
                             .foregroundColor(.textColor)
                         Image(systemName: "chevron.right")
                             .foregroundColor(.textColor)

@@ -16,6 +16,7 @@ struct MainScreen: View {
     @StateObject var caseDetailsVM = CaseDetailsVM()
     @StateObject var geolocationVM = GeoLocationVM()
     @StateObject var analysisResultsFilesVM = AnalysisResultsFilesVM()
+    @StateObject var filesByTypeVM = FilesByTypeVM()
 
     var body: some View {
         
@@ -110,7 +111,11 @@ struct MainScreen: View {
                         case .analysisResultsFiles(let type):
                             AnalysisResultsFilesScreen(type: type)
                                 .environmentObject(analysisResultsFilesVM)
-                            
+                        case .filesByViewType(let viewType):
+                            FilesByTypeScreen(type: viewType)
+                                .environmentObject(filesByTypeVM)
+                        case .filesByExtension:
+                            FilesByExtensionScreen()
                         }
                     }
             }
