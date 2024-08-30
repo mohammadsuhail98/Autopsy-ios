@@ -85,6 +85,7 @@
 		18BBF1192C81C307002285CE /* FileViewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBF1182C81C307002285CE /* FileViewsManager.swift */; };
 		18BBF11C2C81D8AC002285CE /* FilesByExtensionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBF11B2C81D8AC002285CE /* FilesByExtensionScreen.swift */; };
 		18BBF11F2C81E046002285CE /* MimeTypesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBF11E2C81E046002285CE /* MimeTypesScreen.swift */; };
+		18BBF1212C81E105002285CE /* MimeTypesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBF1202C81E105002285CE /* MimeTypesVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -159,6 +160,7 @@
 		18BBF1182C81C307002285CE /* FileViewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewsManager.swift; sourceTree = "<group>"; };
 		18BBF11B2C81D8AC002285CE /* FilesByExtensionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesByExtensionScreen.swift; sourceTree = "<group>"; };
 		18BBF11E2C81E046002285CE /* MimeTypesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimeTypesScreen.swift; sourceTree = "<group>"; };
+		18BBF1202C81E105002285CE /* MimeTypesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MimeTypesVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -526,6 +528,7 @@
 			isa = PBXGroup;
 			children = (
 				18BBF11E2C81E046002285CE /* MimeTypesScreen.swift */,
+				18BBF1202C81E105002285CE /* MimeTypesVM.swift */,
 			);
 			path = MimeTypes;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 			files = (
 				184D187F2C7F82960093D28D /* FilterGeolocationsScreen.swift in Sources */,
 				1815778B2C74825A007E0997 /* CaseScreen.swift in Sources */,
+				18BBF1212C81E105002285CE /* MimeTypesVM.swift in Sources */,
 				18BBF1122C81BA4E002285CE /* FileViewType.swift in Sources */,
 				18BBF1142C81C024002285CE /* FilesByTypeScreen.swift in Sources */,
 				1815777E2C64EF5C007E0997 /* IngestModulesView.swift in Sources */,

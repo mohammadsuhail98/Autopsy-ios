@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PopupView
 
 struct FilesByTypeScreen: View {
     
@@ -16,7 +17,7 @@ struct FilesByTypeScreen: View {
     var body: some View {
         ZStack {
             
-            if vm.files.isEmpty {
+            if vm.shoudShowEmptyState {
                 NoFilesView()
             } else {
                 List {
@@ -36,6 +37,15 @@ struct FilesByTypeScreen: View {
         }
         .customBackground()
         .navigationTitle(type?.title ?? "")
+        .popup(isPresented: $vm.showErrorPopup) {
+            ErrorToastView(msg: vm.errMsg)
+        } customize: { $0
+            .type(.floater())
+            .position(.bottom)
+            .animation(.spring())
+            .closeOnTapOutside(true)
+            .autohideIn(2)
+        }
         .onAppear {
             vm.selectedType = type
             vm.getFiles()

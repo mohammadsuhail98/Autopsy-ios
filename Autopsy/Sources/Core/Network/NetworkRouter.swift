@@ -34,7 +34,7 @@ enum NetworkRouter {
     // FILE VIEWS
     case getFilesByViewType(Int, Int)
     case getCurrentMimeTypes(Int)
-    case getFilesByMimeType(Int, Int)
+    case getFilesByMimeType(Int, String)
     case getDeletedFiles(Int, Int)
     case getFilesBySize(Int, Int)
     
@@ -182,7 +182,7 @@ extension NetworkRouter {
 
         case .getFilesByMimeType(let caseId, let mimeType):
             return [URLQueryItem(name: "caseId", value: "\(caseId)"),
-                    URLQueryItem(name: "mimeType", value: "\(mimeType)")]
+                    URLQueryItem(name: "mimeType", value: mimeType)]
 
         case .getGeolocationsByDataSource(let caseId, let dataSourcesIds):
             var queryItems: [URLQueryItem] = [

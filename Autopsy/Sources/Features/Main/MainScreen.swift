@@ -17,6 +17,7 @@ struct MainScreen: View {
     @StateObject var geolocationVM = GeoLocationVM()
     @StateObject var analysisResultsFilesVM = AnalysisResultsFilesVM()
     @StateObject var filesByTypeVM = FilesByTypeVM()
+    @StateObject var mimeTypesVM = MimeTypesVM()
 
     var body: some View {
         
@@ -116,6 +117,9 @@ struct MainScreen: View {
                                 .environmentObject(filesByTypeVM)
                         case .filesByExtension:
                             FilesByExtensionScreen()
+                        case .mimeTypes:
+                            MimeTypesScreen()
+                                .environmentObject(mimeTypesVM)
                         }
                     }
             }

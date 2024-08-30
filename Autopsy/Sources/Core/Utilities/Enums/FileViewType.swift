@@ -7,29 +7,56 @@
 
 import Foundation
 
-enum FileViewType: Int {
-    case images = 1
-    case videos = 2
-    case audio = 3
-    case archives = 4
-    case databases = 5
-    case documentsHTML = 6
-    case documentsOffice = 7
-    case documentsPDF = 8
-    case documentsPlainText = 9
-    case documentsRichText = 10
-    case executableEXE = 11
-    case executableDLL = 12
-    case executableBAT = 13
-    case executableCMD = 14
-    case executableCOM = 15
-    case deletedFilesFileSystem = 16
-    case deletedFilesAll = 17
-    case fileSizeMB50To200 = 18
-    case fileSizeMB200To1GB = 19
-    case fileSizeMB1GBPlus = 20
-    case filesByExtension = 21
-    case filesByMimeType = 22
+enum FileViewType: Hashable {
+    case images
+    case videos
+    case audio
+    case archives
+    case databases
+    case documentsHTML
+    case documentsOffice
+    case documentsPDF
+    case documentsPlainText
+    case documentsRichText
+    case executableEXE
+    case executableDLL
+    case executableBAT
+    case executableCMD
+    case executableCOM
+    case deletedFilesFileSystem
+    case deletedFilesAll
+    case fileSizeMB50To200
+    case fileSizeMB200To1GB
+    case fileSizeMB1GBPlus
+    case filesByExtension
+    case filesByMimeType(String)
+    
+    var id: Int {
+        switch self {
+        case .images: return 1
+        case .videos: return 2
+        case .audio: return 3
+        case .archives: return 4
+        case .databases: return 5
+        case .documentsHTML: return 6
+        case .documentsOffice: return 7
+        case .documentsPDF: return 8
+        case .documentsPlainText: return 9
+        case .documentsRichText: return 10
+        case .executableEXE: return 11
+        case .executableDLL: return 12
+        case .executableBAT: return 13
+        case .executableCMD: return 14
+        case .executableCOM: return 15
+        case .deletedFilesFileSystem: return 16
+        case .deletedFilesAll: return 17
+        case .fileSizeMB50To200: return 18
+        case .fileSizeMB200To1GB: return 19
+        case .fileSizeMB1GBPlus: return 20
+        case .filesByExtension: return 21
+        case .filesByMimeType: return 22
+        }
+    }
     
     var title: String {
         switch self {

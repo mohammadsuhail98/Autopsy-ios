@@ -33,6 +33,7 @@ enum CaseHomePath: Equatable, Hashable {
     case analysisResultsFiles(AnalysisResultType)
     case filesByViewType(FileViewType)
     case filesByExtension
+    case mimeTypes
 }
 
 class Router: ObservableObject {

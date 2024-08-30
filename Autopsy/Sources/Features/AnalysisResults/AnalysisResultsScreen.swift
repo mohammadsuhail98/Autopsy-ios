@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PopupView
 
 struct AnalysisResultsScreen: View {
     
@@ -40,7 +41,15 @@ struct AnalysisResultsScreen: View {
             if vm.loading { LoadingHUDView(loading: $vm.loading) }
         }
         .customBackground()
-
+        .popup(isPresented: $vm.showErrorPopup) {
+            ErrorToastView(msg: vm.errMsg)
+        } customize: { $0
+            .type(.floater())
+            .position(.bottom)
+            .animation(.spring())
+            .closeOnTapOutside(true)
+            .autohideIn(2)
+        }
     }
 }
 

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PopupView
 
 struct AnalysisResultsFilesScreen: View {
     
@@ -35,6 +36,15 @@ struct AnalysisResultsFilesScreen: View {
         }
         .customBackground()
         .navigationTitle(type?.name ?? "")
+        .popup(isPresented: $vm.showErrorPopup) {
+            ErrorToastView(msg: vm.errMsg)
+        } customize: { $0
+            .type(.floater())
+            .position(.bottom)
+            .animation(.spring())
+            .closeOnTapOutside(true)
+            .autohideIn(2)
+        }
     }
 }
 

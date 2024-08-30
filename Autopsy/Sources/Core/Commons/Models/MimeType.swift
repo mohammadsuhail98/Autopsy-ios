@@ -11,4 +11,13 @@ struct MIMEType: Codable, Identifiable {
     var id: Int?
     var name: String?
     var supported: Bool?
+    var mimeSubtypes: [MIMESubtype]?
 }
+
+struct MIMESubtype: Codable, Identifiable {
+    var id: Int?
+    var name, fullName: String?
+    var count: Int?
+}
+
+typealias MIMETypes = [MIMEType]

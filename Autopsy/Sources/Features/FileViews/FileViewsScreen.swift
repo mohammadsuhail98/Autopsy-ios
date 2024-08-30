@@ -20,7 +20,10 @@ struct FileViewsScreen: View {
                     .onTapGesture {
                         router.caseHomePath.append(.filesByExtension)
                     }
-                FileViewCell(viewType: .filesByMimeType)
+                FileViewCell(viewType: .filesByMimeType(""))
+                    .onTapGesture {
+                        router.caseHomePath.append(.mimeTypes)
+                    }
             } header: {
                 HStack {
                     Text("File Types")

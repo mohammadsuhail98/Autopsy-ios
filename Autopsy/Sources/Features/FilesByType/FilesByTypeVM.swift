@@ -15,15 +15,17 @@ class FilesByTypeVM: ObservableObject {
     @Published var showErrorPopup: Bool = false
     @Published var loading: Bool = false
     @Published var selectedType: FileViewType?
-    
-    
+    @Published var shoudShowEmptyState: Bool = false
     
     func getFiles(){
-        if selectedType == .deletedFilesAll || selectedType == .deletedFilesFileSystem {
+        switch selectedType {
+        case .filesByMimeType(let mimeType):
+            getFilesByMimeType(mimeType: mimeType)
+        case .deletedFilesFileSystem, .deletedFilesAll:
             getDeletedFiles()
-        } else if selectedType == .fileSizeMB50To200 || selectedType == .fileSizeMB200To1GB || selectedType == .fileSizeMB1GBPlus {
+        case .fileSizeMB50To200, .fileSizeMB200To1GB, .fileSizeMB1GBPlus:
             getFilesBySize()
-        } else {
+        default:
             getFilesByType()
         }
     }
@@ -31,9 +33,10 @@ class FilesByTypeVM: ObservableObject {
     func getDeletedFiles(){
         loading = true
         
-        FileViewsManager.getDeletedFiles(caseId: FocusedCase.shared.getCase()?.id ?? -1, type: selectedType?.rawValue ?? 0) { [weak self] files in
+        FileViewsManager.getDeletedFiles(caseId: FocusedCase.shared.getCase()?.id ?? -1, type: selectedType?.id ?? 0) { [weak self] files in
             guard let self else { return }
             self.loading = false
+            self.shoudShowEmptyState = files.isEmpty
             self.files = files
         } errorBlock: { [weak self] error in
             guard let self else { return }
@@ -46,9 +49,10 @@ class FilesByTypeVM: ObservableObject {
     func getFilesBySize(){
         loading = true
         
-        FileViewsManager.getFilesBySize(caseId: FocusedCase.shared.getCase()?.id ?? -1, type: selectedType?.rawValue ?? 0) { [weak self] files in
+        FileViewsManager.getFilesBySize(caseId: FocusedCase.shared.getCase()?.id ?? -1, type: selectedType?.id ?? 0) { [weak self] files in
             guard let self else { return }
             self.loading = false
+            self.shoudShowEmptyState = files.isEmpty
             self.files = files
         } errorBlock: { [weak self] error in
             guard let self else { return }
@@ -61,9 +65,26 @@ class FilesByTypeVM: ObservableObject {
     func getFilesByType(){
         loading = true
         
-        FileViewsManager.getFilesBySize(caseId: FocusedCase.shared.getCase()?.id ?? -1, type: selectedType?.rawValue ?? 0) { [weak self] files in
+        FileViewsManager.getFilesBySize(caseId: FocusedCase.shared.getCase()?.id ?? -1, type: selectedType?.id ?? 0) { [weak self] files in
             guard let self else { return }
             self.loading = false
+            self.shoudShowEmptyState = files.isEmpty
+            self.files = files
+        } errorBlock: { [weak self] error in
+            guard let self else { return }
+            self.loading = false
+            self.errMsg = error.errorMsg
+            self.showErrorPopup = true
+        }
+    }
+    
+    func getFilesByMimeType(mimeType: String){
+        loading = true
+        
+        FileViewsManager.getFilesByMimeType(caseId: FocusedCase.shared.getCase()?.id ?? -1, mimeType: mimeType) { [weak self] files in
+            guard let self else { return }
+            self.loading = false
+            self.shoudShowEmptyState = files.isEmpty
             self.files = files
         } errorBlock: { [weak self] error in
             guard let self else { return }
