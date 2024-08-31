@@ -11,6 +11,7 @@ struct ContentTabBarScreen: View {
     
     @EnvironmentObject private var router: Router
     @State var selection = 0
+    
     var mainInfo: AutopsyFile
     var content: AutopsyFiles
     var title: String
@@ -26,7 +27,7 @@ struct ContentTabBarScreen: View {
                     .toolbarColorScheme(.light, for: .tabBar)
             }
 
-            Text("Information")
+            ContentFileInfoScreen(autopsyFile: mainInfo)
                 .tabItem {
                     TabItemView(icon: "information", text: "Information")
                 }.tag(1)
@@ -41,17 +42,8 @@ struct ContentTabBarScreen: View {
                 .toolbarColorScheme(.light, for: .tabBar)
 
         }
-        .navigationTitle(getNavBarTitle(selection: selection))
+        .navigationTitle(title)
         .navigationBarTitleDisplayMode(.inline)
-    }
-    
-    func getNavBarTitle(selection: Int) -> String {
-        switch selection {
-        case 0: return title
-        case 1: return "Information"
-        case 2: return "Data Content"
-        default: return ""
-        }
     }
 }
 

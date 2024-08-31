@@ -26,6 +26,7 @@
 		0B097C4D2C8385CA00136993 /* ContentTabBarScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B097C4C2C8385CA00136993 /* ContentTabBarScreen.swift */; };
 		0B097C4F2C839E4100136993 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B097C4E2C839E4100136993 /* Utils.swift */; };
 		0B097C522C839F5C00136993 /* ContentFilesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B097C512C839F5C00136993 /* ContentFilesScreen.swift */; };
+		0B097C562C83C43400136993 /* ContentFileInfoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B097C552C83C43400136993 /* ContentFileInfoScreen.swift */; };
 		0B4A89BC2C7B4613007565AB /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4A89BB2C7B4613007565AB /* NetworkRouter.swift */; };
 		0B4A89BF2C7B465D007565AB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0B4A89BE2C7B465D007565AB /* Alamofire */; };
 		0B4A89C12C7B465D007565AB /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0B4A89C02C7B465D007565AB /* AlamofireDynamic */; };
@@ -115,6 +116,7 @@
 		0B097C4C2C8385CA00136993 /* ContentTabBarScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTabBarScreen.swift; sourceTree = "<group>"; };
 		0B097C4E2C839E4100136993 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		0B097C512C839F5C00136993 /* ContentFilesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFilesScreen.swift; sourceTree = "<group>"; };
+		0B097C552C83C43400136993 /* ContentFileInfoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFileInfoScreen.swift; sourceTree = "<group>"; };
 		0B4A89BB2C7B4613007565AB /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		0B4A89C22C7B5014007565AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0B4A89C52C7B65D5007565AB /* CasesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesManager.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				0B097C512C839F5C00136993 /* ContentFilesScreen.swift */,
+				0B097C552C83C43400136993 /* ContentFileInfoScreen.swift */,
 			);
 			path = ContentFiles;
 			sourceTree = "<group>";
@@ -740,6 +743,7 @@
 				18BBF10D2C80A0D9002285CE /* AnalysisResultsScreen.swift in Sources */,
 				181577582C6262CE007E0997 /* EntryFieldStackView.swift in Sources */,
 				0B097C482C835CE500136993 /* DSContentVM.swift in Sources */,
+				0B097C562C83C43400136993 /* ContentFileInfoScreen.swift in Sources */,
 				1815774F2C60CD02007E0997 /* AddDataSourceTypeView.swift in Sources */,
 				0B097C2E2C7E2C8C00136993 /* DataSourceListVM.swift in Sources */,
 			);

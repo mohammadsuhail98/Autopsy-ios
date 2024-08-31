@@ -10,6 +10,7 @@ import PopupView
 
 struct AnalysisResultsFilesScreen: View {
     
+    @EnvironmentObject var router: Router
     @EnvironmentObject var vm: AnalysisResultsFilesVM
     
     @State var type: AnalysisResultType?
@@ -19,6 +20,10 @@ struct AnalysisResultsFilesScreen: View {
             List {
                 ForEach(vm.files) { item in
                     AnalysisResultFileCell(image: vm.typeImage, item: item)
+                        .onTapGesture {
+                            let path = CaseHomePath.contentTabBar(item, [], item.name ?? "")
+                            router.caseHomePath.append(path)
+                        }
                 }
                 .listRowBackground(Color.clear)
                 .listRowInsets(EdgeInsets(top: 3, leading: 0, bottom: 3, trailing: 0))
@@ -73,5 +78,6 @@ struct AnalysisResultFileCell: View {
                     .padding(.horizontal, 20)
                 }
             }
+            .contentShape(Rectangle())
     }
 }
