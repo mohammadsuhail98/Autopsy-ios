@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AutopsyFile: Codable, Identifiable {
+struct AutopsyFile: Codable, Identifiable, Hashable {
     var name, path: String?
     var type: String?
     var id, uid, gid, size: Int?
@@ -27,11 +27,13 @@ struct AutopsyFile: Codable, Identifiable {
     var mtime: String?
     var ctime: String?
     var atime: String?
-
+    var volumeInfo: VolumeInfo?
+    
     enum CodingKeys: String, CodingKey {
         case name, path, type, id, uid, gid, size, flagsDir, flagsMeta, known, md5Hash, sha1Hash, sha256Hash
         case autopsyFileExtension = "extension"
         case fileType, children, crTime, fileSystemType, metaDataText, mimeType, hasAnalysisResults, virtual, file, root, dir, deleted, volume, mtime, ctime, atime
+        case volumeInfo
     }
 }
 

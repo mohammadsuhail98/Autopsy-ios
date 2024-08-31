@@ -39,9 +39,10 @@ struct DataSourceListScreen: View {
                     .listRowSeparator(.hidden)
                     
                     ForEach(vm.dataSources) { item in
-                        DataSourceCardView(dataSource: item) { id in
-                            router.caseHomePath.append(.dataSourceContent)
-                        }
+                        DataSourceCardView(dataSource: item)
+                            .onTapGesture {
+                                router.caseHomePath.append(.dataSourceContent(item))
+                            }
                         .swipeActions {
                             Button {
                                 print("Delete")
@@ -206,24 +207,19 @@ struct DataSourcesEmptyView: View {
 struct DataSourceCardView: View {
     
     let dataSource: DataSource
-    var action: ((String) -> ())
     
     var body: some View {
-        
-        Button {
-            action("\(dataSource.id)")
-        } label: {
-            VStack(alignment: .leading, spacing: 10) {
-                TitleHStackLabelValue(label: dataSource.name ?? "")
-                SubtitleHStackLabelValue(label: "Type", value: dataSource.fileType ?? "")
-                SubtitleHStackLabelValue(label: "Size (Bytes)", value: "\(dataSource.size ?? 0)")
-                SubtitleHStackLabelValue(label: "Sector Size (Bytes)", value: "\(dataSource.sectorSize ?? 0)")
-                SubtitleHStackLabelValue(label: "Time Zone", value: dataSource.timeZone ?? "")
-                SubtitleHStackLabelValue(label: "Device ID", value: dataSource.dataSourceDeviceID ?? "", bottomPadding: 20)
-            }
-            .background(Color.white)
-            .cornerRadius(0)
+        VStack(alignment: .leading, spacing: 10) {
+            TitleHStackLabelValue(label: dataSource.name ?? "")
+            SubtitleHStackLabelValue(label: "Type", value: dataSource.fileType ?? "")
+            SubtitleHStackLabelValue(label: "Size (Bytes)", value: "\(dataSource.size ?? 0)")
+            SubtitleHStackLabelValue(label: "Sector Size (Bytes)", value: "\(dataSource.sectorSize ?? 0)")
+            SubtitleHStackLabelValue(label: "Time Zone", value: dataSource.timeZone ?? "")
+            SubtitleHStackLabelValue(label: "Device ID", value: dataSource.dataSourceDeviceID ?? "", bottomPadding: 20)
         }
+        .background(Color.white)
+        .cornerRadius(0)
+        .contentShape(Rectangle())
     }
 }
 

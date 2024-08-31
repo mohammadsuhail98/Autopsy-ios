@@ -27,13 +27,14 @@ enum CaseHomePath: Equatable, Hashable {
     case addDataSourceType
     case addDataSource
     case ingestModules
-    case dataSourceContent
+    case dataSourceContent(DataSource)
     case newCase
     case geolocation
     case analysisResultsFiles(AnalysisResultType)
     case filesByViewType(FileViewType)
     case filesByExtension
     case mimeTypes
+    case contentTabBar(AutopsyFile, AutopsyFiles, String)
 }
 
 class Router: ObservableObject {

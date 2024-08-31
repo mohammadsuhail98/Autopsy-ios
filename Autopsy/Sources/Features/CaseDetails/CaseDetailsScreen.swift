@@ -150,6 +150,7 @@ private struct EditCaseSheet: View {
                             isShowing = false
                         } label: {
                             Image(systemName: "xmark")
+                                .foregroundColor(.textColor)
                         }
                     }
                     .padding(.bottom, 10)

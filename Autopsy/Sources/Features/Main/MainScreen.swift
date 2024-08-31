@@ -18,7 +18,8 @@ struct MainScreen: View {
     @StateObject var analysisResultsFilesVM = AnalysisResultsFilesVM()
     @StateObject var filesByTypeVM = FilesByTypeVM()
     @StateObject var mimeTypesVM = MimeTypesVM()
-
+    @StateObject var dsContentVM = DSContentVM()
+    
     var body: some View {
         
         switch router.selectedScenario {
@@ -104,7 +105,9 @@ struct MainScreen: View {
                         case .addDataSource: SelectDataSourceView()
                         case .ingestModules: IngestModulesView()
                         case .dataSourceList: CaseHomeScreen()
-                        case .dataSourceContent: DSContentScreen()
+                        case .dataSourceContent(let dataSource):
+                            DSContentScreen(dataSource: dataSource)
+                                .environmentObject(dsContentVM)
                         case .newCase: NewCaseScreen()
                         case .geolocation:
                             GeoLocationScreen()
@@ -120,6 +123,8 @@ struct MainScreen: View {
                         case .mimeTypes:
                             MimeTypesScreen()
                                 .environmentObject(mimeTypesVM)
+                        case .contentTabBar(let fileInfo, let content, let title):
+                            ContentTabBarScreen(mainInfo: fileInfo, content: content, title: title)
                         }
                     }
             }

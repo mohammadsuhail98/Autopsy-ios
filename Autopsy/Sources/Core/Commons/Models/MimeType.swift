@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct MIMEType: Codable, Identifiable {
+struct MIMEType: Codable, Identifiable, Hashable {
     var id: Int?
     var name: String?
     var supported: Bool?
     var mimeSubtypes: [MIMESubtype]?
 }
 
-struct MIMESubtype: Codable, Identifiable {
+struct MIMESubtype: Codable, Identifiable, Hashable {
     var id: Int?
     var name, fullName: String?
     var count: Int?

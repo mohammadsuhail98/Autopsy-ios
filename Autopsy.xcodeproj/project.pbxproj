@@ -20,6 +20,10 @@
 		0B097C3A2C80A54F00136993 /* AnalysisResultsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B097C392C80A54F00136993 /* AnalysisResultsVM.swift */; };
 		0B097C412C80EC2E00136993 /* AnalysisResultsFilesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B097C402C80EC2E00136993 /* AnalysisResultsFilesVM.swift */; };
 		0B097C432C80ED0100136993 /* AnalysisResultsFilesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B097C422C80ED0100136993 /* AnalysisResultsFilesScreen.swift */; };
+		0B097C462C83404900136993 /* VolumeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B097C452C83404900136993 /* VolumeInfo.swift */; };
+		0B097C482C835CE500136993 /* DSContentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B097C472C835CE500136993 /* DSContentVM.swift */; };
+		0B097C4A2C837E3A00136993 /* DataSourceContentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B097C492C837E3A00136993 /* DataSourceContentManager.swift */; };
+		0B097C4D2C8385CA00136993 /* ContentTabBarScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B097C4C2C8385CA00136993 /* ContentTabBarScreen.swift */; };
 		0B4A89BC2C7B4613007565AB /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4A89BB2C7B4613007565AB /* NetworkRouter.swift */; };
 		0B4A89BF2C7B465D007565AB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0B4A89BE2C7B465D007565AB /* Alamofire */; };
 		0B4A89C12C7B465D007565AB /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0B4A89C02C7B465D007565AB /* AlamofireDynamic */; };
@@ -103,6 +107,10 @@
 		0B097C392C80A54F00136993 /* AnalysisResultsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisResultsVM.swift; sourceTree = "<group>"; };
 		0B097C402C80EC2E00136993 /* AnalysisResultsFilesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisResultsFilesVM.swift; sourceTree = "<group>"; };
 		0B097C422C80ED0100136993 /* AnalysisResultsFilesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisResultsFilesScreen.swift; sourceTree = "<group>"; };
+		0B097C452C83404900136993 /* VolumeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeInfo.swift; sourceTree = "<group>"; };
+		0B097C472C835CE500136993 /* DSContentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSContentVM.swift; sourceTree = "<group>"; };
+		0B097C492C837E3A00136993 /* DataSourceContentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceContentManager.swift; sourceTree = "<group>"; };
+		0B097C4C2C8385CA00136993 /* ContentTabBarScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTabBarScreen.swift; sourceTree = "<group>"; };
 		0B4A89BB2C7B4613007565AB /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		0B4A89C22C7B5014007565AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0B4A89C52C7B65D5007565AB /* CasesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesManager.swift; sourceTree = "<group>"; };
@@ -198,6 +206,14 @@
 			path = AnalysisResultsFiles;
 			sourceTree = "<group>";
 		};
+		0B097C4B2C83857F00136993 /* ContentTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				0B097C4C2C8385CA00136993 /* ContentTabBarScreen.swift */,
+			);
+			path = ContentTabBar;
+			sourceTree = "<group>";
+		};
 		0B4A89C42C7B65C4007565AB /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +233,7 @@
 				184D18732C7F387F0093D28D /* GeolocationManager.swift */,
 				18BBF1092C80A081002285CE /* AnalysisResultsManager.swift */,
 				18BBF1182C81C307002285CE /* FileViewsManager.swift */,
+				0B097C492C837E3A00136993 /* DataSourceContentManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -339,6 +356,7 @@
 				18BBF10B2C80A0C4002285CE /* AnalysisResults */,
 				184D18772C7F3CD20093D28D /* Geolocation */,
 				1815778F2C773128007E0997 /* DataSourceContent */,
+				0B097C4B2C83857F00136993 /* ContentTabBar */,
 				1815778C2C749821007E0997 /* CaseDetails */,
 				181577892C748248007E0997 /* Case */,
 				181577862C6A3AA5007E0997 /* DataSourceList */,
@@ -409,6 +427,7 @@
 				0B097C352C80A42400136993 /* AutopsyFile.swift */,
 				0B097C372C80A4B200136993 /* MimeType.swift */,
 				18BBF1242C828856002285CE /* DeleteResponse.swift */,
+				0B097C452C83404900136993 /* VolumeInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -485,6 +504,7 @@
 			isa = PBXGroup;
 			children = (
 				181577902C773143007E0997 /* DSContentScreen.swift */,
+				0B097C472C835CE500136993 /* DSContentVM.swift */,
 			);
 			path = DataSourceContent;
 			sourceTree = "<group>";
@@ -639,6 +659,7 @@
 			files = (
 				184D187F2C7F82960093D28D /* FilterGeolocationsScreen.swift in Sources */,
 				1815778B2C74825A007E0997 /* CaseScreen.swift in Sources */,
+				0B097C4D2C8385CA00136993 /* ContentTabBarScreen.swift in Sources */,
 				18BBF1212C81E105002285CE /* MimeTypesVM.swift in Sources */,
 				18BBF1122C81BA4E002285CE /* FileViewType.swift in Sources */,
 				18BBF1142C81C024002285CE /* FilesByTypeScreen.swift in Sources */,
@@ -655,6 +676,7 @@
 				0B4A89C32C7B5014007565AB /* Constants.swift in Sources */,
 				0B097C412C80EC2E00136993 /* AnalysisResultsFilesVM.swift in Sources */,
 				0B097C362C80A42400136993 /* AutopsyFile.swift in Sources */,
+				0B097C4A2C837E3A00136993 /* DataSourceContentManager.swift in Sources */,
 				18BBF1252C828856002285CE /* DeleteResponse.swift in Sources */,
 				184D18742C7F387F0093D28D /* GeolocationManager.swift in Sources */,
 				0B4A89CE2C7BAC79007565AB /* NewCaseVM.swift in Sources */,
@@ -678,6 +700,7 @@
 				0BA3C5922C66CA1F00A921AD /* Router.swift in Sources */,
 				0BD72BEA2C57F93A001918C3 /* Color.swift in Sources */,
 				0BA3C58E2C66C51900A921AD /* MainVMKey.swift in Sources */,
+				0B097C462C83404900136993 /* VolumeInfo.swift in Sources */,
 				0B097C322C7E6CF000136993 /* CaseDetailsVM.swift in Sources */,
 				184D187B2C7F3CED0093D28D /* GeoLocationScreen.swift in Sources */,
 				0BD72BF32C59428A001918C3 /* CustomFont.swift in Sources */,
@@ -700,6 +723,7 @@
 				18BBF1172C81C085002285CE /* FilesByTypeVM.swift in Sources */,
 				18BBF10D2C80A0D9002285CE /* AnalysisResultsScreen.swift in Sources */,
 				181577582C6262CE007E0997 /* EntryFieldStackView.swift in Sources */,
+				0B097C482C835CE500136993 /* DSContentVM.swift in Sources */,
 				1815774F2C60CD02007E0997 /* AddDataSourceTypeView.swift in Sources */,
 				0B097C2E2C7E2C8C00136993 /* DataSourceListVM.swift in Sources */,
 			);

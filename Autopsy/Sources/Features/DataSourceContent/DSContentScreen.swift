@@ -6,28 +6,27 @@
 //
 
 import SwiftUI
-
-struct DSContent: Identifiable {
-    let id = UUID()
-    let name: String
-    let icon: String
-
-}
+import PopupView
 
 struct DSContentScreen: View {
     
-    @State private var items = [
-        DSContent(name: "$Orphan files", icon: "folder"),
-        DSContent(name: "$Orphan", icon: "file"),
-        DSContent(name: "Saga", icon: "document"),
-        DSContent(name: "hd_nikon.jpg", icon: "image"),
-    ]
+    @EnvironmentObject var vm: DSContentVM
+    @EnvironmentObject var router: Router
+    var dataSource: DataSource
     
     var body: some View {
         ZStack {
             List {
-                ForEach(items) { item in
+                ForEach(vm.items) { item in
                     DSContentHStackLabel(item: item)
+                        .onTapGesture {
+                            var title = "Files"
+                            if let name = item.name {
+                                title = name.isEmpty ? item.path ?? "" : name
+                            }
+                            let path = CaseHomePath.contentTabBar(vm.getFileInfo(for: item), item.children ?? [], title)
+                            router.caseHomePath.append(path)
+                        }
                 }
                 .listRowBackground(Color.clear)
                 .listRowInsets(EdgeInsets(top: 3, leading: 0, bottom: 3, trailing: 0))
@@ -36,16 +35,32 @@ struct DSContentScreen: View {
             .listStyle(.plain)
             .scrollContentBackground(.hidden)
             .customBackground()
+            .popup(isPresented: $vm.showErrorPopup) {
+                ErrorToastView(msg: vm.errMsg)
+            } customize: { $0
+                .type(.floater())
+                .position(.bottom)
+                .animation(.spring())
+                .closeOnTapOutside(true)
+                .autohideIn(2)
+            }
+            
+            if vm.loading { LoadingHUDView(loading: $vm.loading) }
+
         }
         .navigationTitle("Item Name")
         .navigationBarTitleDisplayMode(.inline)
         .customBackground()
+        .onAppear {
+            vm.getFiles(for: dataSource.id)
+        }
     }
+        
 }
 
 struct DSContentHStackLabel: View {
     
-    var item: DSContent
+    var item: AutopsyFile
     
     var body: some View {
         
@@ -55,21 +70,24 @@ struct DSContentHStackLabel: View {
             .overlay {
                 VStack {
                     HStack() {
-                        Image(item.icon)
+                        Image("folder")
                             .foregroundColor(.textColor)
-                        Text(item.name)
+                            .padding(.trailing, 5)
+                        Text(((item.path?.isEmpty != nil) ? item.path ?? "" : item.name) ?? "")
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .font(.custom(CFont.graphikRegular.rawValue, size: 15))
+                            .font(.custom(CFont.graphikRegular.rawValue, size: 14))
                             .foregroundColor(.textColor)
+                        Spacer()
                         Image(systemName: "chevron.right")
                             .foregroundColor(.textColor)
                     }
-                    .padding(.horizontal, 15)
+                    .padding(.horizontal, 20)
                 }
             }
+            .contentShape(Rectangle())
     }
 }
 
 #Preview {
-    DSContentScreen()
+    DSContentScreen(dataSource: DataSource())
 }
