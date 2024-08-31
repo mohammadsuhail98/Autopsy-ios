@@ -141,7 +141,7 @@ struct DeleteCasePopup: View {
                         .frame(height: 0)
                         .padding(.vertical, 18)
                         .foregroundColor(.white)
-                        .background(Color(hex: 0xf4644c))
+                        .background(Color.themeRed)
                         .cornerRadius(5)
                 }
                 .shadow(color: .shadow, radius: 2, x: 1, y: 1)

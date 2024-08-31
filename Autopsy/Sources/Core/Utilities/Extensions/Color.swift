@@ -44,6 +44,14 @@ extension Color {
         return Color(hex: 0x0f7aff)
     }
     
+    public static var themeRed: Color {
+        return Color(hex: 0xF05A3F)
+    }
+    
+    public static var themeGray: Color {
+        return Color(hex: 0x8D8D8D)
+    }
+    
 }
 
 extension UIColor {
