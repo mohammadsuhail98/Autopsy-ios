@@ -24,6 +24,8 @@
 		0B097C482C835CE500136993 /* DSContentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B097C472C835CE500136993 /* DSContentVM.swift */; };
 		0B097C4A2C837E3A00136993 /* DataSourceContentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B097C492C837E3A00136993 /* DataSourceContentManager.swift */; };
 		0B097C4D2C8385CA00136993 /* ContentTabBarScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B097C4C2C8385CA00136993 /* ContentTabBarScreen.swift */; };
+		0B097C4F2C839E4100136993 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B097C4E2C839E4100136993 /* Utils.swift */; };
+		0B097C522C839F5C00136993 /* ContentFilesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B097C512C839F5C00136993 /* ContentFilesScreen.swift */; };
 		0B4A89BC2C7B4613007565AB /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4A89BB2C7B4613007565AB /* NetworkRouter.swift */; };
 		0B4A89BF2C7B465D007565AB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0B4A89BE2C7B465D007565AB /* Alamofire */; };
 		0B4A89C12C7B465D007565AB /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0B4A89C02C7B465D007565AB /* AlamofireDynamic */; };
@@ -111,6 +113,8 @@
 		0B097C472C835CE500136993 /* DSContentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSContentVM.swift; sourceTree = "<group>"; };
 		0B097C492C837E3A00136993 /* DataSourceContentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceContentManager.swift; sourceTree = "<group>"; };
 		0B097C4C2C8385CA00136993 /* ContentTabBarScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTabBarScreen.swift; sourceTree = "<group>"; };
+		0B097C4E2C839E4100136993 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		0B097C512C839F5C00136993 /* ContentFilesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFilesScreen.swift; sourceTree = "<group>"; };
 		0B4A89BB2C7B4613007565AB /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		0B4A89C22C7B5014007565AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0B4A89C52C7B65D5007565AB /* CasesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesManager.swift; sourceTree = "<group>"; };
@@ -209,9 +213,18 @@
 		0B097C4B2C83857F00136993 /* ContentTabBar */ = {
 			isa = PBXGroup;
 			children = (
+				0B097C502C839F4400136993 /* ContentFiles */,
 				0B097C4C2C8385CA00136993 /* ContentTabBarScreen.swift */,
 			);
 			path = ContentTabBar;
+			sourceTree = "<group>";
+		};
+		0B097C502C839F4400136993 /* ContentFiles */ = {
+			isa = PBXGroup;
+			children = (
+				0B097C512C839F5C00136993 /* ContentFilesScreen.swift */,
+			);
+			path = ContentFiles;
 			sourceTree = "<group>";
 		};
 		0B4A89C42C7B65C4007565AB /* Network */ = {
@@ -459,6 +472,7 @@
 		181577752C63ABCF007E0997 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				0B097C4E2C839E4100136993 /* Utils.swift */,
 				0BD72BE82C57F913001918C3 /* Extensions */,
 				0BD72BF12C594279001918C3 /* Enums */,
 			);
@@ -666,6 +680,7 @@
 				1815777E2C64EF5C007E0997 /* IngestModulesView.swift in Sources */,
 				0BD72BEC2C593C75001918C3 /* NewCaseScreen.swift in Sources */,
 				18BBF11C2C81D8AC002285CE /* FilesByExtensionScreen.swift in Sources */,
+				0B097C522C839F5C00136993 /* ContentFilesScreen.swift in Sources */,
 				184D18762C7F3C8C0093D28D /* GeoLocation.swift in Sources */,
 				0B4A89C82C7B6A9B007565AB /* APIClient.swift in Sources */,
 				18BBF10A2C80A081002285CE /* AnalysisResultsManager.swift in Sources */,
@@ -702,6 +717,7 @@
 				0BA3C58E2C66C51900A921AD /* MainVMKey.swift in Sources */,
 				0B097C462C83404900136993 /* VolumeInfo.swift in Sources */,
 				0B097C322C7E6CF000136993 /* CaseDetailsVM.swift in Sources */,
+				0B097C4F2C839E4100136993 /* Utils.swift in Sources */,
 				184D187B2C7F3CED0093D28D /* GeoLocationScreen.swift in Sources */,
 				0BD72BF32C59428A001918C3 /* CustomFont.swift in Sources */,
 				0B4A89C62C7B65D5007565AB /* CasesManager.swift in Sources */,

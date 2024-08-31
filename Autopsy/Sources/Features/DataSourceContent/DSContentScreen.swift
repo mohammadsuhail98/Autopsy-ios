@@ -24,7 +24,7 @@ struct DSContentScreen: View {
                             if let name = item.name {
                                 title = name.isEmpty ? item.path ?? "" : name
                             }
-                            let path = CaseHomePath.contentTabBar(vm.getFileInfo(for: item), item.children ?? [], title)
+                            let path = CaseHomePath.contentTabBar(Utils.getFileInfo(for: item), item.children ?? [], title)
                             router.caseHomePath.append(path)
                         }
                 }
@@ -48,7 +48,7 @@ struct DSContentScreen: View {
             if vm.loading { LoadingHUDView(loading: $vm.loading) }
 
         }
-        .navigationTitle("Item Name")
+        .navigationTitle(dataSource.name ?? "")
         .navigationBarTitleDisplayMode(.inline)
         .customBackground()
         .onAppear {
@@ -70,10 +70,10 @@ struct DSContentHStackLabel: View {
             .overlay {
                 VStack {
                     HStack() {
-                        Image("folder")
+                        Image("volume")
                             .foregroundColor(.textColor)
                             .padding(.trailing, 5)
-                        Text(((item.path?.isEmpty != nil) ? item.path ?? "" : item.name) ?? "")
+                        Text((item.name ?? "" == "") ? item.path ?? "" : item.name ?? "")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .font(.custom(CFont.graphikRegular.rawValue, size: 14))
                             .foregroundColor(.textColor)

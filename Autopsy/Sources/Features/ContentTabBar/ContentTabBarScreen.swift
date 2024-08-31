@@ -18,7 +18,7 @@ struct ContentTabBarScreen: View {
     var body: some View {
         TabView(selection: $selection) {
             if !content.isEmpty {
-                Text("files_tabbar")
+                ContentFilesScreen(contentFiles: content)
                     .tabItem {
                         TabItemView(icon: "files_tabbar", text: "Files")
                     }.tag(0)

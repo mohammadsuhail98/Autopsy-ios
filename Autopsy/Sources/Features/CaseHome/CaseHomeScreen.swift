@@ -48,7 +48,7 @@ struct CaseHomeScreen: View {
                 .toolbarColorScheme(.light, for: .tabBar)
                 .environmentObject(caseVM)
         }
-        .navigationTitle(selection == 0 ? "Case Name" : getNavBarTitle(selection: selection))
+        .navigationTitle(selection == 0 ? FocusedCase.shared.getCase()?.name ?? "Home" : getNavBarTitle(selection: selection))
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden()
         .toolbar {
