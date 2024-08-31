@@ -54,7 +54,16 @@ struct CaseDetailsScreen: View {
             if vm.loading { LoadingHUDView(loading: $vm.loading) }
 
         }
-        .popup(isPresented: $showEditCaseSheet) {
+        .popup(isPresented: $vm.showErrorPopup) {
+            ErrorToastView(msg: vm.errMsg)
+        } customize: { $0
+            .type(.floater(verticalPadding: 0, horizontalPadding: 0, useSafeAreaInset: true))
+            .position(.bottom)
+            .animation(.spring())
+            .closeOnTapOutside(true)
+            .autohideIn(2)
+        }
+        .fullScreenCover(isPresented: $showEditCaseSheet, content: {
             EditCaseSheet(isShowing: $showEditCaseSheet,
                           caseNumber: "\(vm.caseDetails.number ?? 0)",
                           name: vm.caseDetails.examinerName ?? "",
@@ -64,23 +73,7 @@ struct CaseDetailsScreen: View {
                 
                 vm.updateCaseDetails(number: number, exName: exName, exPhone: exPhone, exEmail: exEmail, exNotes: exNotes)
             }
-        } customize: { $0
-                .position(.bottom)
-                .closeOnTap(false)
-                .closeOnTapOutside(true)
-                .backgroundColor(.black.opacity(0.4))
-                .isOpaque(true)
-                .useKeyboardSafeArea(true)
-        }
-        .popup(isPresented: $vm.showErrorPopup) {
-            ErrorToastView(msg: vm.errMsg)
-        } customize: { $0
-            .type(.floater())
-            .position(.bottom)
-            .animation(.spring())
-            .closeOnTapOutside(true)
-            .autohideIn(2)
-        }
+        })
         .toolbar {
             ToolbarItemGroup(placement: .primaryAction) {
                 Button {
@@ -109,64 +102,69 @@ private struct EditCaseSheet: View {
     var completion: ((String, String, String, String, String)->())
     
     var body: some View {
-        List {
+        Form {
             Section {
-                HStack {
-                    Text("Edit Case Details")
-                        .font(.custom(CFont.graphikMedium.rawValue, size: 17))
-                        .foregroundColor(.textColor)
-                        .kerning(0.38)
-                    
-                    Spacer()
-                    
-                    Button {
-                        isShowing = false
-                    } label: {
-                        Image(systemName: "xmark")
-                    }
+                Text("Case details")
+                    .listRowBackground(Color.clear)
+                    .font(.custom(CFont.graphikMedium.rawValue, size: 17))
+                    .foregroundColor(.textColor)
+                    .frame(maxWidth: .infinity)
+                
+                EntryFieldStackView(titleText: "Case Number", value: $caseNumber)
+
+                Text("Examiner details")
+                    .listRowBackground(Color.clear)
+                    .font(.custom(CFont.graphikMedium.rawValue, size: 17))
+                    .foregroundColor(.textColor)
+                    .frame(maxWidth: .infinity)
+                
+                EntryFieldStackView(titleText: "Examiner Name", value: $name)
+
+                EntryFieldStackView(titleText: "Examiner Phone", value: $phone)
+
+                EntryFieldStackView(titleText: "Examiner Email", value: $email)
+
+                EntryFieldStackView(titleText: "Examiner Notes", value: $notes)
+
+
+                Button {
+                    completion(caseNumber, name, phone, email, notes)
+                    isShowing = false
+                } label: {
+                    BorderedBtnLabelView(title: "Save Changes")
                 }
-                .padding(10)
-            }
-            .listRowBackground(Color.clear)
-            .listRowSeparator(.visible, edges: .bottom)
-            
-            Text("Case details")
+                .padding(.vertical, 12)
                 .listRowBackground(Color.clear)
-                .font(.custom(CFont.graphikMedium.rawValue, size: 17))
-                .foregroundColor(.textColor)
-                .frame(maxWidth: .infinity)
-            
-            EntryFieldStackView(titleText: "Case Number", value: $caseNumber)
-
-            Text("Examiner details")
-                .listRowBackground(Color.clear)
-                .font(.custom(CFont.graphikMedium.rawValue, size: 17))
-                .foregroundColor(.textColor)
-                .frame(maxWidth: .infinity)
-            
-            EntryFieldStackView(titleText: "Examiner Name", value: $name)
-
-            EntryFieldStackView(titleText: "Examiner Phone", value: $phone)
-
-            EntryFieldStackView(titleText: "Examiner Email", value: $email)
-
-            EntryFieldStackView(titleText: "Examiner Notes", value: $notes)
-
-
-            Button {
-                completion(caseNumber, name, phone, email, notes)
-                isShowing = false
-            } label: {
-                BorderedBtnLabelView(title: "Save Changes")
+                .listRowSeparator(.hidden)
+            } header: {
+                VStack {
+                    HStack {
+                        Text("Edit Case Details")
+                            .font(.custom(CFont.graphikMedium.rawValue, size: 17))
+                            .foregroundColor(.textColor)
+                            .kerning(0.38)
+                        
+                        Spacer()
+                        
+                        Button {
+                            isShowing = false
+                        } label: {
+                            Image(systemName: "xmark")
+                        }
+                    }
+                    .padding(.bottom, 10)
+                    
+                    Divider()
+                }
             }
-            .padding(.vertical, 12)
             .listRowBackground(Color.clear)
             .listRowSeparator(.hidden)
+            .headerProminence(.increased)
         }
         .scrollIndicators(.hidden)
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
-        .background(Color.background.cornerRadius(18))
+        .customBackground()
     }
 }
 
