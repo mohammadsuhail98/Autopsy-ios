@@ -10,8 +10,11 @@ import SwiftUI
 struct ContentTabBarScreen: View {
     
     @EnvironmentObject private var router: Router
+    
     @State var selection = 0
     
+    @StateObject var fileDataContentVM = FileDataContentVM()
+
     var mainInfo: AutopsyFile
     var content: AutopsyFiles
     var title: String
@@ -34,12 +37,13 @@ struct ContentTabBarScreen: View {
                 .toolbarBackground(.visible, for: .tabBar)
                 .toolbarColorScheme(.light, for: .tabBar)
             
-            Text("Data Content")
+            FileDataContentScreen(id: mainInfo.id ?? 0)
                 .tabItem {
                     TabItemView(icon: "data_content", text: "Data Content")
                 }.tag(2)
                 .toolbarBackground(.visible, for: .tabBar)
                 .toolbarColorScheme(.light, for: .tabBar)
+                .environmentObject(fileDataContentVM)
 
         }
         .navigationTitle(title)

@@ -16,6 +16,7 @@ struct Constants {
         static let fileViews = "/api/file_views"
         static let analysisResults = "/api/analysis_results"
         static let geolocation = "/api/geolocation"
+        static let fileContent = "/api/datasource"
         
         static func dataSource(for caseId: Int) -> String {
             return "/api/cases/\(caseId)/datasources"

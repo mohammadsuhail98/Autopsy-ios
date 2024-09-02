@@ -19,7 +19,30 @@ class DataSourceContentManager: APIClient {
                 errorBlock?(error)
             }
         }
+    }
+    
+    class func getHexFile(caseId: Int, id: Int, successBlock: ((Data) -> Void)? = nil, errorBlock: ((AutopsyError) -> Void)? = nil) {
         
+        createDataRequest(withRoute: .getFileHex(caseId, id)) { (result: Result<Data, AutopsyError>) in
+            switch result {
+            case .success(let content):
+                successBlock?(content)
+            case .failure(let error):
+                errorBlock?(error)
+            }
+        }
+    }
+    
+    class func getTextFile(caseId: Int, id: Int, successBlock: ((Data) -> Void)? = nil, errorBlock: ((AutopsyError) -> Void)? = nil) {
+        
+        createDataRequest(withRoute: .getFileText(caseId, id)) { (result: Result<Data, AutopsyError>) in
+            switch result {
+            case .success(let content):
+                successBlock?(content)
+            case .failure(let error):
+                errorBlock?(error)
+            }
+        }
     }
     
 }

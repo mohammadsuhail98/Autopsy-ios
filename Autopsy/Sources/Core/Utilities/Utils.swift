@@ -41,6 +41,7 @@ class Utils {
         file.atime = item.atime
         file.deleted = item.deleted
         file.dir = item.dir
+        file.dataSourceId = item.dataSourceId
         return file
     }
     

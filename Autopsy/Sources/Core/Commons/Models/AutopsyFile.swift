@@ -28,12 +28,13 @@ struct AutopsyFile: Codable, Identifiable, Hashable {
     var ctime: String?
     var atime: String?
     var volumeInfo: VolumeInfo?
+    var dataSourceId: Int?
     
     enum CodingKeys: String, CodingKey {
         case name, path, type, id, uid, gid, size, flagsDir, flagsMeta, known, md5Hash, sha1Hash, sha256Hash
         case autopsyFileExtension = "extension"
         case fileType, children, crTime, fileSystemType, metaDataText, mimeType, hasAnalysisResults, virtual, file, root, dir, deleted, volume, mtime, ctime, atime
-        case volumeInfo
+        case volumeInfo, dataSourceId
     }
 }
 

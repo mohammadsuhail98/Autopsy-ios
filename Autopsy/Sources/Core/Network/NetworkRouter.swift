@@ -25,11 +25,11 @@ enum NetworkRouter {
     
     // DATA SOURCE CONTENT
     case getDataSourceContent(Int)
-    case getFileContent(Int)
-    case getFileText(Int)
-    case getFileHex(Int)
-    case getFileApplication(Int)
-    case getFileAnalysisResults(Int)
+    case getFileContent(Int, Int)
+    case getFileText(Int, Int)
+    case getFileHex(Int, Int)
+    case getFileApplication(Int, Int)
+    case getFileAnalysisResults(Int, Int)
     
     // FILE VIEWS
     case getFilesByViewType(Int, Int)
@@ -89,20 +89,20 @@ extension NetworkRouter {
         case .getDataSourceContent(let dataSourceId):
             return basePath.dsContent(dataSourceId)
             
-        case .getFileContent(let dataSourceId):
-            return basePath.dsContent(dataSourceId) + "/file"
+        case .getFileContent:
+            return basePath.fileContent + "/file"
             
-        case .getFileText(let dataSourceId):
-            return basePath.dsContent(dataSourceId) + "/file_strings"
+        case .getFileText:
+            return basePath.fileContent + "/file_strings"
 
-        case .getFileHex(let dataSourceId):
-            return basePath.dsContent(dataSourceId) + "/file_hex"
+        case .getFileHex:
+            return basePath.fileContent + "/file_hex"
 
-        case .getFileApplication(let dataSourceId):
-            return basePath.dsContent(dataSourceId) + "/file_application"
+        case .getFileApplication:
+            return basePath.fileContent + "/file_application"
 
-        case .getFileAnalysisResults(let dataSourceId):
-            return basePath.dsContent(dataSourceId) + "/analysis_results"
+        case .getFileAnalysisResults:
+            return basePath.fileContent + "/analysis_results"
 
         case .getFilesByViewType:
             return basePath.fileViews + "/files_by_view_type"
@@ -166,10 +166,11 @@ extension NetworkRouter {
                 .addDataSource, .getDataSource, .deleteDataSource, .getDataSourceContent:
             return nil
 
-        case .getFileHex(let fileId), .getFileAnalysisResults(let fileId),
-                .getFileApplication(let fileId), .getFileText(let fileId),
-                .getFileContent(let fileId):
-            return [URLQueryItem(name: "fileId", value: "\(fileId)")]
+        case .getFileHex(let caseId, let fileId), .getFileAnalysisResults(let caseId, let fileId),
+                .getFileApplication(let caseId, let fileId), .getFileText(let caseId, let fileId),
+                .getFileContent(let caseId, let fileId):
+            return [URLQueryItem(name: "caseId", value: "\(caseId)"),
+                    URLQueryItem(name: "fileId", value: "\(fileId)")]
 
         case .getFilesByViewType(let caseId, let type), .getDeletedFiles(let caseId, let type),
                 .getFilesBySize(let caseId, let type), .getAnalysisResultsFilesByType(let caseId, let type):
