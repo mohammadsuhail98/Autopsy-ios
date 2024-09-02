@@ -9,7 +9,7 @@ import Foundation
 
 struct FileExtensions {
     static let imageExtensions: [String] = [
-        ".jpg", ".jpeg", ".png", ".psd", ".nef", ".tiff", ".bmp", ".tec", ".tif", ".webp"
+        ".jpg", ".jpeg", ".png", ".psd", ".nef", ".tiff", ".bmp", ".tec", ".tif", ".webp", ".heif"
     ]
     
     static let videoExtensions: [String] = [

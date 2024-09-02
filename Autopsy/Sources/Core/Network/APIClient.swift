@@ -131,14 +131,7 @@ private extension APIClient {
         AF.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
             .responseData { response in
                 let code = response.response?.statusCode ?? 0
-                
-//                do {
-//                    let json = try SwiftyJSON.JSON(data: response.data ?? Data())
-//                    print(json)
-//                } catch let error {
-//                    print(error)
-//                }
-                
+
                 if code != 200 {
                     do {
                         let json = try SwiftyJSON.JSON(data: response.data ?? Data())
@@ -160,6 +153,10 @@ private extension APIClient {
                 case .success(let data):
                     completion(.success(data))
                 case .failure(let error):
+                    if code == 200 {
+                        completion(.success(response.data ?? Data()))
+                        return 
+                    }
                     completion(.failure(.error(error.localizedDescription, code)))
                 }
             }

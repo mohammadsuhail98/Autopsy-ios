@@ -45,4 +45,40 @@ class DataSourceContentManager: APIClient {
         }
     }
     
+    class func getFileMetadata(caseId: Int, id: Int, successBlock: ((AutopsyFile) -> Void)? = nil, errorBlock: ((AutopsyError) -> Void)? = nil) {
+        
+        createRequest(withRoute: .getFileContent(caseId, id)) { (result: Result<AutopsyFile, AutopsyError>) in
+            switch result {
+            case .success(let content):
+                successBlock?(content)
+            case .failure(let error):
+                errorBlock?(error)
+            }
+        }
+    }
+    
+    class func getApplicationFile(caseId: Int, id: Int, successBlock: ((Data) -> Void)? = nil, errorBlock: ((AutopsyError) -> Void)? = nil) {
+        
+        createDataRequest(withRoute: .getFileApplication(caseId, id)) { (result: Result<Data, AutopsyError>) in
+            switch result {
+            case .success(let content):
+                successBlock?(content)
+            case .failure(let error):
+                errorBlock?(error)
+            }
+        }
+    }
+    
+    class func getFileAnalysisResults(caseId: Int, id: Int, successBlock: ((FileResults) -> Void)? = nil, errorBlock: ((AutopsyError) -> Void)? = nil) {
+        
+        createRequest(withRoute: .getFileAnalysisResults(caseId, id)) { (result: Result<FileResults, AutopsyError>) in
+            switch result {
+            case .success(let content):
+                successBlock?(content)
+            case .failure(let error):
+                errorBlock?(error)
+            }
+        }
+    }
+    
 }
