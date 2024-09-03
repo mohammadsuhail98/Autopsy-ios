@@ -157,7 +157,14 @@ extension NetworkRouter {
     }
     
     var headers: HTTPHeaders? {
-        return ["deviceId" : Constants.deviceId]
+        switch self {
+        case .addDataSource:
+            return ["deviceId" : Constants.deviceId,
+                    "Content-type": "multipart/form-data"]
+        default:
+            return ["deviceId" : Constants.deviceId]
+        }
+        
     }
     
     var queryItems: [URLQueryItem]? {

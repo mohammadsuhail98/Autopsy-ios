@@ -29,6 +29,8 @@ struct MenuView: View {
                         selectedItem = item
                     }, label: {
                         Text(item)
+                            .font(.custom(CFont.graphikRegular.rawValue, size: 13))
+                            .foregroundColor(.textColor)
                     })
                 }
             } label: {

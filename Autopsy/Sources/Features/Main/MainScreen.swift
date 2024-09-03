@@ -19,7 +19,8 @@ struct MainScreen: View {
     @StateObject var filesByTypeVM = FilesByTypeVM()
     @StateObject var mimeTypesVM = MimeTypesVM()
     @StateObject var dsContentVM = DSContentVM()
-    
+    @StateObject var addDataSourceVM = AddDataSourceVM()
+
     var body: some View {
         
         switch router.selectedScenario {
@@ -86,9 +87,15 @@ struct MainScreen: View {
                     switch path {
                     case .mainScreen: MainScreen()
                     case .newCase: NewCaseScreen()
-                    case .addDataSourceType: AddDataSourceTypeView()
-                    case .addDataSource: SelectDataSourceView()
-                    case .ingestModules: IngestModulesView()
+                    case .addDataSourceType: 
+                        AddDataSourceTypeView()
+                            .environmentObject(addDataSourceVM)
+                    case .addDataSource: 
+                        SelectDataSourceView()
+                            .environmentObject(addDataSourceVM)
+                    case .ingestModules: 
+                        IngestModulesView()
+                            .environmentObject(addDataSourceVM)
                     }
                 }
             }
@@ -101,9 +108,15 @@ struct MainScreen: View {
                         case .caseDetails: 
                             CaseDetailsScreen()
                                 .environmentObject(caseDetailsVM)
-                        case .addDataSourceType: AddDataSourceTypeView()
-                        case .addDataSource: SelectDataSourceView()
-                        case .ingestModules: IngestModulesView()
+                        case .addDataSourceType: 
+                            AddDataSourceTypeView()
+                                .environmentObject(addDataSourceVM)
+                        case .addDataSource: 
+                            SelectDataSourceView()
+                                .environmentObject(addDataSourceVM)
+                        case .ingestModules: 
+                            IngestModulesView()
+                                .environmentObject(addDataSourceVM)
                         case .dataSourceList: CaseHomeScreen()
                         case .dataSourceContent(let dataSource):
                             DSContentScreen(dataSource: dataSource)

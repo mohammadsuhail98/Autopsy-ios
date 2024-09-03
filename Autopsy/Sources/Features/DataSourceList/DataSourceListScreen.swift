@@ -14,7 +14,9 @@ struct DataSourceListScreen: View {
     @EnvironmentObject private var vm: DataSourceListVM
     @State private var showMetadata: Bool = false
     @State private var selectedDataSource: DataSource?
-    
+    @State private var toBeDeleted: IndexSet?
+    @State private var showingDeleteAlert = false
+
     var body: some View {
         ZStack {
             
@@ -38,32 +40,32 @@ struct DataSourceListScreen: View {
                     .listRowInsets(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
                     .listRowSeparator(.hidden)
                     
-                    ForEach(vm.dataSources) { item in
+                    ForEach(vm.dataSources, id: \.self) { item in
                         DataSourceCardView(dataSource: item)
                             .onTapGesture {
                                 router.caseHomePath.append(.dataSourceContent(item))
                             }
-                        .swipeActions {
-                            Button {
-                                print("Delete")
-                            } label: {
-                                Image(systemName: "trash.fill")
-                                Text("Delete")
-                                    .font(.custom(CFont.graphikRegular.rawValue, size: 13))
+                            .swipeActions(allowsFullSwipe: false) {
+                                Button {
+                                    self.selectedDataSource = item
+                                    showingDeleteAlert = true
+                                } label: {
+                                    Image(systemName: "trash.fill")
+                                    Text("Delete")
+                                        .font(.custom(CFont.graphikRegular.rawValue, size: 13))
+                                }
+                                .tint(Color.themeRed)
+                                
+                                Button {
+                                    self.selectedDataSource = item
+                                    showMetadata = true
+                                } label: {
+                                    Image(systemName: "ellipsis.circle.fill")
+                                    Text("More")
+                                        .font(.custom(CFont.graphikRegular.rawValue, size: 13))
+                                }
+                                .tint(Color.themeGray)
                             }
-                            .tint(Color.themeRed)
-                            
-                            Button {
-                                self.selectedDataSource = item
-                                showMetadata = true
-                            } label: {
-                                Image(systemName: "ellipsis.circle.fill")
-                                Text("More")
-                                    .font(.custom(CFont.graphikRegular.rawValue, size: 13))
-                            }
-                            .tint(Color.themeGray)
-                        }
-                        
                     }
                     .shadow(color: .shadow, radius: 2, x: 1, y: 1)
                     .listRowBackground(Color.clear)
@@ -76,14 +78,17 @@ struct DataSourceListScreen: View {
                 .onAppear {
                     vm.getDataSourceList()
                 }
-                .popup(isPresented: $vm.showErrorPopup) {
-                    ErrorToastView(msg: vm.errMsg)
+                .popup(isPresented: $showingDeleteAlert) {
+                    DeleteDataSourcePopup(isPresented: $showingDeleteAlert) {
+                        if let dataSource = selectedDataSource {
+                            deleteDataSource(dataSource)
+                        }
+                    }
                 } customize: { $0
-                    .type(.floater())
-                    .position(.bottom)
-                    .animation(.spring())
-                    .closeOnTapOutside(true)
-                    .autohideIn(2)
+                        .type(.floater())
+                        .position(.center)
+                        .closeOnTap(false)
+                        .backgroundColor(.black.opacity(0.4))
                 }
                 .refreshable {
                     vm.getDataSourceList()
@@ -91,6 +96,15 @@ struct DataSourceListScreen: View {
             }
             
             if vm.loading { LoadingHUDView(loading: $vm.loading) }
+        }
+        .popup(isPresented: $vm.showErrorPopup) {
+            ErrorToastView(msg: vm.errMsg)
+        } customize: { $0
+            .type(.floater())
+            .position(.bottom)
+            .animation(.spring())
+            .closeOnTapOutside(true)
+            .autohideIn(2)
         }
         .popup(isPresented: $showMetadata) {
             MetadataView(dataSource: $selectedDataSource, isDisplayed: $showMetadata)
@@ -103,6 +117,10 @@ struct DataSourceListScreen: View {
                 .backgroundColor(.black.opacity(0.4))
             
         }
+    }
+    
+    private func deleteDataSource(_ dataSource: DataSource) {
+        vm.deleteDataSource(dataSource: dataSource)
     }
 }
 
@@ -261,6 +279,73 @@ struct SubtitleHStackLabelValue: View {
         }
         .padding(.horizontal, horizontalPadding)
         .padding(.bottom, bottomPadding)
+    }
+}
+
+struct DeleteDataSourcePopup: View {
+    
+    @Binding var isPresented: Bool
+    var completion: (() -> Void)
+    
+    var body: some View {
+        VStack(spacing: 12) {
+            
+            VStack {
+                Image("confirm_delete")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: 80, maxHeight: 80)
+                    .padding(.bottom, 12)
+
+                Text("You are about to delete a data source")
+                    .font(.custom(CFont.graphikSemibold.rawValue, size: 14))
+                    .foregroundColor(.textColor)
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom, 3)
+                
+                Text("This will delete the data source permanently, are you sure?")
+                    .font(.custom(CFont.graphikRegular.rawValue, size: 14))
+                    .foregroundColor(.gray)
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom, 12)
+            }
+
+            HStack {
+                Spacer()
+                
+                Button {
+                    isPresented = false
+                } label: {
+                    Text("Cancel")
+                        .font(.custom(CFont.graphikMedium.rawValue, size: 14))
+                        .frame(maxWidth: 120, alignment: .trailing)
+                        .foregroundColor(.gray)
+                        .frame(height: 1)
+                        .padding(.vertical, 18)
+                        .padding(.trailing, 5)
+                }
+
+                Button {
+                    isPresented = false
+                    completion()
+                } label: {
+                    Text("Delete")
+                        .font(.custom(CFont.graphikSemibold.rawValue, size: 14))
+                        .frame(maxWidth: 120)
+                        .frame(height: 0)
+                        .padding(.vertical, 18)
+                        .foregroundColor(.white)
+                        .background(Color.themeRed)
+                        .cornerRadius(5)
+                }
+                .shadow(color: .shadow, radius: 2, x: 1, y: 1)
+                
+            }
+            
+        }
+        .padding(EdgeInsets(top: 37, leading: 24, bottom: 25, trailing: 24))
+        .background(Color.white.cornerRadius(5))
+        .padding(.horizontal, 30)
     }
 }
 

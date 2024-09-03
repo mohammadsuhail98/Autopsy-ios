@@ -32,19 +32,22 @@ struct MimeTypesScreen: View {
                         
                     } header: {
                         HStack {
-                            Text(item.name ?? "")
+                            Text(item.name?.capitalized ?? "")
                                 .font(.custom(CFont.graphikSemibold.rawValue, size: 17))
                                 .foregroundColor(.textColor)
                                 .padding(.bottom, 10)
+                                .padding(.leading, 15)
                             Spacer()
                         }
                     }
+
                 }
                 .listRowBackground(Color.clear)
                 .listRowInsets(EdgeInsets(top: 3, leading: 0, bottom: 3, trailing: 0))
                 .listRowSeparator(.hidden)
                 
             }
+            .listStyle(.plain)
             .scrollContentBackground(.hidden)
             
             if vm.loading { LoadingHUDView(loading: $vm.loading) }

@@ -10,6 +10,7 @@ import SwiftUI
 struct AddDataSourceTypeView: View {
     
     @EnvironmentObject private var router: Router
+    @EnvironmentObject private var vm: AddDataSourceVM
 
     var body: some View {
         ScrollView {

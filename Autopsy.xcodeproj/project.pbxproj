@@ -106,6 +106,7 @@
 		18BBF1312C85C4F6002285CE /* ApplicationViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBF1302C85C4F6002285CE /* ApplicationViewer.swift */; };
 		18BBF1332C85D750002285CE /* FileResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBF1322C85D750002285CE /* FileResults.swift */; };
 		18BBF1352C85E27D002285CE /* FileResultsViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBF1342C85E27D002285CE /* FileResultsViewer.swift */; };
+		18BBF1372C86F627002285CE /* AddDataSourceVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BBF1362C86F627002285CE /* AddDataSourceVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -200,6 +201,7 @@
 		18BBF1302C85C4F6002285CE /* ApplicationViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationViewer.swift; sourceTree = "<group>"; };
 		18BBF1322C85D750002285CE /* FileResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileResults.swift; sourceTree = "<group>"; };
 		18BBF1342C85E27D002285CE /* FileResultsViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileResultsViewer.swift; sourceTree = "<group>"; };
+		18BBF1362C86F627002285CE /* AddDataSourceVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDataSourceVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -401,9 +403,7 @@
 				0BA3C5932C66DC5000A921AD /* CaseHome */,
 				1815775E2C63A983007E0997 /* Main */,
 				1815775F2C63A995007E0997 /* NewCase */,
-				181577602C63A9A6007E0997 /* DataSourceType */,
-				181577612C63A9CC007E0997 /* SelectDataSource */,
-				1815777B2C64EF1E007E0997 /* IngestModules */,
+				181577602C63A9A6007E0997 /* AddDataSource */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -426,20 +426,15 @@
 			path = NewCase;
 			sourceTree = "<group>";
 		};
-		181577602C63A9A6007E0997 /* DataSourceType */ = {
+		181577602C63A9A6007E0997 /* AddDataSource */ = {
 			isa = PBXGroup;
 			children = (
 				1815774E2C60CD02007E0997 /* AddDataSourceTypeView.swift */,
-			);
-			path = DataSourceType;
-			sourceTree = "<group>";
-		};
-		181577612C63A9CC007E0997 /* SelectDataSource */ = {
-			isa = PBXGroup;
-			children = (
 				181577502C60D170007E0997 /* SelectDataSourceView.swift */,
+				1815777D2C64EF5C007E0997 /* IngestModulesView.swift */,
+				18BBF1362C86F627002285CE /* AddDataSourceVM.swift */,
 			);
-			path = SelectDataSource;
+			path = AddDataSource;
 			sourceTree = "<group>";
 		};
 		1815776E2C63AA40007E0997 /* Commons */ = {
@@ -504,14 +499,6 @@
 				0BD72BF12C594279001918C3 /* Enums */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		1815777B2C64EF1E007E0997 /* IngestModules */ = {
-			isa = PBXGroup;
-			children = (
-				1815777D2C64EF5C007E0997 /* IngestModulesView.swift */,
-			);
-			path = IngestModules;
 			sourceTree = "<group>";
 		};
 		181577862C6A3AA5007E0997 /* DataSourceList */ = {
@@ -760,6 +747,7 @@
 				0B097C5B2C8491C000136993 /* FileDataContentScreen.swift in Sources */,
 				0B097C3A2C80A54F00136993 /* AnalysisResultsVM.swift in Sources */,
 				1815778E2C749833007E0997 /* CaseDetailsScreen.swift in Sources */,
+				18BBF1372C86F627002285CE /* AddDataSourceVM.swift in Sources */,
 				184D186F2C7CC5D50093D28D /* AutopsyError.swift in Sources */,
 				0B097C5E2C84AFFD00136993 /* FileDataContentVM.swift in Sources */,
 				1815775C2C63A3AE007E0997 /* View+Extension.swift in Sources */,
