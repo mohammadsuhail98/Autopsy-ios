@@ -38,6 +38,16 @@ struct TextViewer: View {
                 Spacer()
             } else {
                 HStack {
+                    
+                    Button {
+                        shareTextFile(text: fileContent)
+                    } label: {
+                        Text("Share")
+                            .font(.custom(CFont.graphikMedium.rawValue, size: 13))
+                            .foregroundColor(.textColor)
+                    }
+                    .padding(.leading, 10)
+                    
                     Spacer()
                     
                     HStack {
@@ -128,5 +138,19 @@ struct TextViewer: View {
         return false
     }
     
+    func shareTextFile(text: String) {
+        let textData = text.data(using: .utf8)!
+        let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent(isText ? "textFile.txt" : "hexFile.hex")
+        
+        do {
+            try textData.write(to: tempURL)
+            let activityVC = UIActivityViewController(activityItems: [tempURL], applicationActivities: nil)
+            if let topController = UIApplication.shared.windows.first?.rootViewController {
+                topController.present(activityVC, animated: true, completion: nil)
+            }
+        } catch {
+            print("Failed to write text to file: \(error)")
+        }
+    }
+    
 }
-

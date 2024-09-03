@@ -16,7 +16,8 @@ struct FileDataContentScreen: View {
 
     @State var selection = 1
     @State var swipeGestureEnabled = true
-    
+    @State var selectionArr = [1]
+
     var id: Int
     
     var body: some View {
@@ -72,13 +73,45 @@ struct FileDataContentScreen: View {
             }))
             .customBackground()
             .onFirstAppear {
-                vm.getAllData(fileId: id)
+                vm.getHexData(fileId: id)
             }
+            .onChange(of: selection) { newSelection in
+                if newSelection == 1 {
+                    if vm.hexFailed { vm.getHexData(fileId: id) }
+                } else if newSelection == 2 {
+                    if !selectionArr.contains(newSelection) {
+                        selectionArr.append(newSelection)
+                        vm.getTextData(fileId: id)
+                    }
+                    if vm.textFailed { vm.getTextData(fileId: id) }
+                    
+                } else if newSelection == 3 {
+                    if !selectionArr.contains(newSelection) {
+                        selectionArr.append(newSelection)
+                        vm.getMetadata(fileId: id)
+                    }
+                    if vm.metadataFailed { vm.getMetadata(fileId: id) }
+                    
+                } else if newSelection == 4 {
+                    if !selectionArr.contains(newSelection) {
+                        selectionArr.append(newSelection)
+                        vm.getApplicationData(fileId: id)
+                    }
+                    if vm.applicationFailed { vm.getApplicationData(fileId: id) }
+
+                } else if newSelection == 5 {
+                    if !selectionArr.contains(newSelection) {
+                        selectionArr.append(newSelection)
+                        vm.getAnalysisResults(fileId: id)
+                    }
+                    if vm.resultsFailed { vm.getAnalysisResults(fileId: id) }
+                    
+                }
+            }
+            
+            if vm.loading { LoadingHUDView(loading: $vm.loading) }
+
         }
         .customBackground()
     }
-}
-
-#Preview {
-    FileDataContentScreen(id: 0)
 }
