@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0B097C252C7E0D8C00136993 /* FocusedCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B097C242C7E0D8C00136993 /* FocusedCase.swift */; };
-		0B097C282C7E12DC00136993 /* SwiftUINavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 0B097C272C7E12DC00136993 /* SwiftUINavigation */; };
-		0B097C2A2C7E12DC00136993 /* SwiftUINavigationCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0B097C292C7E12DC00136993 /* SwiftUINavigationCore */; };
 		0B097C2C2C7E2ABA00136993 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B097C2B2C7E2ABA00136993 /* DataSource.swift */; };
 		0B097C2E2C7E2C8C00136993 /* DataSourceListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B097C2D2C7E2C8C00136993 /* DataSourceListVM.swift */; };
 		0B097C302C7E580D00136993 /* DataSourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B097C2F2C7E580D00136993 /* DataSourceManager.swift */; };
@@ -37,7 +35,6 @@
 		0B4A89C32C7B5014007565AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4A89C22C7B5014007565AB /* Constants.swift */; };
 		0B4A89C62C7B65D5007565AB /* CasesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4A89C52C7B65D5007565AB /* CasesManager.swift */; };
 		0B4A89C82C7B6A9B007565AB /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4A89C72C7B6A9B007565AB /* APIClient.swift */; };
-		0B4A89CC2C7BA866007565AB /* FormValidator in Frameworks */ = {isa = PBXBuildFile; productRef = 0B4A89CB2C7BA866007565AB /* FormValidator */; };
 		0B4A89CE2C7BAC79007565AB /* NewCaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4A89CD2C7BAC79007565AB /* NewCaseVM.swift */; };
 		0BA3C5882C66C29E00A921AD /* AutopsyAppAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA3C5872C66C29E00A921AD /* AutopsyAppAppDelegate.swift */; };
 		0BA3C58B2C66C40500A921AD /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA3C58A2C66C40500A921AD /* MainVM.swift */; };
@@ -209,14 +206,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B4A89CC2C7BA866007565AB /* FormValidator in Frameworks */,
 				184D18722C7CC6580093D28D /* SwiftyJSON in Frameworks */,
 				0B4A89BF2C7B465D007565AB /* Alamofire in Frameworks */,
 				0B4A89C12C7B465D007565AB /* AlamofireDynamic in Frameworks */,
-				0B097C282C7E12DC00136993 /* SwiftUINavigation in Frameworks */,
 				183DDFC82C7741ED00CE047F /* PopupView in Frameworks */,
 				184D18682C7C76FA0093D28D /* ActivityIndicatorView in Frameworks */,
-				0B097C2A2C7E12DC00136993 /* SwiftUINavigationCore in Frameworks */,
 				0B097C592C84880E00136993 /* PagerTabStripView in Frameworks */,
 				181577562C624B15007E0997 /* PopupView in Frameworks */,
 			);
@@ -632,11 +626,8 @@
 				183DDFC72C7741ED00CE047F /* PopupView */,
 				0B4A89BE2C7B465D007565AB /* Alamofire */,
 				0B4A89C02C7B465D007565AB /* AlamofireDynamic */,
-				0B4A89CB2C7BA866007565AB /* FormValidator */,
 				184D18672C7C76FA0093D28D /* ActivityIndicatorView */,
 				184D18712C7CC6580093D28D /* SwiftyJSON */,
-				0B097C272C7E12DC00136993 /* SwiftUINavigation */,
-				0B097C292C7E12DC00136993 /* SwiftUINavigationCore */,
 				0B097C582C84880E00136993 /* PagerTabStripView */,
 			);
 			productName = Autopsy;
@@ -1058,16 +1049,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0B097C272C7E12DC00136993 /* SwiftUINavigation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0B097C262C7E12DC00136993 /* XCRemoteSwiftPackageReference "swiftui-navigation" */;
-			productName = SwiftUINavigation;
-		};
-		0B097C292C7E12DC00136993 /* SwiftUINavigationCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0B097C262C7E12DC00136993 /* XCRemoteSwiftPackageReference "swiftui-navigation" */;
-			productName = SwiftUINavigationCore;
-		};
 		0B097C582C84880E00136993 /* PagerTabStripView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0B097C572C84880D00136993 /* XCRemoteSwiftPackageReference "PagerTabStripView" */;
@@ -1082,11 +1063,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0B4A89BD2C7B465D007565AB /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = AlamofireDynamic;
-		};
-		0B4A89CB2C7BA866007565AB /* FormValidator */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0B4A89CA2C7BA866007565AB /* XCRemoteSwiftPackageReference "SwiftUIFormValidator" */;
-			productName = FormValidator;
 		};
 		181577552C624B15007E0997 /* PopupView */ = {
 			isa = XCSwiftPackageProductDependency;
