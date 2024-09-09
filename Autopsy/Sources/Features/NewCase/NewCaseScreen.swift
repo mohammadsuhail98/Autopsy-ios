@@ -7,7 +7,6 @@
 
 import SwiftUI
 import PopupView
-import FormValidator
 import ActivityIndicatorView
 
 struct NewCaseScreen: View {
